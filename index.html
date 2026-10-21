@@ -207,115 +207,49 @@ async function loadContent(){try{const res=await fetch("/content/portfolio.json"
 
 /* Kawaii interactions for Nha Le Portfolio */
 
-/* Kawaii interactions */
+
+/* Kawaii interactions for Nha Le Portfolio */
 (function () {
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
+  const desktop = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
   ).matches;
 
-  // Flower cursor for desktop
-  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  // Flower cursor and sparkles when moving the mouse
+  if (desktop) {
     const flower = document.createElement("span");
     flower.textContent = "✿";
     flower.setAttribute("aria-hidden", "true");
-
-    Object.assign(flower.style, {
-      position: "fixed",
-      left: "0",
-      top: "0",
-      zIndex: "99999",
-      pointerEvents: "none",
-      fontSize: "25px",
-      color: "#c26c9a",
-      display: "none",
-      transform: "translate(-50%, -50%)",
-      filter: "drop-shadow(0 2px 4px #c26c9a40)"
-    });
+    flower.style.cssText =
+      "position:fixed;left:0;top:0;z-index:99998;pointer-events:none;font-size:25px;color:#c26c9a;display:none;transform:translate(-50%,-50%);";
 
     document.body.appendChild(flower);
 
-    document.addEventListener("pointermove", function (event) {
-      if (event.pointerType !== "mouse") return;
-      flower.style.display = "block";
-      flower.style.left = event.clientX + "px";
-      flower.style.top = event.clientY + "px";
-    });
-  }
- 
-// Sparkles on click or tap
-document.addEventListener("click", function (event) {
-  const symbols = ["✦", "✧", "♡", "✿"];
-  const sparkle = document.createElement("span");
-
-  sparkle.textContent =
-    symbols[Math.floor(Math.random() * symbols.length)];
-
-  sparkle.style.cssText = `
-    position: fixed;
-    left: ${event.clientX}px;
-    top: ${event.clientY}px;
-    z-index: 999999;
-    pointer-events: none;
-    color: #c26c9a;
-    font-size: 26px;
-    font-weight: bold;
-    text-shadow: 0 1px 8px #f7dce9;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(.7);
-    transition: transform .8s ease, opacity .8s ease;
-  `;
-
-  document.body.appendChild(sparkle);
-
-  requestAnimationFrame(function () {
-    sparkle.style.transform =
-      "translate(-50%, -75px) scale(1.5) rotate(30deg)";
-    sparkle.style.opacity = "0";
-  });
-
-  setTimeout(function () {
-    sparkle.remove();
-  }, 900);
-});
-  
-  // Reveal on scroll
-  
-  // Sparkle trail when moving the mouse
-  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     let lastSparkleTime = 0;
 
     document.addEventListener("pointermove", function (event) {
       if (event.pointerType !== "mouse") return;
 
+      flower.style.display = "block";
+      flower.style.left = event.clientX + "px";
+      flower.style.top = event.clientY + "px";
+
       const now = Date.now();
-      if (now - lastSparkleTime < 100) return;
+      if (now - lastSparkleTime < 120) return;
       lastSparkleTime = now;
 
       const symbols = ["✦", "✧", "♡", "✿"];
       const sparkle = document.createElement("span");
-
       sparkle.textContent =
         symbols[Math.floor(Math.random() * symbols.length)];
 
-      sparkle.style.cssText = `
-        position: fixed;
-        left: ${event.clientX}px;
-        top: ${event.clientY}px;
-        z-index: 999999;
-        pointer-events: none;
-        color: #c26c9a;
-        font-size: 20px;
-        text-shadow: 0 1px 8px #f7dce9;
-        transition: transform .7s ease, opacity .7s ease;
-        transform: translate(-50%, -50%) scale(.7);
-        opacity: 1;
-      `;
+      sparkle.style.cssText =
+        `position:fixed;left:${event.clientX}px;top:${event.clientY}px;z-index:99999;pointer-events:none;color:#c26c9a;font-size:21px;text-shadow:0 1px 8px #f7dce9;transition:transform .7s ease,opacity .7s ease;transform:translate(-50%,-50%) scale(.7);opacity:1;`;
 
       document.body.appendChild(sparkle);
 
       requestAnimationFrame(function () {
         sparkle.style.transform =
-          "translate(-50%, -35px) scale(1.4) rotate(25deg)";
+          "translate(-50%,-35px) scale(1.4) rotate(25deg)";
         sparkle.style.opacity = "0";
       });
 
@@ -324,24 +258,87 @@ document.addEventListener("click", function (event) {
       }, 750);
     });
   }
-  
-  // Floating navigation bar appears when scrolling down
- 
-    // Phần Reveal kết thúc ở đây
+
+  // Sparkles on click or tap
+  document.addEventListener("click", function (event) {
+    const sparkle = document.createElement("span");
+    sparkle.textContent = ["✦", "✧", "♡", "✿"][
+      Math.floor(Math.random() * 4)
+    ];
+    sparkle.style.cssText =
+      `position:fixed;left:${event.clientX}px;top:${event.clientY}px;z-index:99999;pointer-events:none;color:#c26c9a;font-size:25px;transition:transform .8s ease,opacity .8s ease;transform:translate(-50%,-50%) scale(.7);`;
+    document.body.appendChild(sparkle);
+
+    requestAnimationFrame(function () {
+      sparkle.style.transform =
+        "translate(-50%,-75px) scale(1.5) rotate(30deg)";
+      sparkle.style.opacity = "0";
+    });
+
+    setTimeout(function () {
+      sparkle.remove();
+    }, 900);
+  });
+
+  // Reveal sections when scrolling
+  const revealTargets = document.querySelectorAll(
+    ".hero > div, #work, #about, #contact, footer"
+  );
+
+  if (
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+    "IntersectionObserver" in window
+  ) {
+    revealTargets.forEach(function (element) {
+      element.style.opacity = "0";
+      element.style.transform = "translateY(24px)";
+      element.style.transition = "opacity .8s ease, transform .8s ease";
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+            observer.unobserve(element);
+          }
+        });
+      }, { threshold: 0.05 });
+
+      observer.observe(element);
+    });
+  }
+
+  // Floating navigation bar on scroll
+  const floatingNav = document.createElement("nav");
+  floatingNav.setAttribute("aria-label", "Floating navigation");
+  floatingNav.style.cssText =
+    "position:fixed;top:16px;left:50%;transform:translate(-50%,-100px);opacity:0;display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(255,248,252,.97);border:1px solid #f0cddd;border-radius:999px;box-shadow:0 8px 28px rgba(73,60,80,.12);z-index:99997;transition:transform .3s ease,opacity .3s ease;white-space:nowrap;";
+
+  floatingNav.innerHTML =
+    '<a href="#" style="color:#493c50;text-decoration:none;padding:8px;font-size:13px">Home</a>' +
+    '<a href="#work" style="color:#493c50;text-decoration:none;padding:8px;font-size:13px">Work</a>' +
+    '<a href="#about" style="color:#493c50;text-decoration:none;padding:8px;font-size:13px">About</a>' +
+    '<a href="#contact" style="color:#493c50;text-decoration:none;padding:8px;font-size:13px">Contact</a>';
+
+  document.body.appendChild(floatingNav);
+
+  function updateFloatingNav() {
+    if (window.scrollY > 180) {
+      floatingNav.style.transform = "translate(-50%,0)";
+      floatingNav.style.opacity = "1";
     } else {
-      revealTargets.forEach(function (element) {
-        element.style.opacity = "1";
-        element.style.transform = "none";
-      });
+      floatingNav.style.transform = "translate(-50%,-100px)";
+      floatingNav.style.opacity = "0";
     }
+  }
 
-    // Code Sparkles khi di chuột đặt tại đây
+  window.addEventListener("scroll", updateFloatingNav, {
+    passive: true
+  });
+  updateFloatingNav();
+})();
 
-    // Code Navigation Tab Bar đầy đủ đặt tại đây
-
-  })();
-
-  loadContent();
+loadContent();
   </script>
   </body>
   </html>
