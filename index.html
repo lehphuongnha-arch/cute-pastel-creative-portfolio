@@ -279,27 +279,102 @@ document.addEventListener("click", function (event) {
 });
   
   // Reveal on scroll
-  const revealTargets = document.querySelectorAll(
-    ".hero > div, #work, #about, #contact, footer"
-  );
+  
+  // Sparkle trail when moving the mouse
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    let lastSparkleTime = 0;
 
-  if (
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
-    "IntersectionObserver" in window
-  ) {
-    revealTargets.forEach(function (element) {
-      element.style.opacity = "0";
-      element.style.transform = "translateY(24px)";
-      element.style.transition =
-        "opacity .8s ease, transform .8s ease";
+    document.addEventListener("pointermove", function (event) {
+      if (event.pointerType !== "mouse") return;
 
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            element.style.opacity = "1";
-            element.style.transform = "translateY(0)";
-            observer.unobserve(element);
-          }
+      const now = Date.now();
+      if (now - lastSparkleTime < 100) return;
+      lastSparkleTime = now;
+
+      const symbols = ["✦", "✧", "♡", "✿"];
+      const sparkle = document.createElement("span");
+
+      sparkle.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+      sparkle.style.cssText = `
+        position: fixed;
+        left: ${event.clientX}px;
+        top: ${event.clientY}px;
+        z-index: 999999;
+        pointer-events: none;
+        color: #c26c9a;
+        font-size: 20px;
+        text-shadow: 0 1px 8px #f7dce9;
+        transition: transform .7s ease, opacity .7s ease;
+        transform: translate(-50%, -50%) scale(.7);
+        opacity: 1;
+      `;
+
+      document.body.appendChild(sparkle);
+
+      requestAnimationFrame(function () {
+        sparkle.style.transform =
+          "translate(-50%, -35px) scale(1.4) rotate(25deg)";
+        sparkle.style.opacity = "0";
+      });
+
+      setTimeout(function () {
+        sparkle.remove();
+      }, 750);
+    });
+  }
+  
+  // Floating navigation bar appears when scrolling down
+  const floatingNav = document.createElement("nav");
+
+  floatingNav.setAttribute("aria-label", "Floating navigation");
+
+  floatingNav.style.cssText = `
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translate(-50%, -100px);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(255, 248, 252, .96);
+    border: 1px solid #f0cddd;
+    border-radius: 999px;
+    box-shadow: 0 8px 28px rgba(73, 60, 80, .12);
+    z-index: 99998;
+    transition: transform .3s ease, opacity .3s ease;
+    white-space: nowrap;
+  `;
+
+  floatingNav.innerHTML = `
+    <a href="#" style="color:#493c50;text-decoration:none;padding:8px 10px;font-size:13px;">Home</a>
+    <a href="#work" style="color:#493c50;text-decoration:none;padding:8px 10px;font-size:13px;">Work</a>
+    <a href="#about" style="color:#493c50;text-decoration:none;padding:8px 10px;font-size:13px;">About</a>
+    <a href="#contact" style="color:#493c50;text-decoration:none;padding:8px 10px;font-size:13px;">Contact</a>
+  `;
+
+  document.body.appendChild(floatingNav);
+
+  function updateFloatingNav() {
+    if (window.scrollY > 180) {
+      floatingNav.style.transform = "translate(-50%, 0)";
+      floatingNav.style.opacity = "1";
+    } else {
+      floatingNav.style.transform = "translate(-50%, -100px)";
+      floatingNav.style.opacity = "0";
+    }
+  }
+
+  window.addEventListener("scroll", updateFloatingNav, {
+    passive: true
+  });
+
+  updateFloatingNav();
+
         });
       }, { threshold: 0.05 });
 
