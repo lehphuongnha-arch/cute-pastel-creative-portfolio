@@ -308,33 +308,128 @@ async function loadContent(){try{const res=await fetch("/content/portfolio.json"
   }
 
   // Floating navigation bar on scroll
-  const floatingNav = document.createElement("nav");
-  floatingNav.setAttribute("aria-label", "Floating navigation");
-  floatingNav.style.cssText =
-    "position:fixed;top:16px;left:50%;transform:translate(-50%,-100px);opacity:0;display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(255,248,252,.97);border:1px solid #f0cddd;border-radius:999px;box-shadow:0 8px 28px rgba(73,60,80,.12);z-index:99997;transition:transform .3s ease,opacity .3s ease;white-space:nowrap;";
+  
+    // Floating pastel pill navigation
+    const floatingNav = document.createElement("nav");
+    floatingNav.setAttribute("aria-label", "Floating navigation");
 
-  floatingNav.innerHTML =
-    '<a href="#" style="color:#493c50;text-decoration:none;padding:8px;font-size:13px">Home</a>' +
-    '<a href="#work" style="color:#493c50;text-decoration:none;padding:8px;font-size:13px">Work</a>' +
-    '<a href="#about" style="color:#493c50;text-decoration:none;padding:8px;font-size:13px">About</a>' +
-    '<a href="#contact" style="color:#493c50;text-decoration:none;padding:8px;font-size:13px">Contact</a>';
+    floatingNav.style.cssText = `
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translate(-50%, -100px);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px;
+      background: rgba(255, 248, 252, 0.96);
+      border: 1px solid #f0cddd;
+      border-radius: 999px;
+      box-shadow: 0 8px 28px rgba(160, 100, 135, 0.16);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 99997;
+      transition: transform .35s ease, opacity .35s ease;
+      white-space: nowrap;
+    `;
 
-  document.body.appendChild(floatingNav);
+    const navItems = [
+      { label: "Home", href: "#", section: null },
+      { label: "Work", href: "#work", section: "work" },
+      { label: "About", href: "#about", section: "about" },
+      { label: "Contact", href: "#contact", section: "contact" }
+    ];
 
-  function updateFloatingNav() {
-    if (window.scrollY > 180) {
-      floatingNav.style.transform = "translate(-50%,0)";
-      floatingNav.style.opacity = "1";
-    } else {
-      floatingNav.style.transform = "translate(-50%,-100px)";
-      floatingNav.style.opacity = "0";
+    const navLinks = [];
+
+    navItems.forEach(function (item) {
+      const link = document.createElement("a");
+      link.href = item.href;
+      link.textContent = item.label;
+      link.style.cssText = `
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px 16px;
+        border-radius: 999px;
+        color: #806b7c;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        transition: background .25s ease, color .25s ease,
+                    transform .25s ease, box-shadow .25s ease;
+      `;
+
+      link.addEventListener("mouseenter", function () {
+        link.style.background = "#fbe7f0";
+        link.style.color = "#9d5b7d";
+        link.style.transform = "translateY(-1px)";
+      });
+
+      link.addEventListener("mouseleave", function () {
+        updateActiveNav();
+      });
+
+      link.addEventListener("click", function () {
+        if (!item.section) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      });
+
+      floatingNav.appendChild(link);
+      navLinks.push({ link, section: item.section });
+    });
+
+    document.body.appendChild(floatingNav);
+
+    function updateActiveNav() {
+      let currentSection = null;
+      const marker = window.scrollY + window.innerHeight * 0.35;
+
+      ["work", "about", "contact"].forEach(function (id) {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top + window.scrollY <= marker) {
+          currentSection = id;
+        }
+      });
+
+      navLinks.forEach(function (item) {
+        const active = item.section === currentSection ||
+          (!currentSection && !item.section);
+
+        item.link.style.background = active ? "#f5d6e5" : "transparent";
+        item.link.style.color = active ? "#70445d" : "#806b7c";
+        item.link.style.fontWeight = active ? "700" : "500";
+        item.link.style.boxShadow = active
+          ? "inset 0 0 0 1px rgba(220, 160, 190, .22)"
+          : "none";
+
+        if (active) {
+          item.link.setAttribute("aria-current", "location");
+        } else {
+          item.link.removeAttribute("aria-current");
+        }
+      });
     }
-  }
 
-  window.addEventListener("scroll", updateFloatingNav, {
-    passive: true
-  });
-  updateFloatingNav();
+    function updateFloatingNav() {
+      if (window.scrollY > 180) {
+        floatingNav.style.transform = "translate(-50%, 0)";
+        floatingNav.style.opacity = "1";
+      } else {
+        floatingNav.style.transform = "translate(-50%, -100px)";
+        floatingNav.style.opacity = "0";
+      }
+
+      updateActiveNav();
+    }
+
+    window.addEventListener("scroll", updateFloatingNav, {
+      passive: true
+    });
+
+    updateFloatingNav();
 })();
 
 loadContent();
