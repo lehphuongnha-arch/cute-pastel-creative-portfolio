@@ -58,10 +58,21 @@ a{color:inherit}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}.nav{displ
   background: #fff;
 }
 
+/* Safe reveal effect: content stays visible by default */
 .reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity .65s ease, transform .65s ease;
+}
+
+.reveal.is-hidden {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity .65s ease, transform .65s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .reveal.is-visible {
@@ -216,9 +227,9 @@ async function loadContent(){try{const res=await fetch("/content/portfolio.json"
         ".hero > div, .section, .card, .contact, footer"
       ).forEach(element => {
         if (!element.classList.contains("reveal")) {
-          element.classList.add("reveal");
-          revealObserver.observe(element);
-        }
+  element.classList.add("reveal", "is-hidden");
+  revealObserver.observe(element);
+}
       });
     }
 
