@@ -326,63 +326,8 @@ document.addEventListener("click", function (event) {
   }
   
   // Floating navigation bar appears when scrolling down
-  const floatingNav = document.createElement("nav");
-
-  floatingNav.setAttribute("aria-label", "Floating navigation");
-
-  floatingNav.style.cssText = `
-    position: fixed;
-    top: 16px;
-    left: 50%;
-    transform: translate(-50%, -100px);
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px 14px;
-    background: rgba(255, 248, 252, .96);
-    border: 1px solid #f0cddd;
-    border-radius: 999px;
-    box-shadow: 0 8px 28px rgba(73, 60, 80, .12);
-    z-index: 99998;
-    transition: transform .3s ease, opacity .3s ease;
-    white-space: nowrap;
-  `;
-
-  floatingNav.innerHTML = `
-    <a href="#" style="color:#493c50;text-decoration:none;padding:8px 10px;font-size:13px;">Home</a>
-    <a href="#work" style="color:#493c50;text-decoration:none;padding:8px 10px;font-size:13px;">Work</a>
-    <a href="#about" style="color:#493c50;text-decoration:none;padding:8px 10px;font-size:13px;">About</a>
-    <a href="#contact" style="color:#493c50;text-decoration:none;padding:8px 10px;font-size:13px;">Contact</a>
-  `;
-
-  document.body.appendChild(floatingNav);
-
-  function updateFloatingNav() {
-    if (window.scrollY > 180) {
-      floatingNav.style.transform = "translate(-50%, 0)";
-      floatingNav.style.opacity = "1";
-    } else {
-      floatingNav.style.transform = "translate(-50%, -100px)";
-      floatingNav.style.opacity = "0";
-    }
-  }
-
-  window.addEventListener("scroll", updateFloatingNav, {
-    passive: true
-  });
-
-  updateFloatingNav();
-
-        });
-      }, { threshold: 0.05 });
-
-      observer.observe(element);
-    });
  
-  
-    
+    // Phần Reveal kết thúc ở đây
     } else {
       revealTargets.forEach(function (element) {
         element.style.opacity = "1";
@@ -390,9 +335,9 @@ document.addEventListener("click", function (event) {
       });
     }
 
-    // Dán code Sparkles khi di chuột tại đây
+    // Code Sparkles khi di chuột đặt tại đây
 
-    // Dán code Navigation Tab Bar tại đây
+    // Code Navigation Tab Bar đầy đủ đặt tại đây
 
   })();
 
