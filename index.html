@@ -241,42 +241,43 @@ async function loadContent(){try{const res=await fetch("/content/portfolio.json"
       flower.style.top = event.clientY + "px";
     });
   }
-  // Sparkles on click or tap
-  document.addEventListener("click", function (event) {
-    const symbols = ["✦", "✧", "♡", "✿"];
-    const sparkle = document.createElement("span");
+ 
+// Sparkles on click or tap
+document.addEventListener("click", function (event) {
+  const symbols = ["✦", "✧", "♡", "✿"];
+  const sparkle = document.createElement("span");
 
-    sparkle.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
+  sparkle.textContent =
+    symbols[Math.floor(Math.random() * symbols.length)];
 
-    Object.assign(sparkle.style, {
-      position: "fixed",
-      left: event.clientX + "px",
-      top: event.clientY + "px",
-      zIndex: "999999",
-      pointerEvents: "none",
-      color: "#c26c9a",
-      fontSize: "24px",
-      fontWeight: "bold",
-      textShadow: "0 1px 8px #f7dce9",
-      transition: "transform .8s ease, opacity .8s ease",
-      transform: "translate(-50%, -50%) scale(.5)",
-      opacity: "1"
-    });
+  sparkle.style.cssText = `
+    position: fixed;
+    left: ${event.clientX}px;
+    top: ${event.clientY}px;
+    z-index: 999999;
+    pointer-events: none;
+    color: #c26c9a;
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: 0 1px 8px #f7dce9;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(.7);
+    transition: transform .8s ease, opacity .8s ease;
+  `;
 
-    document.body.appendChild(sparkle);
+  document.body.appendChild(sparkle);
 
-    requestAnimationFrame(function () {
-      sparkle.style.transform =
-        "translate(-50%, -75px) scale(1.5) rotate(30deg)";
-      sparkle.style.opacity = "0";
-    });
-
-    window.setTimeout(function () {
-      sparkle.remove();
-    }, 900);
+  requestAnimationFrame(function () {
+    sparkle.style.transform =
+      "translate(-50%, -75px) scale(1.5) rotate(30deg)";
+    sparkle.style.opacity = "0";
   });
 
+  setTimeout(function () {
+    sparkle.remove();
+  }, 900);
+});
+  
   // Reveal on scroll
   const revealTargets = document.querySelectorAll(
     ".hero > div, #work, #about, #contact, footer"
