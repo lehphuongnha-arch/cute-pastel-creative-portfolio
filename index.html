@@ -305,13 +305,16 @@ async function loadContent(){try{const res=await fetch("/content/portfolio.json"
 
       observer.observe(element);
     });
+ 
   } else {
     revealTargets.forEach(function (element) {
       element.style.opacity = "1";
       element.style.transform = "none";
     });
   }
-  loadContent();
+})();
+
+loadContent();
 </script>
 </body>
 </html>
