@@ -206,76 +206,107 @@ function renderProjects(){const list=(siteData.projects||[]).filter(p=>active===
 async function loadContent(){try{const res=await fetch("/content/portfolio.json",{cache:"no-store"});if(res.ok){const data=await res.json();siteData={...defaultData,...data};}}catch(e){}document.title=(siteData.name||"Creative Portfolio")+" — Creative Portfolio";document.querySelector(".brand").innerHTML=`<span>✿</span> ${esc(siteData.name||"Nha Le")}`;document.getElementById("intro").textContent=siteData.intro||defaultData.intro;document.getElementById("aboutText").textContent=siteData.about||defaultData.about;document.getElementById("contactText").textContent=siteData.contactText||"I’d love to hear from you. Let’s make something thoughtful together.";const email=siteData.email||"";const emailLink=document.getElementById("emailLink");emailLink.href=email?`mailto:${email}`:"#contact";emailLink.textContent=email?"Email me ↗":"Contact me ↗";document.getElementById("skills").innerHTML=(siteData.skills||defaultData.skills).map(s=>`<span class="tag">${esc(s)}</span>`).join("");document.getElementById("year").textContent=new Date().getFullYear();renderFilters();renderProjects()}
 
 /* Kawaii interactions for Nha Le Portfolio */
-(function initKawaiiEffects() {
+
+/* Kawaii interactions */
+(function () {
   const reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  // Reveal content as it enters the viewport
-  if (!reduceMotion && "IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+  // Flower cursor for desktop
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    const flower = document.createElement("span");
+    flower.textContent = "✿";
+    flower.setAttribute("aria-hidden", "true");
 
-    function observeReveal() {
-      document.querySelectorAll(
-        ".hero > div, .section, .card, .contact, footer"
-      ).forEach(element => {
-        if (!element.classList.contains("reveal")) {
-  element.classList.add("reveal", "is-hidden");
-  revealObserver.observe(element);
-}
-      });
-    }
+    Object.assign(flower.style, {
+      position: "fixed",
+      left: "0",
+      top: "0",
+      zIndex: "99999",
+      pointerEvents: "none",
+      fontSize: "25px",
+      color: "#c26c9a",
+      display: "none",
+      transform: "translate(-50%, -50%)",
+      filter: "drop-shadow(0 2px 4px #c26c9a40)"
+    });
 
-    observeReveal();
+    document.body.appendChild(flower);
 
-    const projects = document.getElementById("projects");
-    if (projects) {
-      new MutationObserver(observeReveal).observe(projects, {
-        childList: true
-      });
-    }
-  }
-
-  // Small sparkles when tapping or clicking
-  if (!reduceMotion) {
-    document.addEventListener("click", event => {
-      if (event.target.closest("input, textarea, select")) return;
-
-      const sparkle = document.createElement("span");
-      sparkle.className = "cute-sparkle";
-      sparkle.textContent = ["✦", "✧", "♡", "✿"][
-        Math.floor(Math.random() * 4)
-      ];
-      sparkle.style.left = event.clientX + "px";
-      sparkle.style.top = event.clientY + "px";
-      document.body.appendChild(sparkle);
-      sparkle.addEventListener("animationend", () => sparkle.remove());
+    document.addEventListener("pointermove", function (event) {
+      if (event.pointerType !== "mouse") return;
+      flower.style.display = "block";
+      flower.style.left = event.clientX + "px";
+      flower.style.top = event.clientY + "px";
     });
   }
 
-  // Flower cursor on mouse/trackpad devices only
-  if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
-    const cursor = document.createElement("span");
-    cursor.className = "cute-cursor";
-    cursor.textContent = "✿";
-    cursor.setAttribute("aria-hidden", "true");
-    document.body.appendChild(cursor);
+  // Sparkles on click or tap
+  document.addEventListener("click", function (event) {
+    if (reduceMotion) return;
 
-    document.addEventListener("pointermove", event => {
-      if (event.pointerType !== "mouse") return;
-      cursor.style.left = event.clientX + "px";
-      cursor.style.top = event.clientY + "px";
+    const sparkle = document.createElement("span");
+    sparkle.textContent = ["✦", "✧", "♡", "✿"][
+      Math.floor(Math.random() * 4)
+    ];
+
+    Object.assign(sparkle.style, {
+      position: "fixed",
+      left: event.clientX + "px",
+      top: event.clientY + "px",
+      zIndex: "99999",
+      pointerEvents: "none",
+      color: "#c26c9a",
+      fontSize: "22px",
+      transform: "translate(-50%, -50%)",
+      transition: "transform .7s ease, opacity .7s ease",
+      opacity: "1"
+    });
+
+    document.body.appendChild(sparkle);
+
+    requestAnimationFrame(function () {
+      sparkle.style.transform =
+        "translate(-50%, -65px) scale(1.4) rotate(25deg)";
+      sparkle.style.opacity = "0";
+    });
+
+    setTimeout(function () {
+      sparkle.remove();
+    }, 800);
+  });
+
+  // Reveal on scroll, with content visible by default
+  const revealTargets = document.querySelectorAll(
+    ".hero > div, #work, #about, #contact, footer"
+  );
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    revealTargets.forEach(function (element) {
+      element.style.opacity = "1";
+      element.style.transform = "none";
+      element.style.transition = "opacity .65s ease, transform .65s ease";
+
+      if (element.getBoundingClientRect().top > window.innerHeight) {
+        element.style.opacity = "0";
+        element.style.transform = "translateY(18px)";
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              element.style.opacity = "1";
+              element.style.transform = "translateY(0)";
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.05 });
+
+        observer.observe(element);
+      }
     });
   }
 })();
-
   loadContent();
 </script>
 </body>
