@@ -12,6 +12,114 @@
 a{color:inherit}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}.brand{font-weight:850;letter-spacing:-.04em;text-decoration:none;font-size:1.15rem}.brand span{color:#c26c9a}.navlinks{display:flex;gap:22px;font-size:.92rem;color:var(--muted)}.navlinks a{text-decoration:none}.hero{padding:74px 0 64px;display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;background:#fff;border:1px solid var(--line);border-radius:99px;font-size:.82rem;color:#a35c83}.dot{width:8px;height:8px;background:#8cc8a8;border-radius:50%}h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:1.02;letter-spacing:-.065em;margin:20px 0}.hero p{font-size:1.1rem;max-width:570px;color:var(--muted)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;border-radius:99px;padding:12px 19px;text-decoration:none;font-weight:700;border:1px solid var(--line);background:white}.btn.primary{background:var(--ink);color:white;border-color:var(--ink)}.art{min-height:300px;border-radius:42% 58% 57% 43%/48% 40% 60% 52%;background:linear-gradient(135deg,var(--pink),var(--lav) 55%,var(--mint));display:grid;place-items:center;position:relative;overflow:hidden}.art:before,.art:after{content:"";position:absolute;border-radius:50%;background:#ffffff70}.art:before{width:170px;height:170px;right:5%;top:8%}.art:after{width:90px;height:90px;left:10%;bottom:12%}.art-inner{position:relative;z-index:1;text-align:center;font-size:5rem;filter:drop-shadow(0 8px 10px #765a7b25)}.art-inner small{display:block;font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#725a7b}.section{padding:50px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}.section h2{font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:-.05em;line-height:1.1;margin:0}.section-head p{color:var(--muted);margin:8px 0 0}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 24px}.filter{border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 13px;color:var(--muted);cursor:pointer;font:inherit;font-size:.86rem}.filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.card{border:1px solid var(--line);background:white;border-radius:22px;overflow:hidden;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px #5a405b12}.thumb{aspect-ratio:4/3;background:linear-gradient(135deg,#f7dce9,#e9e2fb 55%,#e0f3e9);display:grid;place-items:center;overflow:hidden;color:#9b7294;font-size:3rem}.thumb img{width:100%;height:100%;object-fit:cover;display:block}.thumb .placeholder{display:grid;place-items:center;width:100%;height:100%;background:radial-gradient(circle at 70% 30%,#ffffffa6,transparent 25%),linear-gradient(135deg,#f6dce8,#e5e1fa 55%,#dcf1e6)}.cardbody{padding:18px}.meta{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#b06d95;font-weight:800}.card h3{font-size:1.2rem;letter-spacing:-.025em;margin:7px 0}.card p{font-size:.92rem;color:var(--muted);margin:0 0 14px}.cardfoot{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:.82rem;color:var(--muted)}.cardfoot a{font-weight:700;text-decoration:none;color:var(--ink)}.aboutbox{padding:34px;border-radius:28px;background:linear-gradient(120deg,#f9e6ef,#f0ebfc 60%,#e8f6ee);display:grid;grid-template-columns:1fr 1fr;gap:28px}.aboutbox p{margin:0;color:#685a70}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tag{background:#ffffffb5;border:1px solid #ffffffd0;border-radius:99px;padding:7px 11px;font-size:.82rem}.contact{background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:24px}.contact p{margin:8px 0 0;color:var(--muted)}footer{padding:28px 0 40px;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;gap:16px}.adminlink{opacity:.6;text-decoration:none}.loading{color:var(--muted);padding:24px 0}
 @media(max-width:760px){.hero{grid-template-columns:1fr;padding:42px 0}.art{min-height:220px;grid-row:1}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aboutbox{grid-template-columns:1fr}.section-head{display:block}.contact{display:block}.contact .btn{margin-top:18px}.navlinks{gap:12px;font-size:.82rem}}
 @media(max-width:500px){.wrap{width:min(100% - 28px,1100px)}.navlinks a:nth-child(2){display:none}.grid{grid-template-columns:1fr}.art{min-height:190px}.art-inner{font-size:4rem}.aboutbox,.contact{padding:24px}footer{display:block}footer span{display:block;margin-top:5px}}
+
+/* Kawaii interactive effects */
+.card {
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.card:hover {
+  transform: translateY(-7px) rotate(-.4deg);
+  box-shadow: 0 18px 38px #c26c9a20;
+  border-color: #ecc8dc;
+}
+
+.thumb img {
+  transition: transform .45s ease;
+}
+
+.card:hover .thumb img {
+  transform: scale(1.055);
+}
+
+.btn, .filter, .tag {
+  transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease;
+}
+
+.btn:hover, .filter:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px #c26c9a20;
+}
+
+.btn:active, .filter:active {
+  transform: scale(.96);
+}
+
+.art {
+  animation: kawaii-float 5s ease-in-out infinite;
+}
+
+.art-inner {
+  animation: kawaii-bob 3s ease-in-out infinite;
+}
+
+.tag:hover {
+  transform: translateY(-3px) rotate(-2deg);
+  background: #fff;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cute-sparkle {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  color: #c26c9a;
+  font-size: 18px;
+  animation: sparkle-pop .75s ease-out forwards;
+}
+
+.cute-cursor {
+  position: fixed;
+  z-index: 9998;
+  pointer-events: none;
+  font-size: 23px;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  color: #c26c9a;
+  filter: drop-shadow(0 2px 4px #c26c9a30);
+}
+
+@keyframes kawaii-float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-7px) rotate(1deg); }
+}
+
+@keyframes kawaii-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes sparkle-pop {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.3) rotate(0); }
+  25% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -75px) scale(1.3) rotate(35deg); }
+}
+
+@media (hover: none) {
+  .cute-cursor { display: none; }
+  .card:hover { transform: none; box-shadow: none; }
+  .art, .art-inner { animation-duration: 7s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
@@ -85,7 +193,79 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 function renderFilters(){document.getElementById("filters").innerHTML=categories.map(c=>`<button class="filter ${c===active?"active":""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{active=b.dataset.cat;renderFilters();renderProjects()}))}
 function renderProjects(){const list=(siteData.projects||[]).filter(p=>active==="All"||p.category===active);document.getElementById("projects").innerHTML=list.length?list.map(p=>`<article class="card"><div class="thumb">${p.image?`<img loading="lazy" src="${esc(p.image)}" alt="${esc(p.title)}">`:`<div class="placeholder" aria-label="Add a project image in the CMS">✿</div>`}</div><div class="cardbody"><div class="meta">${esc(p.category||"Graphic Design")} · ${esc(p.year||"")}</div><h3>${esc(p.title||"Untitled project")}</h3><p>${esc(p.description||"Project description coming soon.")}</p><div class="cardfoot"><span>${esc(p.tools||"")}</span>${p.link?`<a href="${esc(p.link)}" target="_blank" rel="noopener">View project ↗</a>`:""}</div></div></article>`).join(""):`<p class="loading">No projects in this category yet.</p>`}
 async function loadContent(){try{const res=await fetch("/content/portfolio.json",{cache:"no-store"});if(res.ok){const data=await res.json();siteData={...defaultData,...data};}}catch(e){}document.title=(siteData.name||"Creative Portfolio")+" — Creative Portfolio";document.querySelector(".brand").innerHTML=`<span>✿</span> ${esc(siteData.name||"Nha Le")}`;document.getElementById("intro").textContent=siteData.intro||defaultData.intro;document.getElementById("aboutText").textContent=siteData.about||defaultData.about;document.getElementById("contactText").textContent=siteData.contactText||"I’d love to hear from you. Let’s make something thoughtful together.";const email=siteData.email||"";const emailLink=document.getElementById("emailLink");emailLink.href=email?`mailto:${email}`:"#contact";emailLink.textContent=email?"Email me ↗":"Contact me ↗";document.getElementById("skills").innerHTML=(siteData.skills||defaultData.skills).map(s=>`<span class="tag">${esc(s)}</span>`).join("");document.getElementById("year").textContent=new Date().getFullYear();renderFilters();renderProjects()}
-loadContent();
+
+/* Kawaii interactions for Nha Le Portfolio */
+(function initKawaiiEffects() {
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  // Reveal content as it enters the viewport
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    function observeReveal() {
+      document.querySelectorAll(
+        ".hero > div, .section, .card, .contact, footer"
+      ).forEach(element => {
+        if (!element.classList.contains("reveal")) {
+          element.classList.add("reveal");
+          revealObserver.observe(element);
+        }
+      });
+    }
+
+    observeReveal();
+
+    const projects = document.getElementById("projects");
+    if (projects) {
+      new MutationObserver(observeReveal).observe(projects, {
+        childList: true
+      });
+    }
+  }
+
+  // Small sparkles when tapping or clicking
+  if (!reduceMotion) {
+    document.addEventListener("click", event => {
+      if (event.target.closest("input, textarea, select")) return;
+
+      const sparkle = document.createElement("span");
+      sparkle.className = "cute-sparkle";
+      sparkle.textContent = ["✦", "✧", "♡", "✿"][
+        Math.floor(Math.random() * 4)
+      ];
+      sparkle.style.left = event.clientX + "px";
+      sparkle.style.top = event.clientY + "px";
+      document.body.appendChild(sparkle);
+      sparkle.addEventListener("animationend", () => sparkle.remove());
+    });
+  }
+
+  // Flower cursor on mouse/trackpad devices only
+  if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
+    const cursor = document.createElement("span");
+    cursor.className = "cute-cursor";
+    cursor.textContent = "✿";
+    cursor.setAttribute("aria-hidden", "true");
+    document.body.appendChild(cursor);
+
+    document.addEventListener("pointermove", event => {
+      if (event.pointerType !== "mouse") return;
+      cursor.style.left = event.clientX + "px";
+      cursor.style.top = event.clientY + "px";
+    });
+  }
+})();
+
+  loadContent();
 </script>
 </body>
 </html>
