@@ -1,0 +1,84 @@
+backend:
+  name: github
+  repo: lehphuongnha-arch/cute-pastel-creative-portfolio
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "portfolio"
+    label: "Portfolio Content"
+    files:
+      - name: "homepage"
+        label: "Homepage & Projects"
+        file: "content/portfolio.json"
+        format: "json"
+        fields:
+          - label: "Your name"
+            name: "name"
+            widget: "string"
+            required: true
+          - label: "Short role"
+            name: "role"
+            widget: "string"
+            required: false
+          - label: "Intro paragraph"
+            name: "intro"
+            widget: "text"
+            required: true
+          - label: "About me"
+            name: "about"
+            widget: "text"
+            required: true
+          - label: "Email address"
+            name: "email"
+            widget: "string"
+            required: false
+          - label: "Contact message"
+            name: "contactText"
+            widget: "string"
+            required: false
+          - label: "Skills / interests"
+            name: "skills"
+            widget: "list"
+            required: false
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.category}}"
+            fields:
+              - label: "Project title"
+                name: "title"
+                widget: "string"
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Book Cover"
+                  - "Poster & Campaign"
+                  - "Branding & Product"
+                  - "Digital Design"
+              - label: "Description"
+                name: "description"
+                widget: "text"
+              - label: "Year"
+                name: "year"
+                widget: "string"
+                required: false
+              - label: "Tools used"
+                name: "tools"
+                widget: "string"
+                required: false
+              - label: "Project link"
+                name: "link"
+                widget: "string"
+                required: false
+              - label: "Cover image"
+                name: "image"
+                widget: "image"
+                required: false

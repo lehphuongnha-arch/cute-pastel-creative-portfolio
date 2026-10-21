@@ -1,0 +1,54 @@
+{
+  "name": "Nha Le",
+  "role": "Graphic Designer · Class of 2026",
+  "intro": "Hi, I’m Nha — a graphic design graduate who enjoys creating thoughtful visual identities, book covers, posters, and playful visual stories.",
+  "about": "I’m a 2026 Graphic Design graduate from Wichita State University. I love combining clear visual communication with warm, considered details, and I’m excited to keep learning through meaningful creative work.",
+  "email": "",
+  "contactText": "I’d love to hear from you. Let’s make something thoughtful together.",
+  "skills": [
+    "Book covers",
+    "Branding",
+    "Posters",
+    "Visual campaigns",
+    "Illustration",
+    "Editorial design"
+  ],
+  "projects": [
+    {
+      "title": "Clean Ocean — Book Cover",
+      "category": "Book Cover",
+      "description": "A minimalist cover concept for a psychological fiction story, focused on mood, clarity, and visual tension.",
+      "year": "2025",
+      "tools": "Adobe Illustrator",
+      "link": "https://nhale.framer.website/portfolio/clean-ocean",
+      "image": ""
+    },
+    {
+      "title": "Graphic Design Campaigns",
+      "category": "Poster & Campaign",
+      "description": "A collection of visual communication projects exploring national branding, local rebranding, event design, and printed pieces.",
+      "year": "2025",
+      "tools": "Graphic Design",
+      "link": "https://nhale.framer.website/portfolio/dry-sun",
+      "image": ""
+    },
+    {
+      "title": "Green Strike — Interactive Design",
+      "category": "Digital Design",
+      "description": "A UI/UX course project exploring app concepts, habit-building, and clear digital experiences.",
+      "year": "2024",
+      "tools": "Figma",
+      "link": "https://nhale.framer.website/portfolio/green-strike",
+      "image": ""
+    },
+    {
+      "title": "Jettribe Championship Trophy",
+      "category": "Branding & Product",
+      "description": "A layered trophy concept combining racing imagery, logo placement, dimensional plates, and production-aware details.",
+      "year": "2026",
+      "tools": "Adobe Illustrator",
+      "link": "",
+      "image": ""
+    }
+  ]
+}
