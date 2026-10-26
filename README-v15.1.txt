@@ -1,0 +1,1 @@
+v15.1 preview: expandable pill navigation with centered animated logo, persistent top-right theme toggle, outside taps do not close menu, scroll down hides navigation and scroll up reveals it, tablet About Me two columns. Upload extracted files to preview branch only.
