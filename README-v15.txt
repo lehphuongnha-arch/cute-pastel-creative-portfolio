@@ -1,0 +1,1 @@
+Nha Le Portfolio v15 — floating pill navigation desktop/tablet/phone, dropdown menu, theme toggle in mobile menu, brand button states. Deploy to responsive-v14 preview branch first; do not change production branch.
