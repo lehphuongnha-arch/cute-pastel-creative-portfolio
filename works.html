@@ -408,6 +408,29 @@ body[data-dark=yes] .outline:hover{background:#765667;color:#fff}
 @media(max-width:1199px) and (prefers-reduced-motion:reduce){
  header.nav .mobile-overlay,header.nav .mobile-overlay.is-open,header.nav .mobile-overlay-content,header.nav .navin>.brand{transition:none!important}
 }
+</style><style>
+/* v15.5: restore the theme switch in the floating pill on phones and tablets. */
+@media (max-width:1199px){
+ header.nav .navin>.nav-actions,
+ header.nav.menu-expanded .navin>.nav-actions{
+   display:flex!important;align-items:center!important;justify-content:center!important;
+   position:absolute!important;top:12px!important;right:61px!important;left:auto!important;
+   width:46px!important;height:46px!important;margin:0!important;padding:0!important;
+   opacity:1!important;visibility:visible!important;pointer-events:auto!important;z-index:15!important;
+ }
+ header.nav .navin>.nav-actions #themeToggle{
+   display:grid!important;place-items:center!important;
+   width:44px!important;height:44px!important;min-width:44px!important;
+   padding:0!important;margin:0!important;opacity:1!important;visibility:visible!important;
+   background:var(--blue2)!important;color:var(--ink)!important;
+   border:1px solid var(--line)!important;border-radius:50%!important;
+   font-size:23px!important;line-height:1!important;cursor:pointer!important;
+ }
+ body[data-dark="yes"] header.nav .navin>.nav-actions #themeToggle{
+   background:#AADCF2!important;color:#293D4B!important;border-color:#AADCF2!important;
+ }
+ header.nav .navin>.nav-actions .pill{display:none!important}
+}
 </style></head>
 <body data-page="works">
 <header class="nav"><div class="wrap navin">
