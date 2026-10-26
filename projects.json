@@ -1,0 +1,44 @@
+{
+  "projects": [
+    {
+      "title": "Clean Ocean — Book Cover",
+      "category": "Book Cover",
+      "year": "2025",
+      "tools": "Adobe Illustrator",
+      "description": "A minimalist book cover concept focused on mood, clarity and visual storytelling.",
+      "image": "",
+      "gallery": [],
+      "link": "https://nhale.framer.website/portfolio/clean-ocean"
+    },
+    {
+      "title": "Graphic Design Campaigns",
+      "category": "Poster & Campaign",
+      "year": "2025",
+      "tools": "Graphic Design",
+      "description": "A collection of visual communication and campaign design projects.",
+      "image": "",
+      "gallery": [],
+      "link": "https://nhale.framer.website/portfolio/dry-sun"
+    },
+    {
+      "title": "Green Strike — Interactive Design",
+      "category": "Digital Design",
+      "year": "2024",
+      "tools": "Figma",
+      "description": "A UI/UX course project exploring app concepts and clear digital experiences.",
+      "image": "",
+      "gallery": [],
+      "link": "https://nhale.framer.website/portfolio/green-strike"
+    },
+    {
+      "title": "Jettribe Championship Trophy",
+      "category": "Branding & Product",
+      "year": "2026",
+      "tools": "Adobe Illustrator",
+      "description": "A layered trophy design concept exploring dimensional materials and racing imagery.",
+      "image": "",
+      "gallery": [],
+      "link": ""
+    }
+  ]
+}

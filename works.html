@@ -205,6 +205,51 @@ body[data-dark="yes"] .toolkit-icons{mix-blend-mode:normal;filter:brightness(1.1
  .footer{padding-bottom:22px}
 }
 @media(max-width:700px){.hero-art{grid-row:auto}.hero-grid{grid-template-columns:1fr}.mobile-overlay-content{gap:22px}.mobile-overlay-links{gap:18px}}
+
+/* v12 — responsive repairs for phones and tablets */
+html,body{max-width:100%;overflow-x:clip}
+button,a{-webkit-tap-highlight-color:transparent}
+.otter,.otter-frame{-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;outline:none}
+.otter:focus:not(:focus-visible){outline:none;box-shadow:none}
+@media(max-width:1199px){
+ .nav{position:sticky;top:0;z-index:110;padding:10px 0;background:var(--cream)}
+ .navin{width:min(1120px,calc(100% - 28px));height:70px;min-height:70px;padding:6px 15px;box-sizing:border-box}
+ .mobile-overlay{position:fixed;inset:0;z-index:120;display:none!important;padding:10px 14px 14px;background:var(--cream);overflow-y:auto;overscroll-behavior:contain;animation:menu-drop .22s ease-out}
+ .mobile-overlay.is-open{display:flex!important;flex-direction:column}
+ .mobile-overlay-head{width:min(1120px,100%);height:70px;min-height:70px;margin:0 auto;padding:6px 15px;border-radius:999px;background:var(--card);box-shadow:0 5px 20px #473c5020}
+ .mobile-overlay-head .brand-logo{width:43px;height:43px}
+ .mobile-overlay-content{width:min(680px,100%);min-height:0;flex:0 0 auto;margin:14px auto 0;padding:20px 16px 30px;border:1.5px solid var(--line);border-radius:26px;background:var(--card);gap:16px;box-shadow:0 12px 28px #473c5015}
+ .mobile-overlay-links{width:100%;gap:5px}
+ .mobile-overlay-links a{display:block;width:100%;padding:9px 6px;font-size:clamp(1.1rem,3.5vw,1.5rem);line-height:1.35;border-radius:12px}
+ .mobile-overlay-socials{gap:22px;flex-wrap:wrap;justify-content:center;margin-top:2px}
+ .mobile-overlay .pill{font-size:1rem;padding:12px 20px;text-align:center}
+ .about-grid,.about-grid[style]{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:24px!important}
+ .about-doodle{max-width:360px;width:100%;margin-inline:auto}
+ .about-copy{width:100%;min-width:0;text-align:left}
+ .about-copy p{max-width:70ch;overflow-wrap:break-word}
+ .about-actions{display:flex;flex-wrap:wrap;gap:12px}
+ .section,.hero,.page-intro{max-width:100%}
+ .hero-grid,.section-head,.contact-layout{min-width:0}
+ .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+ .hero-cta a,.about-actions a{max-width:100%;white-space:normal;text-align:center}
+ .section-head{flex-wrap:wrap}
+}
+@media(max-width:700px){
+ .wrap{width:calc(100% - 36px)}
+ .hero-grid{grid-template-columns:minmax(0,1fr)!important}
+ .hero-copy,.hero-art,.about-copy{min-width:0}
+ .hero h1{font-size:clamp(2.8rem,11vw,4.5rem)}
+ .about-grid,.about-grid[style]{grid-template-columns:minmax(0,1fr)!important}
+ .about-doodle{max-width:300px}
+ .about-photo{width:100%;height:auto;object-fit:contain}
+ .mobile-overlay-content{margin-top:10px;padding:16px 12px 20px}
+ .mobile-overlay-links a{padding:7px 6px}
+ .projects{grid-template-columns:minmax(0,1fr)}
+}
+@keyframes menu-drop{from{opacity:.65;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+.go-back{position:fixed;bottom:20px;left:20px;z-index:55;border:1.5px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);padding:11px 17px;box-shadow:0 5px 18px #473c5024;font-weight:800;cursor:pointer}
+.go-back:hover{transform:translateY(-2px)}
+@media(max-width:700px){.go-back{bottom:calc(16px + env(safe-area-inset-bottom));left:14px;padding:10px 14px}}
 </style></head>
 <body data-page="works">
 <header class="nav"><div class="wrap navin">
@@ -218,13 +263,13 @@ body[data-dark="yes"] .toolkit-icons{mix-blend-mode:normal;filter:brightness(1.1
 
 
 
-<section class="page-intro"><div class="wrap"><div class="kicker">A little collection of ideas</div><h1>All My <span>Works.</span></h1><p>Explore book covers, branding, print, digital design and visual campaigns. Select any project to view details.</p></div></section><section class="section pink" id="works"><div class="wrap"><div class="section-head"><div><div class="kicker">Browse by category</div><p>Choose a category or open a project to see more.</p></div><span class="eyebrow">2024 — 2026 ✿</span></div>
+<section class="page-intro"><div class="wrap"><div class="kicker">A little collection of ideas</div><h1>All My <span>Works.</span></h1><p>Explore book covers, branding, print, digital design and visual campaigns. Select any project to view details.</p></div></section><section class="section pink" id="works"><div class="wrap"><div class="section-head"><div><div class="kicker">Browse by category</div><p>Choose a category or open a project to see more.</p></div></div>
 <div aria-label="Filter projects" class="filters" role="group"></div>
 <div class="projects" id="projectGrid"><p class="project-loading">Loading your projects…</p></div></div></section></main>
 <footer class="footer"><div class="wrap footerin"><span>© <span id="year"></span> Nha Le · Made with care ♡</span><span><a href="index.html">Back to top ↑</a> · <a href="works.html">Works</a> · <a href="contact.html">Contact</a></span></div></footer>
 <div aria-labelledby="modalTitle" aria-modal="true" class="modal" id="projectModal" role="dialog"><div class="modal-card"><button aria-label="Close project details" class="close" id="closeModal">×</button><div class="modal-visual" id="modalVisual">✿</div><span class="tag" id="modalTag">Project</span><h2 id="modalTitle">Project title</h2><strong id="modalType">Project type</strong><p id="modalDescription"></p><div class="modal-gallery" id="modalGallery"></div><button class="pill" id="modalDone">Lovely, got it ♡</button></div></div>
 <div class="toast" id="toast" role="status">Copied!</div>
-<nav aria-label="Mobile navigation" class="mobile-nav"><a href="index.html">Home</a><a href="works.html">Works</a><a href="about.html">About</a><a href="index.html#faq">FAQ</a><a href="resume.html">Resume</a></nav><div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true"><div class="mobile-overlay-head"><a class="brand" href="index.html"><img alt="Nha Le logo" class="brand-logo" src="assets/logo-original.png"/></a><button class="mobile-close" type="button" aria-label="Close navigation menu" id="mobileClose">×</button></div><div class="mobile-overlay-content"><nav class="mobile-overlay-links" aria-label="Tablet and phone navigation"><a href="index.html">Home</a><a href="works.html">Portfolio</a><a href="about.html">About Me</a><a href="index.html#faq">FAQ</a><a href="resume.html">Resume</a><a href="contact.html">Contact</a></nav><div class="mobile-overlay-socials"><a href="https://www.instagram.com/nha.graphic/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@nha.graphic" target="_blank" rel="noopener">TikTok</a></div><a class="pill" href="contact.html" data-inquiry-open>Hire Me! ♡</a></div></div><script>
+<nav aria-label="Mobile navigation" class="mobile-nav"><a href="index.html">Home</a><a href="works.html">Works</a><a href="about.html">About</a><a href="index.html#faq">FAQ</a><a href="resume.html">Resume</a></nav><div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true"><div class="mobile-overlay-head"><a class="brand" href="index.html"><img alt="Nha Le logo" class="brand-logo" src="assets/logo-original.png"/></a><button class="mobile-close" type="button" aria-label="Close navigation menu" id="mobileClose">×</button></div><div class="mobile-overlay-content"><nav class="mobile-overlay-links" aria-label="Tablet and phone navigation"><a href="index.html">Home</a><a href="works.html">Portfolio</a><a href="about.html">About Me</a><a href="index.html#faq">FAQ</a><a href="resume.html">Resume</a><a href="contact.html">Contact</a></nav><div class="mobile-overlay-socials"><a href="https://www.instagram.com/nha.graphic/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@nha.graphic" target="_blank" rel="noopener">TikTok</a></div><a class="pill" href="contact.html" data-inquiry-open>Let’s Work Together ♡</a></div></div><script>
 const fallbackProjects=[
  {title:"Clean Ocean — Book Cover",category:"Book Cover",year:"2025",tools:"Adobe Illustrator",description:"A minimalist book cover concept focused on mood, clarity and visual storytelling.",image:"",gallery:[],link:"https://nhale.framer.website/portfolio/clean-ocean"},
  {title:"Graphic Design Campaigns",category:"Poster & Campaign",year:"2025",tools:"Graphic Design",description:"A collection of visual communication and campaign design projects.",image:"",gallery:[],link:"https://nhale.framer.website/portfolio/dry-sun"},
@@ -330,5 +375,5 @@ document.getElementById('inquiryCopy').addEventListener('click',async()=>{if(!fo
 </script><script>
 // v9 accessible responsive menu
 (()=>{const menu=document.getElementById('mobileOverlay'),open=document.getElementById('mobileMenuButton'),close=document.getElementById('mobileClose');if(!menu||!open||!close)return;let previous=null;function toggle(yes){if(yes){previous=document.activeElement;menu.classList.add('is-open');menu.setAttribute('aria-hidden','false');open.setAttribute('aria-expanded','true');document.body.classList.add('menu-open');close.focus()}else{menu.classList.remove('is-open');menu.setAttribute('aria-hidden','true');open.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');previous?.focus()}}open.addEventListener('click',()=>toggle(true));close.addEventListener('click',()=>toggle(false));menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggle(false)));document.addEventListener('keydown',e=>{if(!menu.classList.contains('is-open'))return;if(e.key==='Escape'){e.preventDefault();toggle(false)}if(e.key==='Tab'){const focusable=[...menu.querySelectorAll('a,button')];let i=focusable.indexOf(document.activeElement);if(e.shiftKey&&i===0){e.preventDefault();focusable.at(-1).focus()}else if(!e.shiftKey&&i===focusable.length-1){e.preventDefault();focusable[0].focus()}}});window.addEventListener('resize',()=>{if(innerWidth>=1200&&menu.classList.contains('is-open'))toggle(false)})})();
-</script></body>
+</script><button class="go-back" id="goBack" type="button" aria-label="Go back to previous page">← Back</button><script>document.getElementById("goBack")?.addEventListener("click",()=>{if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){history.back()}else{location.href="index.html"}});</script></body>
 </html>
