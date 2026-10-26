@@ -368,6 +368,52 @@ body[data-dark=yes] .outline:hover{background:#765667;color:#fff}
 @media(max-width:700px){.navin{width:calc(100% - 28px)}.mobile-overlay{top:92px!important}.mobile-overlay-content{padding:16px 14px 20px}}
 @media(prefers-reduced-motion:reduce){.mobile-overlay{animation:none!important}}
 
+</style><style>
+/* v15.4 — ONE continuous pill-to-panel surface (no joined corner seams) */
+@media(max-width:1199px){
+ header.nav{position:sticky!important;top:0!important;z-index:9999!important;isolation:isolate!important;background:transparent!important;border:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;overflow:visible!important}
+ header.nav .navin,header.nav.menu-expanded .navin{
+   position:relative!important;display:flex!important;flex-wrap:wrap!important;align-content:flex-start!important;
+   width:calc(100% - 28px)!important;height:auto!important;min-height:70px!important;
+   padding:0 14px!important;gap:0!important;
+   background:var(--card)!important;border:1.5px solid var(--line)!important;border-radius:36px!important;
+   box-shadow:0 12px 28px #493c5020!important;overflow:hidden!important;
+   transition:border-radius .35s ease,box-shadow .35s ease!important;
+ }
+ header.nav .navin>.brand{height:70px!important;display:flex!important;align-items:center!important;position:relative!important;left:auto!important;transform:none!important;transition:transform .35s cubic-bezier(.2,.8,.2,1)!important}
+ header.nav.menu-expanded .navin>.brand{position:relative!important;left:auto!important;transform:translateX(calc((100vw - 28px - 28px - 64px)/2))!important}
+ header.nav .mobile-menu-button,header.nav.menu-expanded .mobile-menu-button{
+   position:absolute!important;top:11px!important;right:8px!important;left:auto!important;transform:none!important;z-index:12!important;
+ }
+ header.nav .nav-actions,header.nav.menu-expanded .nav-actions{position:absolute!important;top:13px!important;right:65px!important;left:auto!important;z-index:11!important}
+ header.nav .mobile-overlay,header.nav .mobile-overlay.is-open{
+   position:relative!important;display:grid!important;grid-template-rows:0fr!important;flex:0 0 100%!important;
+   inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+   width:100%!important;max-height:none!important;min-height:0!important;overflow:hidden!important;
+   padding:0!important;margin:0!important;border:0!important;border-radius:0!important;
+   box-shadow:none!important;background:transparent!important;backdrop-filter:none!important;
+   opacity:0!important;visibility:hidden!important;pointer-events:none!important;animation:none!important;
+   transition:grid-template-rows .35s cubic-bezier(.2,.8,.2,1),opacity .22s ease,visibility 0s linear .35s!important;
+ }
+ header.nav .mobile-overlay.is-open{
+   grid-template-rows:1fr!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+   transition:grid-template-rows .35s cubic-bezier(.2,.8,.2,1),opacity .22s ease!important;
+ }
+ header.nav .mobile-overlay-content,header.nav .mobile-overlay.is-open .mobile-overlay-content{
+   display:flex!important;min-height:0!important;height:auto!important;overflow:hidden!important;
+   width:100%!important;max-width:none!important;margin:0!important;
+   background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+   padding:0 14px!important;gap:13px!important;
+   transition:padding .35s cubic-bezier(.2,.8,.2,1)!important;
+ }
+ header.nav .mobile-overlay.is-open .mobile-overlay-content{padding:14px 14px 28px!important}
+ header.nav .mobile-overlay-links{gap:2px!important}
+ header.nav .mobile-overlay-head{display:none!important}
+ body[data-dark=yes] header.nav .navin{background:#353345!important}
+}
+@media(max-width:1199px) and (prefers-reduced-motion:reduce){
+ header.nav .mobile-overlay,header.nav .mobile-overlay.is-open,header.nav .mobile-overlay-content,header.nav .navin>.brand{transition:none!important}
+}
 </style></head>
 <body data-page="contact">
 <header class="nav"><div class="wrap navin">
@@ -503,7 +549,7 @@ document.getElementById('inquiryCopy').addEventListener('click',async()=>{if(!fo
  const nav=document.querySelector('header.nav'), menu=document.getElementById('mobileOverlay'), button=document.getElementById('mobileMenuButton');
  if(!nav||!menu||!button)return;
  /* Place menu inside navigation to ensure its opaque panel stacks over the hero. */
- nav.appendChild(menu);
+ nav.querySelector('.navin').appendChild(menu);
  const old=button.cloneNode(true);button.replaceWith(old);
  function toggle(yes){
   nav.classList.toggle('menu-expanded',yes);nav.classList.remove('nav-hidden');

@@ -1,0 +1,1 @@
+v15.4: Single continuous navigation panel. Removed the two separately bordered menu surfaces. Menu now expands within the same navin element, with grid-row animation and unchanged right-hand close button. Test iPhone and iPad preview before publishing.
