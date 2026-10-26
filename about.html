@@ -41,6 +41,22 @@
  .about-grid>.skills{grid-column:2!important;grid-row:2!important}
 }
 @media(prefers-reduced-motion:reduce){.nav,.nav .brand,.mobile-overlay{transition:none!important;animation:none!important}}
+
+
+/* v15.2: opaque connected expanding menu; above all page content */
+@media (max-width:1199px){
+ header.nav{isolation:isolate!important;z-index:9999!important;overflow:visible!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border:0!important}
+ header.nav .navin{z-index:2!important;background:var(--card)!important;border:1.5px solid var(--line)!important;box-shadow:0 8px 26px #493c501a!important}
+ header.nav.menu-expanded .navin{border-radius:36px 36px 0 0!important;border-bottom:0!important}
+ header.nav .mobile-overlay{position:absolute!important;display:none!important;inset:auto!important;top:calc(100% - 7px)!important;left:14px!important;right:14px!important;bottom:auto!important;width:auto!important;margin:0!important;padding:0!important;max-height:calc(100dvh - 110px)!important;overflow-y:auto!important;overscroll-behavior:contain!important;z-index:1!important;opacity:1!important;visibility:visible!important;background:var(--card)!important;border:1.5px solid var(--line)!important;border-top:0!important;border-radius:0 0 36px 36px!important;box-shadow:0 22px 36px #493c5030!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+ header.nav .mobile-overlay.is-open{display:block!important}
+ header.nav .mobile-overlay-content{background:var(--card)!important;box-shadow:none!important;border:0!important;border-radius:0 0 34px 34px!important;max-width:none!important;width:100%!important;margin:0!important;padding:22px 20px 28px!important}
+ header.nav .mobile-overlay-links,header.nav .mobile-overlay-socials{position:relative!important;z-index:2!important}
+ header.nav .mobile-menu-button{z-index:5!important}
+ header.nav.menu-expanded .nav-actions{right:18px!important}
+ body[data-dark=yes] header.nav .mobile-overlay,body[data-dark=yes] header.nav .mobile-overlay-content,body[data-dark=yes] header.nav .navin{background:#353345!important}
+}
+
 </style>
 <style>
 /* Nha Le v1 — cheerful cream/pastel identity */
@@ -483,6 +499,8 @@ document.getElementById('inquiryCopy').addEventListener('click',async()=>{if(!fo
 (()=>{
  const nav=document.querySelector('header.nav'), menu=document.getElementById('mobileOverlay'), button=document.getElementById('mobileMenuButton');
  if(!nav||!menu||!button)return;
+ /* Place menu inside navigation to ensure its opaque panel stacks over the hero. */
+ nav.appendChild(menu);
  const old=button.cloneNode(true);button.replaceWith(old);
  function toggle(yes){
   nav.classList.toggle('menu-expanded',yes);nav.classList.remove('nav-hidden');
