@@ -57,6 +57,22 @@
  body[data-dark=yes] header.nav .mobile-overlay,body[data-dark=yes] header.nav .mobile-overlay-content,body[data-dark=yes] header.nav .navin{background:#353345!important}
 }
 
+
+/* v15.3: close X occupies the same right-hand position as hamburger */
+@media (max-width:1199px){
+ header.nav .mobile-menu-button,
+ header.nav.menu-expanded .mobile-menu-button{
+   position:absolute!important;left:auto!important;right:12px!important;top:50%!important;
+   transform:translateY(-50%)!important;order:initial!important;
+   display:grid!important;place-items:center!important;z-index:10!important;
+ }
+ header.nav .nav-actions,header.nav.menu-expanded .nav-actions{
+   position:absolute!important;left:auto!important;right:68px!important;
+   margin:0!important;z-index:6!important;
+ }
+ header.nav .navin>.brand{margin-right:auto}
+ header.nav.menu-expanded .navin>.brand{margin-right:0}
+}
 </style>
 <style>
 /* Nha Le v1 — cheerful cream/pastel identity */
