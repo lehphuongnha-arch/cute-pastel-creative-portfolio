@@ -21,7 +21,11 @@
       "year": "2025",
       "tools": "Adobe Illustrator",
       "link": "https://nhale.framer.website/portfolio/clean-ocean",
-      "image": ""
+      "image": "",
+      "published": true,
+      "featured": true,
+      "order": 1,
+      "gallery": []
     },
     {
       "title": "Graphic Design Campaigns",
@@ -30,7 +34,11 @@
       "year": "2025",
       "tools": "Graphic Design",
       "link": "https://nhale.framer.website/portfolio/dry-sun",
-      "image": ""
+      "image": "",
+      "published": true,
+      "featured": true,
+      "order": 2,
+      "gallery": []
     },
     {
       "title": "Green Strike — Interactive Design",
@@ -39,7 +47,11 @@
       "year": "2024",
       "tools": "Figma",
       "link": "https://nhale.framer.website/portfolio/green-strike",
-      "image": ""
+      "image": "",
+      "published": true,
+      "featured": false,
+      "order": 3,
+      "gallery": []
     },
     {
       "title": "Jettribe Championship Trophy",
@@ -48,7 +60,11 @@
       "year": "2026",
       "tools": "Adobe Illustrator",
       "link": "",
-      "image": ""
+      "image": "",
+      "published": true,
+      "featured": true,
+      "order": 4,
+      "gallery": []
     },
     {
       "title": "Whispers of the Moon",
@@ -56,7 +72,11 @@
       "description": "A dreamy book cover exploring memory, solitude, and the beauty of the night.",
       "year": "2026",
       "tools": "Adobe Illustrator, Photoshop",
-      "image": "/images/uploads/hardcover_books_mockup_front_and_back_view-removebg-preview-2.png"
+      "image": "/images/uploads/hardcover_books_mockup_front_and_back_view-removebg-preview-2.png",
+      "published": false,
+      "featured": false,
+      "order": 5,
+      "gallery": []
     }
   ]
 }
