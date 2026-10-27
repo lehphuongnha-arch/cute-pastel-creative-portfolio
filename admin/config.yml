@@ -83,3 +83,30 @@ collections:
                 name: "image"
                 widget: "image"
                 required: false
+              - label: "Published on website"
+                name: "published"
+                widget: "boolean"
+                default: false
+                required: false
+                hint: "Turn on only when this project is ready for visitors."
+              - label: "Featured on Home"
+                name: "featured"
+                widget: "boolean"
+                default: false
+                required: false
+                hint: "Only published projects can appear on Home; Home shows up to 3."
+              - label: "Display order"
+                name: "order"
+                widget: "number"
+                value_type: "int"
+                min: 1
+                default: 99
+                required: false
+              - label: "Additional project images"
+                name: "gallery"
+                widget: "list"
+                required: false
+                field:
+                  label: "Image"
+                  name: "image"
+                  widget: "image"
