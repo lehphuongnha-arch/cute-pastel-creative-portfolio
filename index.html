@@ -488,7 +488,7 @@ function renderFilters(){
  document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{activeCategory=b.dataset.filter;renderFilters();renderProjects()}));
 }
 function renderProjects(){
- const visible=projects.filter(p=>activeCategory==="All"||p.category===activeCategory).slice(0,document.body.dataset.page==="home"?3:undefined);
+ const visible=projects.filter(p=>(document.body.dataset.page!=="home"||p.featured===true)&&(activeCategory==="All"||p.category===activeCategory)).slice(0,document.body.dataset.page==="home"?3:undefined);
  $("#projectGrid").innerHTML=visible.length?visible.map((p)=>{
  const i=projects.indexOf(p);
  const img=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} cover image" loading="lazy">`:`<div class="project-placeholder"><span>✿</span><small>Project image coming soon</small></div>`;
@@ -515,8 +515,8 @@ $("#projectModal").addEventListener("click",e=>{if(e.target===$("#projectModal")
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 async function loadProjects(){
  try{
-  const r=await fetch("content/projects.json",{cache:"no-store"});
-  if(r.ok){const data=await r.json();if(Array.isArray(data.projects))projects=data.projects;}
+  const r=await fetch("content/portfolio.json",{cache:"no-store"});
+  if(r.ok){const data=await r.json();if(Array.isArray(data.projects))projects=data.projects.filter(p=>p.published===true).sort((a,b)=>(Number(a.order)||999)-(Number(b.order)||999));}
  }catch(e){/* local file:// preview uses embedded fallback data */}
  renderFilters();renderProjects();
 }
