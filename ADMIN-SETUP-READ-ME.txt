@@ -1,0 +1,19 @@
+NHA LE PORTFOLIO — DECAP CMS ADMIN STARTER (v15.6)
+
+What is included:
+- /admin/index.html and /admin/config.yml
+- The existing content/projects.json schema is preserved.
+- images/uploads folder for new photos.
+- All existing portfolio pages and animations are unchanged.
+
+IMPORTANT: Login is NOT yet enabled. Cloudflare Pages does not provide a built-in GitHub OAuth endpoint for Decap CMS. Before the Admin can save, you must configure a trusted GitHub OAuth service/proxy and add its endpoint in admin/config.yml (uncomment auth_endpoint). You may need a GitHub OAuth app and secure server-side secrets. NEVER put a GitHub client secret in HTML or this repository.
+
+Suggested safe sequence:
+1. Upload this ZIP's contents to responsive-v14 only.
+2. Open your Cloudflare preview /admin/ and confirm the CMS page loads.
+3. Choose and configure an OAuth provider (such as a compatible managed provider or a Cloudflare Worker OAuth proxy).
+4. Configure auth_endpoint and verify login with a GitHub account that has repository write access.
+5. Edit one existing project, upload one image, and verify content/projects.json and the preview page update.
+6. After testing, separately decide when to publish to production.
+
+Decap's list editor displays projects within the Projects document, rather than separate independent collection entries. This matches your current JSON structure without rewriting the website.
