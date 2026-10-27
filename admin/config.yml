@@ -1,9 +1,10 @@
 backend:
   name: github
   repo: lehphuongnha-arch/cute-pastel-creative-portfolio
-  branch: main
-  base_url: https://api.netlify.com
+  branch: responsive-v14
+  base_url: https://nhale-portfolio-auth.lehphuongnha.workers.dev
   auth_endpoint: auth
+
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
