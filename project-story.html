@@ -46,6 +46,28 @@ h1{font-size:clamp(2.8rem,6vw,5.8rem);line-height:1.08;color:#493c50;letter-spac
 .notebook-divider{display:flex;justify-content:center;gap:18px;color:#c85555;font-family:"Comic Sans MS","Segoe Print",cursive;font-size:1.1rem;margin:24px 0 34px}
 .notebook-sticker{position:absolute;right:3%;bottom:-15px;font-size:2rem;transform:rotate(15deg);z-index:2;pointer-events:none}
 @media(max-width:760px){.hero{grid-template-columns:1fr;gap:10px;margin-bottom:35px}.grid{grid-template-columns:1fr}.paper,.paper.wide{grid-column:1}.steps{grid-template-columns:1fr}.art-gallery{grid-template-columns:1fr}.cover-stack{max-width:480px;margin:auto}.page{width:97%;margin:8px auto 30px}.paper{min-height:0}.hero>div:first-child{padding:8px 0}.bottom{flex-wrap:wrap}}
+</style><style>
+/* Creative notebook presentation: a single editorial journal page */
+body{background:#f7efe8!important;background-image:radial-gradient(#d9b9b04d .7px,transparent .7px)!important;background-size:18px 18px!important}
+.page{max-width:1120px!important;background:#fff9f4;padding:clamp(22px,4vw,58px)!important;border:1px solid #ebd4c9;box-shadow:0 22px 55px #6744541a;position:relative}
+.page::before{content:"";position:absolute;left:17px;top:55px;bottom:40px;border-left:2px dashed #eac5bd;pointer-events:none}
+.page::after{content:"✿  creative notes  ♡";position:absolute;top:14px;right:30px;color:#c85555;font-size:.78rem;letter-spacing:.1em}
+.hero{align-items:center;gap:clamp(22px,4vw,65px);padding:30px 0 35px;border-bottom:2px dashed #f0c9c4}
+.hero h1{font-family:Georgia,serif;font-size:clamp(2.6rem,6vw,5.3rem);line-height:1.04;letter-spacing:-.04em}
+.hero .eyebrow{color:#c85555;letter-spacing:.14em}
+.cover-stack{transform:rotate(3deg);filter:drop-shadow(0 13px 15px #493c5025)}
+#cover{border:12px solid #fff;box-shadow:0 10px 30px #493c5025}
+.grid{gap:22px!important;margin-top:30px}
+.paper{background:#fffdf9!important;border:1px solid #e9d6cc!important;border-radius:3px!important;padding:clamp(20px,3vw,34px)!important;box-shadow:5px 7px 0 #e5f5fc,0 10px 25px #6744540d!important}
+.paper:nth-child(3n+2){box-shadow:5px 7px 0 #f7bcb080,0 10px 25px #6744540d!important}
+.paper h2{font-family:Georgia,serif;letter-spacing:-.02em}
+.paper h2::after{content:"  ✎";font-family:system-ui;font-size:.7em;color:#c85555}
+.art-gallery{gap:25px!important;align-items:start}
+.art-gallery img{height:auto!important;max-height:550px;object-fit:contain!important;background:#fff!important;border:12px solid white!important;box-shadow:0 9px 25px #493c5028!important;transform:rotate(-1.2deg)}
+.art-gallery img:nth-child(even){transform:rotate(1.3deg)}
+.steps{gap:24px!important}.step{background:#fff9f4;padding:17px;border-left:3px solid #f7bcb0}
+.bottom{margin-top:45px!important}
+@media(max-width:700px){.page{width:96%!important;padding:22px!important}.page::before{left:8px}.hero{padding-top:38px}.art-gallery img{max-height:460px}}
 </style></head><body><main class="page"><a class="back" href="index.html#works">← All Projects</a><section class="hero"><div><div class="eyebrow">✿ A little design story</div><h1 id="title">Project</h1><h2 id="category"></h2><p class="meta" id="meta"></p></div><div class="cover-stack"><span class="doodle star">⭐</span><span class="doodle flower">🌸</span><div id="cover"><div class="cover-empty">✿</div></div><span class="notebook-sticker" aria-hidden="true">🌷</span></div></section><div class="notebook-divider" aria-hidden="true">✿ · notes from my sketchbook · ✿</div><div class="grid"><section class="paper"><span class="washi"></span><h2 class="flower-head">About the Project</h2><p id="description"></p></section><section class="paper"><h2 class="flower-head">What I Did</h2><p id="what"></p></section><section class="paper"><h2 class="flower-head">Objective</h2><p id="objective"></p></section><section class="paper"><h2 class="flower-head">Challenge</h2><p id="challenge"></p></section><section class="paper wide" id="processSection"><h2 class="flower-head">Design Process</h2><div class="steps" id="steps"></div></section><section class="paper wide"><h2 class="flower-head">Final Design & Mockups</h2><div class="art-gallery" id="gallery"></div><p class="note" id="galleryNote"></p></section></div><nav class="bottom"><a href="index.html#works">← Featured Projects</a><a href="works.html">Explore more work →</a></nav></main><script>
 const escapeHTML=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const params=new URLSearchParams(location.search),requested=params.get("project")||"";
