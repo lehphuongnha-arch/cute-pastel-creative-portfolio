@@ -451,7 +451,7 @@ body[data-page="home"] .folder-label{position:absolute;left:23%;right:16%;bottom
 @media(max-width:600px){body[data-page="home"] #projectGrid{grid-template-columns:minmax(0,355px);justify-content:center;gap:18px}body[data-page="home"] .folder-label{font-size:clamp(.9rem,4vw,1.05rem)}}
 @media(prefers-reduced-motion:reduce){body[data-page="home"] #projectGrid .scrapbook-folder,body[data-page="home"] .folder-artwork{transition:none!important}body[data-page="home"] #projectGrid .scrapbook-folder:hover{transform:rotate(var(--folder-tilt,0deg))!important}}
 </style>
-</head>
+<style>.scrapbook-modal-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:16px 0}.scrapbook-modal-actions>a,.scrapbook-modal-actions>button{flex:1;min-width:130px;text-align:center;justify-content:center}@media(max-width:390px){.scrapbook-modal-actions{gap:8px}.scrapbook-modal-actions>a,.scrapbook-modal-actions>button{font-size:.8rem;min-width:0;padding:10px 8px}}</style></head>
 <body data-page="home">
 <header class="nav"><div class="wrap navin">
 <a class="brand" href="index.html"><img alt="Nha Le Graphic Design logo" class="brand-logo" src="assets/logo-original.png"/></a>
@@ -541,13 +541,18 @@ function openProject(p,button){
  $("#modalTag").textContent=p.category||"Project";
  $("#modalVisual").innerHTML=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} cover">`:'<span>✿</span>';
  const images=(p.gallery||[]).filter(Boolean);
- $("#modalGallery").innerHTML=images.map(src=>`<img src="${esc(src)}" alt="Additional image for ${esc(p.title)}" loading="lazy">`).join("")+(p.link?`<p><a class="pill" href="${esc(p.link)}" target="_blank" rel="noopener noreferrer">See more ↗</a></p>`:"");
- $("#projectModal").classList.add("open");
- $("#closeModal").focus();
+ $("#modalGallery").innerHTML=images.map(src=>`<img src="${esc(src)}" alt="Additional image for ${esc(p.title)}" loading="lazy">`).join("");
+ const slug=String(p.title||"").toLowerCase().normalize("NFKD").replace(/[\\u0300-\\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+ const actions=document.createElement("div");actions.className="scrapbook-modal-actions";
+ const link=document.createElement("a");link.className="pill";link.textContent="See more ↗";link.href="project-story.html?project="+encodeURIComponent(slug);
+ const done=document.getElementById("modalDone");if(done)done.remove();
+ const close=document.createElement("button");close.type="button";close.className="outline";close.textContent="Lovely, got it ♡";close.addEventListener("click",closeModal);
+ actions.append(link,close);$("#modalGallery").append(actions);
+ $("#projectModal").classList.add("open");$("#closeModal").focus();
 }
 function closeModal(){ $("#projectModal").classList.remove("open");lastFocus?.focus();}
 $("#closeModal").addEventListener("click",closeModal);
-$("#modalDone").addEventListener("click",closeModal);
+
 $("#projectModal").addEventListener("click",e=>{if(e.target===$("#projectModal"))closeModal()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 async function loadProjects(){
