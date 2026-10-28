@@ -451,7 +451,27 @@ body[data-page="home"] .folder-label{position:absolute;left:23%;right:16%;bottom
 @media(max-width:600px){body[data-page="home"] #projectGrid{grid-template-columns:minmax(0,355px);justify-content:center;gap:18px}body[data-page="home"] .folder-label{font-size:clamp(.9rem,4vw,1.05rem)}}
 @media(prefers-reduced-motion:reduce){body[data-page="home"] #projectGrid .scrapbook-folder,body[data-page="home"] .folder-artwork{transition:none!important}body[data-page="home"] #projectGrid .scrapbook-folder:hover{transform:rotate(var(--folder-tilt,0deg))!important}}
 </style>
-<style>.scrapbook-modal-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:16px 0}.scrapbook-modal-actions>a,.scrapbook-modal-actions>button{flex:1;min-width:130px;text-align:center;justify-content:center}@media(max-width:390px){.scrapbook-modal-actions{gap:8px}.scrapbook-modal-actions>a,.scrapbook-modal-actions>button{font-size:.8rem;min-width:0;padding:10px 8px}}</style></head>
+<style>.scrapbook-modal-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:16px 0}.scrapbook-modal-actions>a,.scrapbook-modal-actions>button{flex:1;min-width:130px;text-align:center;justify-content:center}@media(max-width:390px){.scrapbook-modal-actions{gap:8px}.scrapbook-modal-actions>a,.scrapbook-modal-actions>button{font-size:.8rem;min-width:0;padding:10px 8px}}</style><style>
+/* Scrapbook project silhouettes — isolated to project grids. */
+#projectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,3vw,42px);align-items:start}
+#projectGrid .project.scrapbook-folder{--angle:-2deg;position:relative;display:block;aspect-ratio:4/5;width:100%;padding:0;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible;isolation:isolate;text-align:left;cursor:pointer;transform:rotate(var(--angle));filter:drop-shadow(0 12px 11px #67445420);transition:transform .35s ease,filter .35s ease}
+#projectGrid .scrapbook-folder:nth-child(3n+2){--angle:1.5deg}#projectGrid .scrapbook-folder:nth-child(3n){--angle:-1deg}
+#projectGrid .scrapbook-folder::before{content:"";position:absolute;inset:4% 3% 4% 7%;z-index:-2;background:#e5f5fc;border:2px solid #d6c1d4;transform:rotate(5deg);clip-path:polygon(0 0,100% 0,100% 96%,96% 100%,0 100%);box-shadow:0 8px 18px #493c501c}
+#projectGrid .folder-paper{position:absolute;inset:6% 5% 3% 4%;background:#fff9f4;border:1px solid #f7bcb0;clip-path:polygon(0 1%,4% 0,8% 1%,12% 0,16% 1%,20% 0,24% 1%,28% 0,32% 1%,36% 0,40% 1%,44% 0,48% 1%,52% 0,56% 1%,60% 0,64% 1%,68% 0,72% 1%,76% 0,80% 1%,84% 0,88% 1%,92% 0,96% 1%,100% 0,100% 98%,96% 100%,92% 98%,88% 100%,84% 98%,80% 100%,76% 98%,72% 100%,68% 98%,64% 100%,60% 98%,56% 100%,52% 98%,48% 100%,44% 98%,40% 100%,36% 98%,32% 100%,28% 98%,24% 100%,20% 98%,16% 100%,12% 98%,8% 100%,4% 98%,0 100%);box-shadow:0 9px 25px #68495823}
+#projectGrid .folder-paper::after{content:"";position:absolute;inset:12px;border:1px dashed #e6abb7;pointer-events:none}
+#projectGrid .folder-artwork{position:absolute;inset:14% 13% 22% 13%;width:auto;height:auto;display:grid;place-items:center;background:linear-gradient(130deg,#fffaf8,#e5f5fc);border:7px solid #fff;box-shadow:0 8px 19px #493c5030;transform:rotate(-2deg);overflow:hidden;transition:transform .35s ease}
+#projectGrid .folder-artwork img{width:100%;height:100%;display:block;object-fit:cover}
+#projectGrid .folder-empty{font-size:3rem;color:#c98da7;opacity:.65}
+#projectGrid .folder-label{position:absolute;left:17%;right:8%;bottom:8%;min-height:11%;padding:10px 12px;display:grid;place-items:center;background:#f7bcb0;color:#493c50;font-size:clamp(.78rem,1.15vw,1rem);font-weight:800;line-height:1.25;text-align:center;box-shadow:3px 4px 0 #dba6a36e;transform:rotate(2deg);overflow-wrap:anywhere}
+#projectGrid .folder-clip{position:absolute;left:8%;top:1%;z-index:3;font-size:clamp(27px,3.8vw,47px);line-height:1;transform:rotate(-30deg);filter:drop-shadow(1px 2px 1px #493c5030)}
+#projectGrid .folder-sticker{position:absolute;left:0;bottom:5%;z-index:3;font-size:clamp(26px,3.6vw,45px);transform:rotate(-14deg);filter:drop-shadow(2px 3px 1px #493c5025)}
+#projectGrid .folder-spark{position:absolute;right:0;bottom:2%;z-index:3;font-size:clamp(22px,2.7vw,34px);transform:rotate(18deg)}
+@media(hover:hover){#projectGrid .scrapbook-folder:hover{transform:translateY(-12px) rotate(0deg) scale(1.02);filter:drop-shadow(0 20px 18px #67445432)}#projectGrid .scrapbook-folder:hover .folder-artwork{transform:rotate(0deg) translateY(-4px)}}
+#projectGrid .scrapbook-folder:focus-visible{outline:3px solid #c85555;outline-offset:6px}
+@media(max-width:850px){#projectGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#projectGrid{grid-template-columns:minmax(0,360px);justify-content:center;gap:24px}#projectGrid .folder-label{font-size:1rem}}
+@media(prefers-reduced-motion:reduce){#projectGrid .scrapbook-folder,#projectGrid .folder-artwork{transition:none!important}#projectGrid .scrapbook-folder:hover{transform:rotate(var(--angle))}}
+</style></head>
 <body data-page="home">
 <header class="nav"><div class="wrap navin">
 <a class="brand" href="index.html"><img alt="Nha Le Graphic Design logo" class="brand-logo" src="assets/logo-original.png"/></a>
@@ -511,25 +531,8 @@ function renderProjects(){
  const visible=projects.filter(p=>(document.body.dataset.page!=="home"||p.featured===true)&&(activeCategory==="All"||p.category===activeCategory)).slice(0,document.body.dataset.page==="home"?3:undefined);
  $("#projectGrid").innerHTML=visible.length?visible.map(p=>{
   const i=projects.indexOf(p);
-  const artwork=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
-  return `<button class="project scrapbook-folder" type="button" data-index="${i}" aria-label="Open ${esc(p.title)} project details">
-   <svg class="folder-decor" viewBox="0 0 300 365" aria-hidden="true" focusable="false">
-<defs><pattern id="folder-grid" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M13 0H0V13" fill="none" stroke="#d9d4e4" stroke-width=".65" opacity=".45"/></pattern><filter id="paper-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter></defs>
-<path d="M42 49L256 26L281 324L58 345Z" fill="#aadcf2" opacity=".52"/>
-<path d="M42 49L256 26L281 324L58 345Z" fill="url(#folder-grid)" opacity=".8"/>
-<path d="M28 62Q37 57 48 60L93 55Q104 57 110 66L270 61Q277 66 274 76L278 320Q272 331 260 328L39 338Q26 337 25 325L24 76Q22 67 28 62Z" fill="#fff9f4" stroke="#f7bcb0" stroke-width="2.4"/>
-<path d="M28 62Q37 57 48 60L93 55Q104 57 110 66L270 61Q277 66 274 76L278 320Q272 331 260 328L39 338Q26 337 25 325L24 76Q22 67 28 62Z" fill="url(#folder-grid)" opacity=".38"/>
-<path d="M29 84Q40 94 50 84T72 84T94 84T116 84T138 84T160 84T182 84T204 84T226 84T248 84T272 84" fill="none" stroke="#f7bcb0" stroke-width="5" stroke-linecap="round"/>
-<path d="M32 317Q44 306 55 317T78 317T101 317T124 317T147 317T170 317T193 317T216 317T239 317T270 317" fill="none" stroke="#f7bcb0" stroke-width="4.5" stroke-linecap="round"/>
-<path d="M37 96L262 92L264 307L38 322Z" fill="none" stroke="#d5a0ad" stroke-width="1.5" stroke-dasharray="3 7" opacity=".7"/>
-<path d="M66 49C49 34 40 51 53 62L73 76C88 87 101 65 82 53L61 39C48 31 40 44 52 53L70 66" fill="none" stroke="#9e9cbd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<g transform="translate(27 282) rotate(-10 20 24)"><path d="M7 21C-2 1 4 -7 12 -4C19 -1 20 15 21 17C27 -6 37 -7 41 0C44 9 33 20 32 24C47 41 35 55 20 54C4 54 -5 42 7 21Z" fill="#fff9f4" stroke="#c85555" stroke-width="2.6"/><ellipse cx="20" cy="38" rx="16" ry="12" fill="#f7bcb0" opacity=".75"/><circle cx="14" cy="33" r="1.8" fill="#493c50"/><circle cx="27" cy="33" r="1.8" fill="#493c50"/><path d="M19 39q2 3 4 0" stroke="#493c50" stroke-width="1.3" fill="none"/><circle cx="9" cy="38" r="3" fill="#f2a0a6"/><circle cx="31" cy="38" r="3" fill="#f2a0a6"/></g>
-<g transform="translate(226 278) rotate(8 20 20)"><path d="M3 32L29 3L35 9L9 38L1 40Z" fill="#f7bcb0" stroke="#c85555" stroke-width="1.6"/><path d="M3 32L9 38L1 40Z" fill="#eaa624"/><rect x="12" y="38" width="43" height="10" rx="1" fill="#aadcf2" stroke="#76697b" stroke-width="1.5"/><rect x="17" y="30" width="40" height="9" rx="1" fill="#fff9f4" stroke="#76697b" stroke-width="1.5"/><path d="M22 34H51" stroke="#f7bcb0" stroke-width="2"/></g>
-<path d="M248 53l3 8 9 1-7 6 2 8-7-4-7 4 2-8-7-6 9-1Z" fill="#eaa624" opacity=".75"/>
-</svg>
-   <span class="folder-artwork">${artwork}</span>
-   <span class="folder-label">${esc(p.title)}</span>
-  </button>`;
+ const artwork=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
+ return `<button class="project scrapbook-folder" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><span class="folder-paper" aria-hidden="true"></span><span class="folder-artwork">${artwork}</span><span class="folder-label">${esc(p.title)}</span><span class="folder-clip" aria-hidden="true">📎</span><span class="folder-sticker" aria-hidden="true">🐰</span><span class="folder-spark" aria-hidden="true">✎</span></button>`;
  }).join(""):'<p>No projects in this category yet.</p>';
  document.querySelectorAll(".project").forEach(card=>card.addEventListener("click",()=>openProject(projects[Number(card.dataset.index)],card)));
 }
