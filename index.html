@@ -432,19 +432,24 @@ body[data-dark=yes] .outline:hover{background:#765667;color:#fff}
  header.nav .navin>.nav-actions .pill{display:none!important}
 }
 </style><style>
-/* Scrapbook folders — isolated to the homepage Featured Projects grid. */
-body[data-page="home"] #projectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
-body[data-page="home"] #projectGrid .scrapbook-folder{display:block;position:relative;width:100%;aspect-ratio:300/360;padding:0;margin:0;border:0;border-radius:0;background:transparent!important;box-shadow:none!important;overflow:visible;text-align:center;transform-origin:center 80%;transition:transform .22s ease,filter .22s ease;filter:drop-shadow(0 9px 9px #815e6920);isolation:isolate}
-body[data-page="home"] #projectGrid .scrapbook-folder:hover{transform:translateY(-7px) rotate(-1deg);filter:drop-shadow(0 16px 12px #815e6930)}
-body[data-page="home"] #projectGrid .scrapbook-folder:focus-visible{outline:3px solid var(--pomegranate,#c85555);outline-offset:2px}
-body[data-page="home"] .folder-decor{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-body[data-page="home"] .folder-artwork{position:absolute;left:17%;top:28%;width:66%;height:42%;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#fffefa,#e5f5fc);border:1px solid #f0deda}
-body[data-page="home"] .folder-artwork img{display:block;width:100%;height:100%;object-fit:contain}
-body[data-page="home"] .folder-empty{font-size:3rem;color:#b57b9c}
-body[data-page="home"] .folder-label{position:absolute;left:24%;right:15%;bottom:16%;display:grid;place-items:center;min-height:12%;padding:5px 7px;border-radius:8px;background:#f7bcb0;color:#493c50;font-weight:900;font-size:clamp(.75rem,1.25vw,1rem);line-height:1.2;overflow-wrap:anywhere}
+/* Featured scrapbook compositions: soft editorial layers, never outer cards. */
+body[data-page="home"] #projectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.5vw,34px);align-items:start}
+body[data-page="home"] #projectGrid .scrapbook-folder{position:relative;display:block;width:100%;aspect-ratio:300/365;padding:0;margin:0;border:0;border-radius:0;background:transparent!important;box-shadow:none!important;overflow:visible;text-align:center;isolation:isolate;transform:rotate(var(--folder-tilt,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s;filter:drop-shadow(0 13px 10px #815e6926)}
+body[data-page="home"] #projectGrid .scrapbook-folder:nth-child(3n+1){--folder-tilt:-2deg}
+body[data-page="home"] #projectGrid .scrapbook-folder:nth-child(3n+2){--folder-tilt:1.5deg}
+body[data-page="home"] #projectGrid .scrapbook-folder:nth-child(3n){--folder-tilt:-1deg}
+@media(hover:hover){body[data-page="home"] #projectGrid .scrapbook-folder:hover{transform:translateY(-12px) rotate(0deg) scale(1.025);filter:drop-shadow(0 20px 15px #815e6933)}}
+body[data-page="home"] #projectGrid .scrapbook-folder:active{transform:translateY(-3px) scale(.99)}
+body[data-page="home"] #projectGrid .scrapbook-folder:focus-visible{outline:3px solid var(--pomegranate,#c85555);outline-offset:5px}
+body[data-page="home"] .folder-decor{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+body[data-page="home"] .folder-artwork{position:absolute;left:19%;top:19%;width:63%;height:60%;display:grid;place-items:center;overflow:hidden;background:linear-gradient(150deg,#fffefa,#e5f5fc);border:5px solid #fffefa;box-shadow:0 5px 13px #493c5024;transform:rotate(-1.7deg);transition:transform .35s}
+@media(hover:hover){body[data-page="home"] .scrapbook-folder:hover .folder-artwork{transform:rotate(0deg) translateY(-3px)}}
+body[data-page="home"] .folder-artwork img{width:100%;height:100%;object-fit:contain;display:block}
+body[data-page="home"] .folder-empty{font-size:3.5rem;color:#b57b9c;opacity:.65}
+body[data-page="home"] .folder-label{position:absolute;left:23%;right:16%;bottom:10%;display:grid;place-items:center;min-height:11%;padding:7px 10px;background:#f7bcb0;color:#493c50;box-shadow:2px 4px 0 #e5a69f55;font-weight:900;font-size:clamp(.75rem,1.15vw,1rem);line-height:1.22;overflow-wrap:anywhere;transform:rotate(1deg)}
 @media(max-width:850px){body[data-page="home"] #projectGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){body[data-page="home"] #projectGrid{grid-template-columns:minmax(0,350px);justify-content:center;gap:15px}}
-@media(prefers-reduced-motion:reduce){body[data-page="home"] #projectGrid .scrapbook-folder{transition:none!important}body[data-page="home"] #projectGrid .scrapbook-folder:hover{transform:none!important}}
+@media(max-width:600px){body[data-page="home"] #projectGrid{grid-template-columns:minmax(0,355px);justify-content:center;gap:18px}body[data-page="home"] .folder-label{font-size:clamp(.9rem,4vw,1.05rem)}}
+@media(prefers-reduced-motion:reduce){body[data-page="home"] #projectGrid .scrapbook-folder,body[data-page="home"] .folder-artwork{transition:none!important}body[data-page="home"] #projectGrid .scrapbook-folder:hover{transform:rotate(var(--folder-tilt,0deg))!important}}
 </style>
 </head>
 <body data-page="home">
@@ -508,7 +513,20 @@ function renderProjects(){
   const i=projects.indexOf(p);
   const artwork=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
   return `<button class="project scrapbook-folder" type="button" data-index="${i}" aria-label="Open ${esc(p.title)} project details">
-   <svg class="folder-decor" viewBox="0 0 300 360" aria-hidden="true" focusable="false"><path d="M36 39 L265 23 L276 322 L47 336 Z" fill="#e5f5fc" stroke="#d6b6ce" stroke-width="2"/><path d="M23 63 L92 63 L106 73 L276 73 L276 331 L23 331 Z" fill="#fff9f4" stroke="#c85555" stroke-width="2"/><path d="M23 73 Q32 85 41 73 Q50 85 59 73 Q68 85 77 73 Q86 85 95 73 Q104 85 113 73 Q122 85 131 73 Q140 85 149 73 Q158 85 167 73 Q176 85 185 73 Q194 85 203 73 Q212 85 221 73 Q230 85 239 73 Q248 85 257 73 L276 73" fill="none" stroke="#f7bcb0" stroke-width="4"/><path d="M23 319 Q33 308 43 319 Q53 308 63 319 Q73 308 83 319 Q93 308 103 319 Q113 308 123 319 Q133 308 143 319 Q153 308 163 319 Q173 308 183 319 Q193 308 203 319 Q213 308 223 319 Q233 308 243 319 Q253 308 263 319 L276 319" fill="none" stroke="#f7bcb0" stroke-width="4"/><rect x="34" y="86" width="230" height="223" fill="none" stroke="#e5b7c5" stroke-dasharray="4 5" stroke-width="1.6"/><path d="M64 39 C49 25 38 47 52 57 L68 67 C83 77 93 52 75 42 L60 33 C48 27 42 41 54 49 L68 57" fill="none" stroke="#a8a4c9" stroke-width="5" stroke-linecap="round"/><g transform="translate(34 274)" fill="#f7bcb0" stroke="#c85555" stroke-width="2"><path d="M7 21 Q-1 -5 9 -6 Q18 -7 20 14 Q27 -6 36 -3 Q46 2 32 24 Q45 47 19 48 Q-2 47 7 21Z"/><circle cx="14" cy="29" r="1.8" fill="#493c50" stroke="none"/><circle cx="27" cy="29" r="1.8" fill="#493c50" stroke="none"/></g><g transform="translate(222 278)" stroke="#76697b" stroke-width="2"><path d="M0 22 L21 3 L25 7 L5 27 Z" fill="#f7bcb0"/><path d="M17 35 L49 35 L49 47 L17 47 Z" fill="#aadcf2"/><path d="M22 29 L54 29 L54 38 L22 38 Z" fill="#fff9f4"/></g></svg>
+   <svg class="folder-decor" viewBox="0 0 300 365" aria-hidden="true" focusable="false">
+<defs><pattern id="folder-grid" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M13 0H0V13" fill="none" stroke="#d9d4e4" stroke-width=".65" opacity=".45"/></pattern><filter id="paper-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter></defs>
+<path d="M42 49L256 26L281 324L58 345Z" fill="#aadcf2" opacity=".52"/>
+<path d="M42 49L256 26L281 324L58 345Z" fill="url(#folder-grid)" opacity=".8"/>
+<path d="M28 62Q37 57 48 60L93 55Q104 57 110 66L270 61Q277 66 274 76L278 320Q272 331 260 328L39 338Q26 337 25 325L24 76Q22 67 28 62Z" fill="#fff9f4" stroke="#f7bcb0" stroke-width="2.4"/>
+<path d="M28 62Q37 57 48 60L93 55Q104 57 110 66L270 61Q277 66 274 76L278 320Q272 331 260 328L39 338Q26 337 25 325L24 76Q22 67 28 62Z" fill="url(#folder-grid)" opacity=".38"/>
+<path d="M29 84Q40 94 50 84T72 84T94 84T116 84T138 84T160 84T182 84T204 84T226 84T248 84T272 84" fill="none" stroke="#f7bcb0" stroke-width="5" stroke-linecap="round"/>
+<path d="M32 317Q44 306 55 317T78 317T101 317T124 317T147 317T170 317T193 317T216 317T239 317T270 317" fill="none" stroke="#f7bcb0" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M37 96L262 92L264 307L38 322Z" fill="none" stroke="#d5a0ad" stroke-width="1.5" stroke-dasharray="3 7" opacity=".7"/>
+<path d="M66 49C49 34 40 51 53 62L73 76C88 87 101 65 82 53L61 39C48 31 40 44 52 53L70 66" fill="none" stroke="#9e9cbd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(27 282) rotate(-10 20 24)"><path d="M7 21C-2 1 4 -7 12 -4C19 -1 20 15 21 17C27 -6 37 -7 41 0C44 9 33 20 32 24C47 41 35 55 20 54C4 54 -5 42 7 21Z" fill="#fff9f4" stroke="#c85555" stroke-width="2.6"/><ellipse cx="20" cy="38" rx="16" ry="12" fill="#f7bcb0" opacity=".75"/><circle cx="14" cy="33" r="1.8" fill="#493c50"/><circle cx="27" cy="33" r="1.8" fill="#493c50"/><path d="M19 39q2 3 4 0" stroke="#493c50" stroke-width="1.3" fill="none"/><circle cx="9" cy="38" r="3" fill="#f2a0a6"/><circle cx="31" cy="38" r="3" fill="#f2a0a6"/></g>
+<g transform="translate(226 278) rotate(8 20 20)"><path d="M3 32L29 3L35 9L9 38L1 40Z" fill="#f7bcb0" stroke="#c85555" stroke-width="1.6"/><path d="M3 32L9 38L1 40Z" fill="#eaa624"/><rect x="12" y="38" width="43" height="10" rx="1" fill="#aadcf2" stroke="#76697b" stroke-width="1.5"/><rect x="17" y="30" width="40" height="9" rx="1" fill="#fff9f4" stroke="#76697b" stroke-width="1.5"/><path d="M22 34H51" stroke="#f7bcb0" stroke-width="2"/></g>
+<path d="M248 53l3 8 9 1-7 6 2 8-7-4-7 4 2-8-7-6 9-1Z" fill="#eaa624" opacity=".75"/>
+</svg>
    <span class="folder-artwork">${artwork}</span>
    <span class="folder-label">${esc(p.title)}</span>
   </button>`;
