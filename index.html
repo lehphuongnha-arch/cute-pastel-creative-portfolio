@@ -431,7 +431,22 @@ body[data-dark=yes] .outline:hover{background:#765667;color:#fff}
  }
  header.nav .navin>.nav-actions .pill{display:none!important}
 }
-</style></head>
+</style><style>
+/* Scrapbook folders — isolated to the homepage Featured Projects grid. */
+body[data-page="home"] #projectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+body[data-page="home"] #projectGrid .scrapbook-folder{display:block;position:relative;width:100%;aspect-ratio:300/360;padding:0;margin:0;border:0;border-radius:0;background:transparent!important;box-shadow:none!important;overflow:visible;text-align:center;transform-origin:center 80%;transition:transform .22s ease,filter .22s ease;filter:drop-shadow(0 9px 9px #815e6920);isolation:isolate}
+body[data-page="home"] #projectGrid .scrapbook-folder:hover{transform:translateY(-7px) rotate(-1deg);filter:drop-shadow(0 16px 12px #815e6930)}
+body[data-page="home"] #projectGrid .scrapbook-folder:focus-visible{outline:3px solid var(--pomegranate,#c85555);outline-offset:2px}
+body[data-page="home"] .folder-decor{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+body[data-page="home"] .folder-artwork{position:absolute;left:17%;top:28%;width:66%;height:42%;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#fffefa,#e5f5fc);border:1px solid #f0deda}
+body[data-page="home"] .folder-artwork img{display:block;width:100%;height:100%;object-fit:contain}
+body[data-page="home"] .folder-empty{font-size:3rem;color:#b57b9c}
+body[data-page="home"] .folder-label{position:absolute;left:24%;right:15%;bottom:16%;display:grid;place-items:center;min-height:12%;padding:5px 7px;border-radius:8px;background:#f7bcb0;color:#493c50;font-weight:900;font-size:clamp(.75rem,1.25vw,1rem);line-height:1.2;overflow-wrap:anywhere}
+@media(max-width:850px){body[data-page="home"] #projectGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){body[data-page="home"] #projectGrid{grid-template-columns:minmax(0,350px);justify-content:center;gap:15px}}
+@media(prefers-reduced-motion:reduce){body[data-page="home"] #projectGrid .scrapbook-folder{transition:none!important}body[data-page="home"] #projectGrid .scrapbook-folder:hover{transform:none!important}}
+</style>
+</head>
 <body data-page="home">
 <header class="nav"><div class="wrap navin">
 <a class="brand" href="index.html"><img alt="Nha Le Graphic Design logo" class="brand-logo" src="assets/logo-original.png"/></a>
@@ -489,10 +504,14 @@ function renderFilters(){
 }
 function renderProjects(){
  const visible=projects.filter(p=>(document.body.dataset.page!=="home"||p.featured===true)&&(activeCategory==="All"||p.category===activeCategory)).slice(0,document.body.dataset.page==="home"?3:undefined);
- $("#projectGrid").innerHTML=visible.length?visible.map((p)=>{
- const i=projects.indexOf(p);
- const img=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} cover image" loading="lazy">`:`<div class="project-placeholder"><span>✿</span><small>Project image coming soon</small></div>`;
- return `<button class="project" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><div class="project-art">${img}</div><div class="project-info"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.year||"")} · ${esc(p.tools||"")}</p><div class="view">View project <span>↗</span></div></div></button>`;
+ $("#projectGrid").innerHTML=visible.length?visible.map(p=>{
+  const i=projects.indexOf(p);
+  const artwork=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
+  return `<button class="project scrapbook-folder" type="button" data-index="${i}" aria-label="Open ${esc(p.title)} project details">
+   <svg class="folder-decor" viewBox="0 0 300 360" aria-hidden="true" focusable="false"><path d="M36 39 L265 23 L276 322 L47 336 Z" fill="#e5f5fc" stroke="#d6b6ce" stroke-width="2"/><path d="M23 63 L92 63 L106 73 L276 73 L276 331 L23 331 Z" fill="#fff9f4" stroke="#c85555" stroke-width="2"/><path d="M23 73 Q32 85 41 73 Q50 85 59 73 Q68 85 77 73 Q86 85 95 73 Q104 85 113 73 Q122 85 131 73 Q140 85 149 73 Q158 85 167 73 Q176 85 185 73 Q194 85 203 73 Q212 85 221 73 Q230 85 239 73 Q248 85 257 73 L276 73" fill="none" stroke="#f7bcb0" stroke-width="4"/><path d="M23 319 Q33 308 43 319 Q53 308 63 319 Q73 308 83 319 Q93 308 103 319 Q113 308 123 319 Q133 308 143 319 Q153 308 163 319 Q173 308 183 319 Q193 308 203 319 Q213 308 223 319 Q233 308 243 319 Q253 308 263 319 L276 319" fill="none" stroke="#f7bcb0" stroke-width="4"/><rect x="34" y="86" width="230" height="223" fill="none" stroke="#e5b7c5" stroke-dasharray="4 5" stroke-width="1.6"/><path d="M64 39 C49 25 38 47 52 57 L68 67 C83 77 93 52 75 42 L60 33 C48 27 42 41 54 49 L68 57" fill="none" stroke="#a8a4c9" stroke-width="5" stroke-linecap="round"/><g transform="translate(34 274)" fill="#f7bcb0" stroke="#c85555" stroke-width="2"><path d="M7 21 Q-1 -5 9 -6 Q18 -7 20 14 Q27 -6 36 -3 Q46 2 32 24 Q45 47 19 48 Q-2 47 7 21Z"/><circle cx="14" cy="29" r="1.8" fill="#493c50" stroke="none"/><circle cx="27" cy="29" r="1.8" fill="#493c50" stroke="none"/></g><g transform="translate(222 278)" stroke="#76697b" stroke-width="2"><path d="M0 22 L21 3 L25 7 L5 27 Z" fill="#f7bcb0"/><path d="M17 35 L49 35 L49 47 L17 47 Z" fill="#aadcf2"/><path d="M22 29 L54 29 L54 38 L22 38 Z" fill="#fff9f4"/></g></svg>
+   <span class="folder-artwork">${artwork}</span>
+   <span class="folder-label">${esc(p.title)}</span>
+  </button>`;
  }).join(""):'<p>No projects in this category yet.</p>';
  document.querySelectorAll(".project").forEach(card=>card.addEventListener("click",()=>openProject(projects[Number(card.dataset.index)],card)));
 }
