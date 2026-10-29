@@ -42,6 +42,23 @@ h1{font-family:Georgia,serif;font-size:clamp(2.6rem,6vw,5rem);line-height:1.06;m
 .grid .item:hover,.grid .item:focus-visible{transform:translateY(-8px) rotate(0deg)}
 @media(max-width:540px){.grid .item{max-width:360px;width:100%;margin:auto}}
 @media(prefers-reduced-motion:reduce){.grid .item{transition:none!important}}
+</style><style>
+/* Match the layered, stitched Featured Projects scrapbook folders. */
+.grid{gap:clamp(22px,3vw,38px);align-items:start}
+.grid .item{position:relative;display:block;padding:36px 12px 24px!important;transform:rotate(-1.5deg);isolation:isolate}
+.grid .item::before{content:"";position:absolute;inset:28px 5px 9px;background:#fff9f4;border:1px dashed #eebfc8;box-shadow:10px -13px 0 #e5f5fc,12px -14px 0 1px #d4c2d7,0 14px 22px #493c5014;z-index:-1;transform:rotate(1.5deg);clip-path:polygon(0 3%,100% 0,100% 96%,97% 100%,94% 96%,91% 100%,88% 96%,85% 100%,82% 96%,79% 100%,76% 96%,73% 100%,70% 96%,67% 100%,64% 96%,61% 100%,58% 96%,55% 100%,52% 96%,49% 100%,46% 96%,43% 100%,40% 96%,37% 100%,34% 96%,31% 100%,28% 96%,25% 100%,22% 96%,19% 100%,16% 96%,13% 100%,10% 96%,7% 100%,4% 96%,0 100%)}
+.grid .item::after{top:17px;left:34%;width:105px;height:23px;background:repeating-linear-gradient(90deg,#f7bcb0 0 13px,#fff9f4 13px 24px,#aadcf2 24px 36px);transform:rotate(-7deg)}
+.grid .item .photo{aspect-ratio:4/4;display:grid;place-items:center;border:10px solid white;overflow:hidden;background:linear-gradient(135deg,#fffaf6,#e5f5fc);box-shadow:0 5px 13px #493c5018;transform:rotate(-2deg)}
+.grid .item .photo::after{top:-34px;left:-18px;z-index:3}
+.grid .item .name{display:block;margin:13px 0 0;padding:12px 8px;min-height:52px;text-align:center;background:#f7bcb0;font-weight:900;box-shadow:3px 4px 0 #f3d2cc;transform:rotate(1deg)}
+.grid .item .meta{margin:7px 0 0;text-align:center}
+.grid .item:hover,.grid .item:focus-visible{transform:translateY(-7px) rotate(0)}
+/* Same gingham washi-tape navigation as the case study page. */
+.collection-bottom a{position:relative;min-height:72px;min-width:175px;padding:18px 29px;background:#f7bcb0;border:0;border-radius:0;box-shadow:4px 7px 0 #e9c7c0;clip-path:polygon(0 17%,7% 7%,21% 11%,34% 2%,49% 9%,64% 0,79% 9%,92% 5%,100% 24%,96% 51%,100% 78%,87% 95%,68% 90%,51% 100%,32% 91%,15% 97%,3% 82%,7% 60%);transform:rotate(-4deg)}
+.collection-bottom a::before{content:"";position:absolute;top:3px;left:14px;right:14px;height:15px;background:repeating-linear-gradient(90deg,#fff9f4 0 12px,#f7bcb0 12px 24px);opacity:.82;transform:rotate(2deg);pointer-events:none}
+.collection-bottom a:hover{transform:translateY(-4px) rotate(0)}
+@media(max-width:540px){.grid .item{width:100%;max-width:380px}}
+@media(prefers-reduced-motion:reduce){.grid .item,.collection-bottom a{transition:none}}
 </style></head><body><main style="position:relative"><div class="scrapbook-stickers" aria-hidden="true"><img src="assets/stickers/flower-paperclip.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/stationery-clips.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/kraft-notebook.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/stacked-books.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/open-journal.png" alt="" onerror="this.hidden=true"></div><header><span class="journal-tape" aria-hidden="true"></span><div>✿ PROJECT COLLECTION</div><h1 id="title">Projects</h1><p id="intro">Explore the projects in this collection, then open a creative notebook case study.</p></header><div id="grid" class="grid"></div><p id="note" class="note"></p><nav class="collection-bottom"><a data-go-back href="works.html">← Go Back</a></nav></main>
 <script>
 const slug=s=>String(s||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
