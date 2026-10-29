@@ -492,7 +492,7 @@ function renderProjects(){
  const artwork=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
  return `<button class="project scrapbook-folder" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><span class="folder-paper" aria-hidden="true"></span><span class="folder-artwork">${artwork}</span><span class="folder-label">${esc(p.title)}</span><span class="folder-clip" aria-hidden="true">📎</span><span class="folder-sticker" aria-hidden="true">🐰</span><span class="folder-spark" aria-hidden="true">✎</span></button>`;
  }).join(""):'<p>No projects in this category yet.</p>';
- document.querySelectorAll(".project").forEach(card=>card.addEventListener("click",()=>{const p=projects[Number(card.dataset.index)];if(!p)return;const slug=String(p.title||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");window.location.href="project-story.html?project="+encodeURIComponent(slug);}));
+ document.querySelectorAll(".project").forEach(card=>card.addEventListener("click",()=>{const p=projects[Number(card.dataset.index)];if(!p)return;const slug=String(p.title||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");window.location.href="project-collection.html?project="+encodeURIComponent(slug);}));
 }
 function openProject(p,button){
  lastFocus=button;
