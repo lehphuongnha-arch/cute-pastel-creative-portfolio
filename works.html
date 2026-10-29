@@ -476,7 +476,7 @@ background:var(--back-default)!important;color:var(--back-ink)!important;border:
 /* Keep the original desktop colors and scrapbook design; move Back out of the artwork. */
 .go-back{position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;margin:22px max(20px,calc((100vw - 1120px)/2)) 48px!important;z-index:2!important}
 @media(max-width:760px){.go-back{margin:20px 4% 38px!important}}
-</style></head>
+</style><style id="fix-back-placement">.go-back{position:static!important;bottom:auto!important;left:auto!important;margin:26px 0 0!important}@media(max-width:760px){.go-back{margin:24px 0!important}}</style></head>
 <body data-page="works">
 <header class="nav"><div class="wrap navin">
 <a class="brand" href="index.html"><img alt="Nha Le Graphic Design logo" class="brand-logo" src="assets/logo-original.png"/></a>
@@ -491,7 +491,7 @@ background:var(--back-default)!important;color:var(--back-ink)!important;border:
 
 <section class="page-intro"><div class="wrap"><div class="kicker">A little collection of ideas</div><h1>All My <span>Works.</span></h1><p>Explore book covers, branding, print, digital design and visual campaigns. Select any project to view details.</p></div></section><section class="section pink" id="works"><div class="wrap"><div class="section-head"><div><div class="kicker">Browse by category</div><p>Choose a category or open a project to see more.</p></div></div>
 <div aria-label="Filter projects" class="filters" role="group"></div>
-<div class="projects" id="projectGrid"><p class="project-loading">Loading your projects…</p></div></div></section></main>
+<div class="projects" id="projectGrid"><p class="project-loading">Loading your projects…</p></div></div><button class="go-back" id="goBack" type="button" aria-label="Go back to previous page">← Back</button></section></main>
 <footer class="footer"><div class="wrap footerin"><span>© <span id="year"></span> Nha Le · Made with care ♡</span><span><a href="index.html">Back to top ↑</a> · <a href="works.html">Works</a> · <a href="contact.html">Contact</a></span></div></footer>
 <div aria-labelledby="modalTitle" aria-modal="true" class="modal" id="projectModal" role="dialog"><div class="modal-card"><button aria-label="Close project details" class="close" id="closeModal">×</button><div class="modal-visual" id="modalVisual">✿</div><span class="tag" id="modalTag">Project</span><h2 id="modalTitle">Project title</h2><strong id="modalType">Project type</strong><p id="modalDescription"></p><div class="modal-gallery" id="modalGallery"></div><button class="pill" id="modalDone">Lovely, got it ♡</button></div></div>
 <div class="toast" id="toast" role="status">Copied!</div>
@@ -605,7 +605,7 @@ document.getElementById('inquiryCopy').addEventListener('click',async()=>{if(!fo
 </script><script>
 // v9 accessible responsive menu
 (()=>{return;const menu=document.getElementById('mobileOverlay'),open=document.getElementById('mobileMenuButton'),close=document.getElementById('mobileClose');if(!menu||!open||!close)return;let previous=null;function toggle(yes){if(yes){previous=document.activeElement;menu.classList.add('is-open');menu.setAttribute('aria-hidden','false');open.setAttribute('aria-expanded','true');document.body.classList.add('menu-open');open.textContent='×';open.setAttribute('aria-label','Close navigation menu');open.focus()}else{menu.classList.remove('is-open');menu.setAttribute('aria-hidden','true');open.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');open.textContent='☰';open.setAttribute('aria-label','Open navigation menu');previous?.focus()}}open.addEventListener('click',()=>toggle(!menu.classList.contains('is-open')));close.addEventListener('click',()=>toggle(false));document.addEventListener('pointerdown',e=>{if(menu.classList.contains('is-open')&&!menu.contains(e.target)&&!open.contains(e.target))toggle(false)});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggle(false)));document.addEventListener('keydown',e=>{if(!menu.classList.contains('is-open'))return;if(e.key==='Escape'){e.preventDefault();toggle(false)}if(e.key==='Tab'){const focusable=[...menu.querySelectorAll('a,button')];let i=focusable.indexOf(document.activeElement);if(e.shiftKey&&i===0){e.preventDefault();focusable.at(-1).focus()}else if(!e.shiftKey&&i===focusable.length-1){e.preventDefault();focusable[0].focus()}}});window.addEventListener('resize',()=>{if(innerWidth>=1200&&menu.classList.contains('is-open'))toggle(false)})})();
-</script><button class="go-back" id="goBack" type="button" aria-label="Go back to previous page">← Back</button><script>document.getElementById("goBack")?.addEventListener("click",()=>{if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){history.back()}else{location.href="index.html"}});</script>
+</script><script>document.getElementById("goBack")?.addEventListener("click",()=>{if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){history.back()}else{location.href="index.html"}});</script>
 <script>
 /* v15.1 single menu controller: keeps open on outside tap; smart scroll navigation */
 (()=>{
