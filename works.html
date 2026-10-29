@@ -451,6 +451,16 @@ body[data-dark=yes] .outline:hover{background:#765667;color:#fff}
 @media(max-width:850px){#projectGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){#projectGrid{grid-template-columns:minmax(0,360px);justify-content:center;gap:24px}#projectGrid .folder-label{font-size:1rem}}
 @media(prefers-reduced-motion:reduce){#projectGrid .scrapbook-folder,#projectGrid .folder-artwork{transition:none!important}#projectGrid .scrapbook-folder:hover{transform:rotate(var(--angle))}}
+</style><style>
+/* User-provided paper-cut stationery stickers. Images gracefully hide until assets are uploaded. */
+.scrapbook-stickers{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:visible}
+.scrapbook-stickers img{position:absolute;width:clamp(48px,7vw,92px);height:auto;object-fit:contain;filter:drop-shadow(0 4px 5px #493c501c);opacity:.95}
+.scrapbook-stickers img:nth-child(1){top:7%;right:2%;transform:rotate(13deg)}
+.scrapbook-stickers img:nth-child(2){top:43%;left:-4%;transform:rotate(-12deg);width:clamp(44px,6vw,75px)}
+.scrapbook-stickers img:nth-child(3){bottom:2%;right:5%;transform:rotate(9deg)}
+.scrapbook-stickers img:nth-child(4){bottom:13%;left:2%;transform:rotate(-7deg)}
+.scrapbook-stickers img:nth-child(5){top:22%;right:-3%;transform:rotate(8deg)}
+@media(max-width:650px){.scrapbook-stickers img{width:45px!important;opacity:.8}.scrapbook-stickers img:nth-child(2),.scrapbook-stickers img:nth-child(4){display:none}}
 </style></head>
 <body data-page="works">
 <header class="nav"><div class="wrap navin">
@@ -609,5 +619,5 @@ document.getElementById('inquiryCopy').addEventListener('click',async()=>{if(!fo
  window.addEventListener('resize',()=>{if(innerWidth>=1200)toggle(false)});
 })();
 </script>
-</body>
+<div class="scrapbook-stickers" style="position:fixed;z-index:1" aria-hidden="true"><img src="assets/stickers/flower-paperclip.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/stationery-clips.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/kraft-notebook.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/stacked-books.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/open-journal.png" alt="" onerror="this.hidden=true"></div></body>
 </html>
