@@ -437,6 +437,17 @@ body[data-dark=yes] .outline:hover{background:#765667;color:#fff}
  }
  header.nav .navin>.nav-actions .pill{display:none!important}
 }
+</style><style id="scrapbook-navigation-unified">
+:root{--back-default:#f7d5cf;--back-hover:#f7bcb0;--back-active:#edaaa0;--back-disabled:#f3f0ee;--back-ink:#493c50}
+header.nav{position:sticky!important;top:0!important;z-index:1100!important}
+.journal-site-nav{position:sticky!important;top:0!important;z-index:1100!important}
+.go-back,.collection-bottom a[data-go-back],.page .bottom.journal-nav a[data-go-back]{
+background:var(--back-default)!important;color:var(--back-ink)!important;border:1px solid #f3c7c0!important;border-radius:999px!important;clip-path:none!important;transform:none!important;box-shadow:0 7px 18px #493c5018!important;min-height:46px!important;min-width:0!important;padding:12px 20px!important;font-weight:700!important;text-decoration:none!important;transition:background .18s,transform .18s,box-shadow .18s!important}
+.go-back:hover:not(:disabled),.collection-bottom a[data-go-back]:hover:not([aria-disabled="true"]),.page .bottom.journal-nav a[data-go-back]:hover:not([aria-disabled="true"]){background:var(--back-hover)!important;transform:translateY(-3px)!important;box-shadow:0 10px 20px #493c5024!important}
+.go-back:active:not(:disabled),.collection-bottom a[data-go-back]:active:not([aria-disabled="true"]),.page .bottom.journal-nav a[data-go-back]:active:not([aria-disabled="true"]){background:var(--back-active)!important;transform:translateY(1px)!important;box-shadow:0 3px 8px #493c5018!important}
+.go-back:disabled,.go-back[aria-disabled="true"],.collection-bottom a[data-go-back][aria-disabled="true"],.page .bottom.journal-nav a[data-go-back][aria-disabled="true"]{background:var(--back-disabled)!important;color:#aaa3a9!important;opacity:.55!important;box-shadow:none!important;transform:none!important;pointer-events:none!important;cursor:not-allowed!important}
+.go-back:focus-visible,.collection-bottom a[data-go-back]:focus-visible,.page .bottom.journal-nav a[data-go-back]:focus-visible{outline:3px solid #c85555!important;outline-offset:4px!important}
+@media(prefers-reduced-motion:reduce){.go-back,.collection-bottom a[data-go-back],.page .bottom.journal-nav a[data-go-back]{transition:none!important}}
 </style></head>
 <body data-page="contact">
 <header class="nav"><div class="wrap navin">
