@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Project Collection — Nha Le</title>
+<style>
+:root{--cream:#fff9f4;--pink:#f7bcb0;--blue:#aadcf2;--ink:#493c50;--rose:#c85555}
+*{box-sizing:border-box}body{margin:0;background:#fff4ee;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+main{max-width:1100px;margin:28px auto;padding:clamp(20px,4vw,50px);background:var(--cream);min-height:85vh;box-shadow:0 14px 45px #493c5018;background-image:linear-gradient(#aadcf21c 1px,transparent 1px);background-size:100% 28px}
+a{color:inherit}.back{color:var(--rose);font-weight:800;text-decoration:none}header{margin:32px 0 42px;position:relative}header:after{content:"✿  creative collection  ♡";display:block;margin-top:14px;color:var(--rose);font-size:.8rem;letter-spacing:.12em}
+h1{font-family:Georgia,serif;font-size:clamp(2.6rem,6vw,5rem);line-height:1.06;margin:12px 0;color:#784650}p{line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}.item{display:block;text-decoration:none;transform:rotate(-1.5deg);transition:transform .2s ease}.item:nth-child(even){transform:rotate(1.5deg)}.item:hover,.item:focus-visible{transform:translateY(-7px) rotate(0)}.item:focus-visible{outline:3px solid var(--rose);outline-offset:5px}.photo{aspect-ratio:4/3;display:grid;place-items:center;background:linear-gradient(140deg,#e5f5fc,#fff9f4);border:12px solid white;box-shadow:0 7px 18px #493c5024;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}.empty{font-size:3.3rem;color:#b87d99}.name{display:block;margin:14px 6px 4px;font-weight:900;font-size:1.1rem}.meta{margin:0 6px;color:#76697b;font-size:.87rem}.note{margin-top:35px;color:#76697b;font-size:.85rem}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:540px){.grid{grid-template-columns:1fr;max-width:380px;margin:auto}}
+@media(prefers-reduced-motion:reduce){.item{transition:none}}
+</style><style>
+/* Hand-drawn bunny art and patterned washi — decorative, never an icon font */
+.journal-bunny{position:absolute;right:9%;top:0;width:84px;height:84px;z-index:4;transform:rotate(12deg);pointer-events:none;filter:drop-shadow(0 5px 4px #493c5020)}
+.journal-bunny .bunny-art{display:block;width:100%;height:100%}
+.journal-tape{position:absolute;left:29%;top:-12px;width:120px;height:28px;z-index:3;transform:rotate(-9deg);opacity:.9;background:repeating-linear-gradient(90deg,#f7bcb0 0 13px,#fff9f4 13px 23px,#aadcf2 23px 35px);clip-path:polygon(0 0,100% 0,97% 50%,100% 100%,0 100%,3% 50%)}
+.journal-nav a{font-weight:900}
+@media(max-width:600px){.journal-bunny{width:62px;height:62px;right:5%}.journal-tape{width:85px}}
+</style><style>
+/* User-provided paper-cut stationery stickers. Images gracefully hide until assets are uploaded. */
+.scrapbook-stickers{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:visible}
+.scrapbook-stickers img{position:absolute;width:clamp(48px,7vw,92px);height:auto;object-fit:contain;filter:drop-shadow(0 4px 5px #493c501c);opacity:.95}
+.scrapbook-stickers img:nth-child(1){top:7%;right:2%;transform:rotate(13deg)}
+.scrapbook-stickers img:nth-child(2){top:43%;left:-4%;transform:rotate(-12deg);width:clamp(44px,6vw,75px)}
+.scrapbook-stickers img:nth-child(3){bottom:2%;right:5%;transform:rotate(9deg)}
+.scrapbook-stickers img:nth-child(4){bottom:13%;left:2%;transform:rotate(-7deg)}
+.scrapbook-stickers img:nth-child(5){top:22%;right:-3%;transform:rotate(8deg)}
+@media(max-width:650px){.scrapbook-stickers img{width:45px!important;opacity:.8}.scrapbook-stickers img:nth-child(2),.scrapbook-stickers img:nth-child(4){display:none}}
+</style><style>.collection-bottom{margin:40px 0 10px;display:flex;justify-content:flex-start}.collection-bottom a{display:inline-flex;align-items:center;justify-content:center;min-width:165px;min-height:70px;padding:15px 28px;background:#f7bcb0;color:#493c50;font-weight:900;text-decoration:none;border:3px solid #b76c7c;border-radius:54% 46% 48% 52% / 52% 49% 51% 48%;box-shadow:4px 7px 0 #e9c7c0;transform:rotate(-3deg)}.collection-bottom a:hover{transform:translateY(-4px) rotate(0deg)}.collection-bottom a:focus-visible{outline:3px solid #c85555;outline-offset:5px}</style><style>
+/* Scrapbook collection cards: clipped sheets with playful, unobtrusive stationery */
+.grid .item{position:relative;isolation:isolate;padding-top:46px!important}
+.grid .item::before{content:"";position:absolute;inset:30px 7px 12px;background:#fffaf6;border:1.5px solid #f1c7ca;box-shadow:10px -13px 0 #e5f5fc,12px -14px 0 1px #d4bbd5;z-index:-1;transform:rotate(1.3deg)}
+.grid .item::after{content:"";position:absolute;top:22px;left:37%;width:90px;height:24px;border:0;background:repeating-linear-gradient(90deg,#f7bcb0 0 14px,#fff9f4 14px 24px,#aadcf2 24px 37px);clip-path:polygon(0 0,100% 0,97% 50%,100% 100%,0 100%,3% 50%);transform:rotate(-8deg);opacity:.95;z-index:5;pointer-events:none}
+.grid .item:nth-child(3n+2)::after{background:repeating-linear-gradient(90deg,#aadcf2 0 13px,#fff9f4 13px 23px)}
+.grid .item:nth-child(3n+3)::after{background:repeating-linear-gradient(90deg,#f6d08a 0 13px,#fff9f4 13px 23px)}
+.grid .item .photo{position:relative;overflow:visible;border:8px solid #fff;background:linear-gradient(135deg,#e5f5fc,#fff9f4);box-shadow:0 6px 18px #493c5020}
+.grid .item .photo::after{content:"";position:absolute;top:-33px;left:-18px;width:35px;height:57px;border:5px solid #a4a3c9;border-radius:20px;transform:rotate(-32deg);box-shadow:inset 0 0 0 4px #fff9f4,0 3px 4px #493c5022;pointer-events:none}
+.grid .item:nth-child(3n+2) .photo::after{border-color:#d58fa6;transform:rotate(24deg);left:auto;right:-16px}
+.grid .item:nth-child(3n+3) .photo::after{border-color:#7ca8af;transform:rotate(-18deg)}
+.grid .item .name{position:relative;display:block;background:#f7bcb0;color:#493c50;padding:10px 12px;margin:12px 0 0;text-align:center;box-shadow:3px 4px 0 #f0d4d2}
+.grid .item .meta{position:relative;text-align:center;margin:8px 0 0}
+.grid .item:hover,.grid .item:focus-visible{transform:translateY(-8px) rotate(0deg)}
+@media(max-width:540px){.grid .item{max-width:360px;width:100%;margin:auto}}
+@media(prefers-reduced-motion:reduce){.grid .item{transition:none!important}}
+</style><style>
+/* Match the layered, stitched Featured Projects scrapbook folders. */
+.grid{gap:clamp(22px,3vw,38px);align-items:start}
+.grid .item{position:relative;display:block;padding:36px 12px 24px!important;transform:rotate(-1.5deg);isolation:isolate}
+.grid .item::before{content:"";position:absolute;inset:28px 5px 9px;background:#fff9f4;border:1px dashed #eebfc8;box-shadow:10px -13px 0 #e5f5fc,12px -14px 0 1px #d4c2d7,0 14px 22px #493c5014;z-index:-1;transform:rotate(1.5deg);clip-path:polygon(0 3%,100% 0,100% 96%,97% 100%,94% 96%,91% 100%,88% 96%,85% 100%,82% 96%,79% 100%,76% 96%,73% 100%,70% 96%,67% 100%,64% 96%,61% 100%,58% 96%,55% 100%,52% 96%,49% 100%,46% 96%,43% 100%,40% 96%,37% 100%,34% 96%,31% 100%,28% 96%,25% 100%,22% 96%,19% 100%,16% 96%,13% 100%,10% 96%,7% 100%,4% 96%,0 100%)}
+.grid .item::after{top:17px;left:34%;width:105px;height:23px;background:repeating-linear-gradient(90deg,#f7bcb0 0 13px,#fff9f4 13px 24px,#aadcf2 24px 36px);transform:rotate(-7deg)}
+.grid .item .photo{aspect-ratio:4/4;display:grid;place-items:center;border:10px solid white;overflow:hidden;background:linear-gradient(135deg,#fffaf6,#e5f5fc);box-shadow:0 5px 13px #493c5018;transform:rotate(-2deg)}
+.grid .item .photo::after{top:-34px;left:-18px;z-index:3}
+.grid .item .name{display:block;margin:13px 0 0;padding:12px 8px;min-height:52px;text-align:center;background:#f7bcb0;font-weight:900;box-shadow:3px 4px 0 #f3d2cc;transform:rotate(1deg)}
+.grid .item .meta{margin:7px 0 0;text-align:center}
+.grid .item:hover,.grid .item:focus-visible{transform:translateY(-7px) rotate(0)}
+/* Same gingham washi-tape navigation as the case study page. */
+.collection-bottom a{position:relative;min-height:72px;min-width:175px;padding:18px 29px;background:#f7bcb0;border:0;border-radius:0;box-shadow:4px 7px 0 #e9c7c0;clip-path:polygon(0 17%,7% 7%,21% 11%,34% 2%,49% 9%,64% 0,79% 9%,92% 5%,100% 24%,96% 51%,100% 78%,87% 95%,68% 90%,51% 100%,32% 91%,15% 97%,3% 82%,7% 60%);transform:rotate(-4deg)}
+.collection-bottom a::before{content:"";position:absolute;top:3px;left:14px;right:14px;height:15px;background:repeating-linear-gradient(90deg,#fff9f4 0 12px,#f7bcb0 12px 24px);opacity:.82;transform:rotate(2deg);pointer-events:none}
+.collection-bottom a:hover{transform:translateY(-4px) rotate(0)}
+@media(max-width:540px){.grid .item{width:100%;max-width:380px}}
+@media(prefers-reduced-motion:reduce){.grid .item,.collection-bottom a{transition:none}}
+</style><style>
+/* Match Featured Projects folder silhouettes on collection pages */
+/* Scrapbook project silhouettes — isolated to project grids. */
+.collection-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,3vw,42px);align-items:start}
+.collection-grid .item.scrapbook-folder{--angle:-2deg;position:relative;display:block;aspect-ratio:4/5;width:100%;padding:0;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible;isolation:isolate;text-align:left;cursor:pointer;transform:rotate(var(--angle));filter:drop-shadow(0 12px 11px #67445420);transition:transform .35s ease,filter .35s ease}
+.collection-grid .scrapbook-folder:nth-child(3n+2){--angle:1.5deg}.collection-grid .scrapbook-folder:nth-child(3n){--angle:-1deg}
+.collection-grid .scrapbook-folder::before{content:"";position:absolute;inset:4% 3% 4% 7%;z-index:-2;background:#e5f5fc;border:2px solid #d6c1d4;transform:rotate(5deg);clip-path:polygon(0 0,100% 0,100% 96%,96% 100%,0 100%);box-shadow:0 8px 18px #493c501c}
+.collection-grid .folder-paper{position:absolute;inset:6% 5% 3% 4%;background:#fff9f4;border:1px solid #f7bcb0;clip-path:polygon(0 1%,4% 0,8% 1%,12% 0,16% 1%,20% 0,24% 1%,28% 0,32% 1%,36% 0,40% 1%,44% 0,48% 1%,52% 0,56% 1%,60% 0,64% 1%,68% 0,72% 1%,76% 0,80% 1%,84% 0,88% 1%,92% 0,96% 1%,100% 0,100% 98%,96% 100%,92% 98%,88% 100%,84% 98%,80% 100%,76% 98%,72% 100%,68% 98%,64% 100%,60% 98%,56% 100%,52% 98%,48% 100%,44% 98%,40% 100%,36% 98%,32% 100%,28% 98%,24% 100%,20% 98%,16% 100%,12% 98%,8% 100%,4% 98%,0 100%);box-shadow:0 9px 25px #68495823}
+.collection-grid .folder-paper::after{content:"";position:absolute;inset:12px;border:1px dashed #e6abb7;pointer-events:none}
+.collection-grid .folder-artwork{position:absolute;inset:14% 13% 22% 13%;width:auto;height:auto;display:grid;place-items:center;background:linear-gradient(130deg,#fffaf8,#e5f5fc);border:7px solid #fff;box-shadow:0 8px 19px #493c5030;transform:rotate(-2deg);overflow:hidden;transition:transform .35s ease}
+.collection-grid .folder-artwork img{width:100%;height:100%;display:block;object-fit:cover}
+.collection-grid .folder-empty{font-size:3rem;color:#c98da7;opacity:.65}
+.collection-grid .folder-label{position:absolute;left:17%;right:8%;bottom:8%;min-height:11%;padding:10px 12px;display:grid;place-items:center;background:#f7bcb0;color:#493c50;font-size:clamp(.78rem,1.15vw,1rem);font-weight:800;line-height:1.25;text-align:center;box-shadow:3px 4px 0 #dba6a36e;transform:rotate(2deg);overflow-wrap:anywhere}
+.collection-grid .folder-clip{position:absolute;left:8%;top:1%;z-index:3;font-size:clamp(27px,3.8vw,47px);line-height:1;transform:rotate(-30deg);filter:drop-shadow(1px 2px 1px #493c5030)}
+.collection-grid .folder-sticker{position:absolute;left:0;bottom:5%;z-index:3;font-size:clamp(26px,3.6vw,45px);transform:rotate(-14deg);filter:drop-shadow(2px 3px 1px #493c5025)}
+.collection-grid .folder-spark{position:absolute;right:0;bottom:2%;z-index:3;font-size:clamp(22px,2.7vw,34px);transform:rotate(18deg)}
+@media(hover:hover){.collection-grid .scrapbook-folder:hover{transform:translateY(-12px) rotate(0deg) scale(1.02);filter:drop-shadow(0 20px 18px #67445432)}.collection-grid .scrapbook-folder:hover .folder-artwork{transform:rotate(0deg) translateY(-4px)}}
+.collection-grid .scrapbook-folder:focus-visible{outline:3px solid #c85555;outline-offset:6px}
+@media(max-width:850px){.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.collection-grid{grid-template-columns:minmax(0,360px);justify-content:center;gap:24px}.collection-grid .folder-label{font-size:1rem}}
+@media(prefers-reduced-motion:reduce){.collection-grid .scrapbook-folder,.collection-grid .folder-artwork{transition:none!important}.collection-grid .scrapbook-folder:hover{transform:rotate(var(--angle))}}
+
+.collection-grid .item.scrapbook-folder{display:block;text-decoration:none;aspect-ratio:4/5;padding:0!important;margin:0!important;transform:rotate(var(--angle));}
+.collection-grid .item.scrapbook-folder::after{content:none}
+.collection-grid .item.scrapbook-folder .folder-label{display:grid;margin:0}
+.collection-grid .item.scrapbook-folder .folder-artwork{overflow:hidden}
+.collection-grid .item.scrapbook-folder .folder-clip{font-family:system-ui}
+.collection-grid .item.scrapbook-folder .folder-meta{position:absolute;bottom:-23px;left:0;right:0;text-align:center;color:#76697b;font-size:.8rem}
+.collection-grid{margin-bottom:40px}
+.collection-bottom a{min-height:75px;min-width:175px;border:0!important;border-radius:0!important;background:#f7bcb0!important;clip-path:polygon(0 20%,7% 8%,22% 11%,33% 2%,48% 10%,62% 0,78% 10%,91% 5%,100% 24%,95% 51%,100% 76%,88% 94%,69% 90%,52% 100%,34% 91%,17% 97%,4% 82%,7% 60%)!important;box-shadow:4px 7px 0 #e6c9c5!important;transform:rotate(-4deg)}
+.collection-bottom a::before{content:"";position:absolute;top:5px;left:12px;right:12px;height:12px;background:repeating-linear-gradient(110deg,#fff9f4 0 10px,#ffffff40 10px 18px);opacity:.7}
+@media(max-width:850px){.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.collection-grid{grid-template-columns:minmax(0,360px);justify-content:center;gap:40px}.collection-grid .folder-label{font-size:1rem}}
+</style><style>
+/* Shared navigation-pill design: default, hover, disabled. */
+.collection-bottom a{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  min-width:0!important;min-height:46px!important;padding:12px 20px!important;
+  border:1px solid #f1ded8!important;border-radius:999px!important;
+  background:#fffdfa!important;color:#493c50!important;
+  box-shadow:0 7px 18px #493c5018!important;clip-path:none!important;
+  transform:none!important;text-decoration:none!important;font-weight:700!important;
+  font-size:.9rem!important;transition:background .2s,color .2s,transform .2s,box-shadow .2s!important
+}
+.collection-bottom a::before,.collection-bottom a::after{content:none!important;display:none!important}
+.collection-bottom a:hover{background:#f7d5cf!important;color:#713f4e!important;transform:translateY(-3px)!important;box-shadow:0 10px 20px #493c5024!important}
+.collection-bottom a:focus-visible{outline:3px solid #c85555!important;outline-offset:4px}
+.collection-bottom a:disabled,.collection-bottom a[aria-disabled="true"],.collection-bottom a.is-disabled{background:#f3f0ee!important;color:#aaa3a9!important;opacity:.55!important;box-shadow:none!important;transform:none!important;pointer-events:none!important;cursor:not-allowed!important}
+@media(prefers-reduced-motion:reduce){.collection-bottom a{transition:none!important}}
+</style><style>
+/* Consistent sticky portfolio navigation on collection and case study pages. */
+.journal-site-nav{position:sticky;top:0;z-index:1000;width:min(1200px,calc(100% - 24px));margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#fffdfaef;border:1px solid #f0dfd8;border-radius:0 0 28px 28px;box-shadow:0 8px 22px #493c5014;backdrop-filter:blur(12px)}
+.journal-site-brand img{width:48px;height:48px;object-fit:contain}
+.journal-site-nav nav{display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,26px);flex-wrap:wrap}
+.journal-site-nav a{text-decoration:none;color:#493c50;font-weight:700;font-size:.9rem}
+.journal-site-nav nav a:hover,.journal-site-nav nav a:focus-visible{color:#c85555;text-decoration:underline;text-underline-offset:5px}
+.journal-site-hello{flex-shrink:0;background:#c85555;color:white!important;border-radius:999px;padding:12px 18px}
+.journal-site-hello:hover{background:#a94348}
+@media(max-width:760px){.journal-site-nav{flex-wrap:wrap;justify-content:center;gap:8px;padding:10px}.journal-site-brand img{width:38px;height:38px}.journal-site-nav nav{order:3;width:100%;gap:10px 16px;padding-bottom:5px}.journal-site-nav nav a{font-size:.8rem}.journal-site-hello{padding:9px 13px;font-size:.8rem!important}}
+</style><style>.collection-bottom{justify-content:space-between!important;gap:12px;flex-wrap:wrap}.collection-bottom a:last-child{background:#e5f5fc!important;border-color:#c9e8f4!important}.collection-bottom a:last-child:hover{background:#ccebf7!important}</style><style>.collection-bottom a[data-go-back]{background:#f7d5cf!important;border-color:#f3c7c0!important;color:#493c50!important}.collection-bottom a[data-go-back]:hover{background:#f7bcb0!important}.collection-bottom a[data-go-back]:focus-visible{outline:3px solid #c85555!important;outline-offset:4px}</style><style id="scrapbook-navigation-unified">
+:root{--back-default:#f7d5cf;--back-hover:#f7bcb0;--back-active:#edaaa0;--back-disabled:#f3f0ee;--back-ink:#493c50}
+header.nav{position:sticky!important;top:0!important;z-index:1100!important}
+.journal-site-nav{position:sticky!important;top:0!important;z-index:1100!important}
+.go-back,.collection-bottom a[data-go-back],.page .bottom.journal-nav a[data-go-back]{
+background:var(--back-default)!important;color:var(--back-ink)!important;border:1px solid #f3c7c0!important;border-radius:999px!important;clip-path:none!important;transform:none!important;box-shadow:0 7px 18px #493c5018!important;min-height:46px!important;min-width:0!important;padding:12px 20px!important;font-weight:700!important;text-decoration:none!important;transition:background .18s,transform .18s,box-shadow .18s!important}
+.go-back:hover:not(:disabled),.collection-bottom a[data-go-back]:hover:not([aria-disabled="true"]),.page .bottom.journal-nav a[data-go-back]:hover:not([aria-disabled="true"]){background:var(--back-hover)!important;transform:translateY(-3px)!important;box-shadow:0 10px 20px #493c5024!important}
+.go-back:active:not(:disabled),.collection-bottom a[data-go-back]:active:not([aria-disabled="true"]),.page .bottom.journal-nav a[data-go-back]:active:not([aria-disabled="true"]){background:var(--back-active)!important;transform:translateY(1px)!important;box-shadow:0 3px 8px #493c5018!important}
+.go-back:disabled,.go-back[aria-disabled="true"],.collection-bottom a[data-go-back][aria-disabled="true"],.page .bottom.journal-nav a[data-go-back][aria-disabled="true"]{background:var(--back-disabled)!important;color:#aaa3a9!important;opacity:.55!important;box-shadow:none!important;transform:none!important;pointer-events:none!important;cursor:not-allowed!important}
+.go-back:focus-visible,.collection-bottom a[data-go-back]:focus-visible,.page .bottom.journal-nav a[data-go-back]:focus-visible{outline:3px solid #c85555!important;outline-offset:4px!important}
+@media(prefers-reduced-motion:reduce){.go-back,.collection-bottom a[data-go-back],.page .bottom.journal-nav a[data-go-back]{transition:none!important}}
+</style><style id="scrapbook-explore-unified">
+:root{--explore-default:#e5f5fc;--explore-hover:#aadcf2;--explore-active:#8bcbe8;--explore-disabled:#eef1f2;--explore-ink:#293d4b}
+.collection-bottom a[href="works.html"]:not([data-go-back]),.page .bottom.journal-nav a[href="works.html"]:not([data-go-back]){
+background:var(--explore-default)!important;color:var(--explore-ink)!important;border:1px solid #c7e7f5!important;border-radius:999px!important;clip-path:none!important;transform:none!important;box-shadow:0 7px 18px #493c5018!important;min-height:46px!important;min-width:0!important;padding:12px 20px!important;font-weight:700!important;text-decoration:none!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;transition:background .18s,transform .18s,box-shadow .18s!important}
+.collection-bottom a[href="works.html"]:not([data-go-back]):hover:not([aria-disabled="true"]),.page .bottom.journal-nav a[href="works.html"]:not([data-go-back]):hover:not([aria-disabled="true"]){background:var(--explore-hover)!important;transform:translateY(-3px)!important;box-shadow:0 10px 20px #493c5024!important}
+.collection-bottom a[href="works.html"]:not([data-go-back]):active:not([aria-disabled="true"]),.page .bottom.journal-nav a[href="works.html"]:not([data-go-back]):active:not([aria-disabled="true"]){background:var(--explore-active)!important;transform:translateY(1px)!important;box-shadow:0 3px 8px #493c5018!important}
+.collection-bottom a[href="works.html"]:not([data-go-back])[aria-disabled="true"],.page .bottom.journal-nav a[href="works.html"]:not([data-go-back])[aria-disabled="true"]{background:var(--explore-disabled)!important;color:#a0adb3!important;opacity:.55!important;box-shadow:none!important;pointer-events:none!important;cursor:not-allowed!important}
+.collection-bottom a[href="works.html"]:not([data-go-back]):focus-visible,.page .bottom.journal-nav a[href="works.html"]:not([data-go-back]):focus-visible{outline:3px solid #62b9e0!important;outline-offset:4px!important}
+@media(prefers-reduced-motion:reduce){.collection-bottom a[href="works.html"]:not([data-go-back]),.page .bottom.journal-nav a[href="works.html"]:not([data-go-back]){transition:none!important}}
+</style><style id="journal-nav-home-match">
+.journal-site-nav{width:min(1200px,calc(100% - 24px))!important;margin:8px auto 18px!important;border-radius:999px!important;padding:8px 18px!important;min-height:68px!important;background:#fffdfaef!important;backdrop-filter:blur(14px);box-shadow:0 10px 26px #493c5010!important}
+.journal-site-actions{display:flex;align-items:center;gap:10px}
+.journal-theme-toggle{width:42px;height:42px;border:0;border-radius:50%;background:#e5f5fc;color:#493c50;cursor:pointer;font-size:19px;display:grid;place-items:center}
+.journal-theme-toggle:hover{background:#aadcf2}
+.journal-theme-toggle:focus-visible{outline:3px solid #aadcf2;outline-offset:3px}
+body[data-dark="yes"]{background:#292431!important;color:#f8eefa!important}
+body[data-dark="yes"] .journal-site-nav{background:#393140ef!important;border-color:#675669!important}
+body[data-dark="yes"] .journal-site-nav nav a{color:#f8eefa!important}
+body[data-dark="yes"] .journal-site-nav nav a:hover{color:#f7bcb0!important}
+body[data-dark="yes"] .journal-site-hello{background:#c85555!important;color:white!important}
+body[data-dark="yes"] .journal-theme-toggle{background:#aadcf2;color:#293d4b}
+body[data-dark="yes"] main,body[data-dark="yes"] main.page{background-color:#352d3b!important;color:#f8eefa!important}
+body[data-dark="yes"] main h1,body[data-dark="yes"] main h2,body[data-dark="yes"] main h3{color:#ffd1cc!important}
+body[data-dark="yes"] main p,body[data-dark="yes"] main .meta,body[data-dark="yes"] main .note{color:#e7dbe8!important}
+body[data-dark="yes"] .paper{background:#433748!important;color:#f8eefa!important}
+body[data-dark="yes"] .paper p{color:#e7dbe8!important}
+@media(max-width:760px){.journal-site-nav{border-radius:28px!important;flex-wrap:wrap}.journal-site-actions{margin-left:auto}.journal-site-nav nav{order:3}}
+@media(max-width:420px){.journal-site-nav{padding:9px 12px!important}.journal-site-hello{padding:8px 12px!important;font-size:.8rem!important}}
+</style><style id="journal-nav-home-final">
+/* Match the homepage's floating pill navigation, logo, and actions. */
+.journal-site-nav{width:min(1190px,calc(100% - 32px))!important;min-height:74px!important;margin:8px auto 18px!important;padding:7px 16px!important;display:grid!important;grid-template-columns:1fr auto 1fr!important;align-items:center!important;gap:12px!important;border-radius:999px!important;background:#fffdfa!important;border:1.5px solid #f0dfd8!important;box-shadow:0 8px 24px #493c501d!important}
+.journal-site-brand{display:inline-flex!important;align-items:center!important;justify-content:center!important;justify-self:start!important;width:51px!important;height:51px!important;border:1px solid #f7bcb0!important;border-radius:50%!important;background:#fff9f4!important;overflow:hidden!important;box-shadow:0 2px 9px #c855551a}
+.journal-site-brand img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;border-radius:50%!important}
+.journal-site-nav nav{display:flex!important;justify-content:center!important;align-items:center!important;flex-wrap:nowrap!important;gap:clamp(12px,2vw,25px)!important;order:initial!important;width:auto!important;padding:0!important}
+.journal-site-nav nav a{font-size:.92rem!important;white-space:nowrap!important;text-decoration:none!important}
+.journal-site-actions{display:flex!important;align-items:center!important;justify-self:end!important;gap:8px!important;margin:0!important}
+.journal-theme-toggle{width:42px!important;height:42px!important;flex-shrink:0!important;border-radius:50%!important;background:#aadcf2!important;color:#493c50!important}
+.journal-site-hello{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:44px!important;padding:11px 18px!important;background:#c85555!important;color:#fff!important;border-radius:999px!important;white-space:nowrap!important;font-weight:800!important}
+body[data-dark="yes"] .journal-site-nav{background:#353345!important;border-color:#675669!important}
+body[data-dark="yes"] .journal-site-brand{background:#fff9f4!important}
+@media(max-width:760px){.journal-site-nav{display:flex!important;flex-wrap:wrap!important;justify-content:space-between!important;border-radius:28px!important;padding:10px 14px!important}.journal-site-brand{width:43px!important;height:43px!important}.journal-site-actions{margin-left:auto!important}.journal-site-nav nav{order:3!important;width:100%!important;justify-content:center!important;flex-wrap:wrap!important;gap:8px 16px!important;padding:6px 0 2px!important}.journal-site-nav nav a{font-size:.8rem!important}}
+@media(max-width:390px){.journal-site-nav{width:calc(100% - 20px)!important;padding:8px 10px!important}.journal-site-hello{padding:9px 12px!important;font-size:.8rem!important}.journal-theme-toggle{width:38px!important;height:38px!important}}
+</style><style id="journal-mobile-nav-fix">
+.journal-mobile-menu-button{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid #f0dfd8;border-radius:50%;background:#fff9f4;color:#493c50;font-size:22px;cursor:pointer}
+@media(max-width:760px){
+.journal-site-nav{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;gap:8px!important;min-height:64px!important;padding:7px 10px!important;border-radius:999px!important;position:sticky!important;top:8px!important}
+.journal-site-brand{width:43px!important;height:43px!important;flex-shrink:0!important}
+.journal-site-actions{display:flex!important;gap:6px!important;margin-left:auto!important;flex-shrink:0!important}
+.journal-theme-toggle{width:38px!important;height:38px!important}
+.journal-site-hello{min-height:38px!important;padding:8px 12px!important;font-size:.78rem!important}
+.journal-mobile-menu-button{display:inline-flex!important;flex-shrink:0!important;order:4}
+.journal-site-nav nav{display:none!important;position:absolute!important;top:calc(100% + 9px)!important;left:0!important;right:0!important;width:100%!important;box-sizing:border-box!important;order:initial!important;flex-direction:column!important;align-items:stretch!important;gap:2px!important;padding:12px!important;border:1px solid #f0dfd8!important;border-radius:22px!important;background:#fffdfa!important;box-shadow:0 10px 26px #493c5020!important}
+.journal-site-nav.is-menu-open nav{display:flex!important}
+.journal-site-nav nav a{display:block!important;width:100%!important;padding:10px 14px!important;border-radius:12px!important;text-align:left!important;font-size:.94rem!important}
+.journal-site-nav nav a:hover,.journal-site-nav nav a:focus-visible{background:#fcece8!important;text-decoration:none!important}
+body[data-dark="yes"] .journal-site-nav nav{background:#353345!important;border-color:#675669!important}
+body[data-dark="yes"] .journal-mobile-menu-button{background:#4b4559;color:#fff;border-color:#675669}
+body[data-dark="yes"] .journal-site-nav nav a:hover,body[data-dark="yes"] .journal-site-nav nav a:focus-visible{background:#50485e!important}
+}
+@media(max-width:360px){.journal-site-nav{width:calc(100% - 12px)!important;padding:6px!important;gap:5px!important}.journal-site-brand{width:37px!important;height:37px!important}.journal-theme-toggle,.journal-mobile-menu-button{width:35px!important;height:35px!important}.journal-site-hello{padding:7px 9px!important;font-size:.72rem!important}}
+</style><style id="collection-bottom-mobile-alignment">
+@media(max-width:760px){.collection-bottom{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;flex-wrap:wrap!important;gap:12px!important}.collection-bottom a[data-go-back]{margin-right:auto!important}.collection-bottom a[href="works.html"]:not([data-go-back]){margin-left:auto!important}}
+</style><style id="fix-mobile-tape">@media(max-width:760px){.journal-site-hello{display:none!important}.journal-tape{left:auto!important;right:5%!important;top:-18px!important;width:70px!important;height:20px!important}.collection-bottom{flex-direction:row!important;justify-content:space-between!important;flex-wrap:wrap!important}}</style><style id="mobile-polish-20261028">
+@media(max-width:1199px){.journal-site-hello{display:none!important}}
+@media(max-width:760px){
+.journal-site-nav{border-radius:999px!important}
+.journal-site-nav.is-menu-open nav{animation:journal-menu-drop .25s ease-out both;transform-origin:top center}
+.journal-tape{left:auto!important;right:4%!important;top:-24px!important;width:68px!important;transform:rotate(-8deg)!important;pointer-events:none!important}
+.collection-bottom{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:10px!important;flex-wrap:wrap!important}
+.collection-bottom a[data-go-back]{margin-right:auto!important}
+.collection-bottom a[href="works.html"]:not([data-go-back]){margin-left:auto!important}
+}
+@keyframes journal-menu-drop{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.journal-site-nav.is-menu-open nav{animation:none!important}}
+</style><style id="unified-tablet-mobile-nav-20261028">
+/* Match the Home / Works compact pill navigation on both phones and tablets. */
+@media(max-width:1199px){
+.journal-site-nav{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;position:sticky!important;top:8px!important;z-index:1100!important;border-radius:999px!important;padding:8px 14px!important;min-height:64px!important}
+.journal-site-brand{flex-shrink:0!important}
+.journal-site-actions{display:flex!important;align-items:center!important;gap:8px!important;margin-left:auto!important;flex-shrink:0!important}
+.journal-site-hello{display:none!important}
+.journal-mobile-menu-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;order:4!important}
+.journal-site-nav nav{display:none!important;position:absolute!important;top:calc(100% + 8px)!important;left:0!important;right:0!important;width:100%!important;box-sizing:border-box!important;flex-direction:column!important;align-items:stretch!important;gap:2px!important;padding:12px!important;border:1px solid #f0dfd8!important;border-radius:22px!important;background:#fffdfa!important;box-shadow:0 12px 28px #493c5020!important;z-index:1200!important}
+.journal-site-nav.is-menu-open nav{display:flex!important;animation:journal-menu-drop .25s ease-out both!important}
+.journal-site-nav nav a{display:block!important;width:100%!important;box-sizing:border-box!important;padding:11px 14px!important;text-align:left!important;font-size:.94rem!important;border-radius:12px!important}
+body[data-dark="yes"] .journal-site-nav nav{background:#353345!important;border-color:#675669!important}
+.collection-bottom,.page .bottom.journal-nav{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;flex-wrap:wrap!important}
+.collection-bottom a[data-go-back],.page .bottom.journal-nav a[data-go-back]{margin-right:auto!important}
+.collection-bottom a[href="works.html"]:not([data-go-back]),.page .bottom.journal-nav a[href="works.html"]:not([data-go-back]){margin-left:auto!important}
+}
+@media(max-width:760px){.journal-site-nav{padding:7px 10px!important}.journal-tape{right:2%!important;left:auto!important;top:-30px!important;transform:rotate(-8deg)!important;pointer-events:none!important}}
+@keyframes journal-menu-drop{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.journal-site-nav.is-menu-open nav{animation:none!important}}
+</style><style id="journal-home-style-expanded-menu">
+/* On touch layouts expand the navigation pill itself, like the Home menu. */
+@media(max-width:1199px){
+.journal-site-nav{transition:min-height .28s ease,border-radius .28s ease!important;isolation:isolate}
+.journal-site-nav.is-menu-open{display:grid!important;grid-template-columns:1fr auto auto!important;grid-template-rows:auto auto!important;align-items:start!important;min-height:0!important;padding:14px 20px 28px!important;border-radius:48px!important;gap:0 12px!important;box-shadow:0 18px 40px #493c5020!important}
+.journal-site-nav.is-menu-open .journal-site-brand{grid-column:1!important;grid-row:1!important;justify-self:center!important;margin-left:64px!important}
+.journal-site-nav.is-menu-open .journal-site-actions{grid-column:2!important;grid-row:1!important;position:static!important;margin:0!important}
+.journal-site-nav.is-menu-open .journal-mobile-menu-button{grid-column:3!important;grid-row:1!important;position:static!important;order:initial!important}
+.journal-site-nav.is-menu-open nav{display:flex!important;grid-column:1/-1!important;grid-row:2!important;position:static!important;inset:auto!important;width:100%!important;min-width:0!important;margin-top:24px!important;padding:0 0 4px!important;align-items:center!important;gap:4px!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;animation:journal-home-reveal .28s ease-out both!important}
+.journal-site-nav.is-menu-open nav a{display:block!important;width:100%!important;text-align:center!important;font-weight:700!important;font-size:clamp(1rem,3.7vw,1.22rem)!important;padding:10px 8px!important;border-radius:14px!important}
+body[data-dark="yes"] .journal-site-nav.is-menu-open nav{background:transparent!important;border:0!important}
+}
+@media(max-width:760px){.journal-site-nav.is-menu-open{padding:12px 16px 26px!important;border-radius:38px!important}.journal-site-nav.is-menu-open .journal-site-brand{margin-left:52px!important}}
+@keyframes journal-home-reveal{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.journal-site-nav.is-menu-open nav{animation:none!important}}
+</style><style id="collection-showcase-integrated-dropdown-v2">
+/* One expanding rounded navigation surface, matching the original Home mobile menu. */
+@media(max-width:1199px){
+.journal-site-nav{position:sticky!important;top:8px!important;overflow:visible!important}
+.journal-site-nav.is-menu-open{display:grid!important;grid-template-columns:minmax(0,1fr) auto auto!important;grid-template-rows:48px auto!important;column-gap:12px!important;row-gap:0!important;align-items:center!important;position:sticky!important;padding:12px 16px 26px!important;border-radius:38px!important;min-height:0!important;transition:border-radius .25s ease,padding .25s ease!important}
+.journal-site-nav.is-menu-open .journal-site-brand{grid-column:1!important;grid-row:1!important;justify-self:center!important;margin:0!important;transform:translateX(40px)!important}
+.journal-site-nav.is-menu-open .journal-site-actions{grid-column:2!important;grid-row:1!important;justify-self:end!important;position:static!important;margin:0!important}
+.journal-site-nav.is-menu-open .journal-mobile-menu-button{grid-column:3!important;grid-row:1!important;justify-self:end!important;position:static!important;margin:0!important}
+.journal-site-nav.is-menu-open nav{display:flex!important;grid-column:1/-1!important;grid-row:2!important;position:static!important;inset:auto!important;width:100%!important;box-sizing:border-box!important;margin:22px 0 0!important;padding:0!important;flex-direction:column!important;align-items:stretch!important;gap:4px!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;animation:journal-home-reveal .28s ease-out both!important}
+.journal-site-nav.is-menu-open nav a{display:block!important;width:100%!important;box-sizing:border-box!important;padding:11px 8px!important;text-align:center!important;font-size:clamp(1rem,3.8vw,1.25rem)!important;font-weight:700!important;border-radius:14px!important}
+.journal-site-hello{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){.journal-site-nav.is-menu-open nav{animation:none!important}}
+</style><style id="journal-home-style-expanded-menu">
+/* Phone/tablet: one connected scrapbook-style expanding menu, like the homepage. */
+@media(max-width:1199px){
+.journal-site-nav{isolation:isolate!important;transition:border-radius .28s ease,box-shadow .28s ease!important}
+.journal-site-nav.is-menu-open{border-radius:34px 34px 0 0!important;border-bottom-color:transparent!important;box-shadow:0 12px 25px #493c5017!important}
+.journal-site-nav.is-menu-open .journal-site-brand{position:absolute!important;top:12px!important;left:50%!important;transform:translateX(-50%)!important;z-index:5!important}
+.journal-site-nav.is-menu-open .journal-mobile-menu-button{position:absolute!important;left:14px!important;right:auto!important;top:12px!important;order:initial!important;z-index:6!important}
+.journal-site-nav.is-menu-open .journal-site-actions{position:absolute!important;right:14px!important;top:12px!important;z-index:6!important}
+.journal-site-nav.is-menu-open nav{display:flex!important;position:absolute!important;top:calc(100% - 2px)!important;left:-1px!important;right:-1px!important;width:calc(100% + 2px)!important;box-sizing:border-box!important;padding:26px 24px 34px!important;gap:6px!important;flex-direction:column!important;align-items:center!important;background:#fffdfa!important;border:1px solid #f0dfd8!important;border-top:0!important;border-radius:0 0 34px 34px!important;box-shadow:0 20px 30px #493c5025!important;max-height:calc(100dvh - 110px)!important;overflow-y:auto!important;animation:journal-full-menu-slide .3s ease-out both!important}
+.journal-site-nav.is-menu-open nav a{width:100%!important;max-width:440px!important;text-align:center!important;padding:12px 10px!important;font-size:1.12rem!important;font-weight:700!important;line-height:1.4!important}
+body[data-dark="yes"] .journal-site-nav.is-menu-open nav{background:#353345!important;border-color:#675669!important}
+}
+@keyframes journal-full-menu-slide{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.journal-site-nav.is-menu-open nav{animation:none!important}}
+</style><style id="collection-showcase-inline-slide-menu">
+/* Phone/tablet only: expanded menu lives inside the rounded navigation card. */
+@media(max-width:1199px){
+.journal-site-nav{display:grid!important;grid-template-columns:minmax(0,1fr) auto auto!important;grid-template-rows:auto!important;align-items:center!important;column-gap:12px!important;row-gap:0!important;overflow:visible!important;transition:border-radius .25s ease,padding .25s ease!important}
+.journal-site-brand{grid-column:1!important;grid-row:1!important;justify-self:start!important;margin:0!important}
+.journal-site-actions{grid-column:2!important;grid-row:1!important;justify-self:end!important;margin:0!important;order:initial!important}
+.journal-mobile-menu-button{grid-column:3!important;grid-row:1!important;justify-self:end!important;order:initial!important;border-radius:50%!important}
+.journal-site-nav nav{position:static!important;grid-column:1/-1!important;grid-row:2!important;left:auto!important;right:auto!important;top:auto!important;width:100%!important;max-height:0!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;opacity:0!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;transform:translateY(-12px)!important;transition:max-height .35s ease,opacity .25s ease,transform .3s ease,padding .3s ease!important;pointer-events:none!important}
+.journal-site-nav.is-menu-open{border-radius:36px!important;padding-bottom:22px!important}
+.journal-site-nav.is-menu-open nav{max-height:600px!important;min-height:0!important;visibility:visible!important;opacity:1!important;transform:translateY(0)!important;animation:none!important;padding:22px 0 4px!important;pointer-events:auto!important}
+.journal-site-nav nav a{display:block!important;width:100%!important;text-align:center!important;font-size:1rem!important;font-weight:650!important;padding:13px 12px!important;box-sizing:border-box!important}
+body[data-dark="yes"] .journal-site-nav nav{background:transparent!important;border:0!important}
+}
+@media(prefers-reduced-motion:reduce){.journal-site-nav,.journal-site-nav nav{transition:none!important}}
+</style><style id="journal-home-matching-mobile-menu-v2">
+/* Reference: home page expanding pill, with the logo gliding to the center. */
+@media(max-width:1199px){
+.journal-site-nav{position:sticky!important;top:8px!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto auto!important;grid-template-rows:auto auto!important;align-items:center!important;column-gap:12px!important;row-gap:0!important;min-height:64px!important;padding:8px 14px!important;border-radius:999px!important;overflow:visible!important;transition:border-radius .32s ease,padding .32s ease,box-shadow .32s ease!important}
+.journal-site-nav .journal-site-brand{grid-column:1!important;grid-row:1!important;justify-self:start!important;position:relative!important;left:0!important;transform:translateX(0)!important;margin:0!important;z-index:2!important;transition:left .38s cubic-bezier(.22,1,.36,1),transform .38s cubic-bezier(.22,1,.36,1)!important}
+.journal-site-nav .journal-site-actions{grid-column:2!important;grid-row:1!important;justify-self:end!important;order:initial!important;margin:0!important}
+.journal-site-nav .journal-mobile-menu-button{grid-column:3!important;grid-row:1!important;justify-self:end!important;order:initial!important}
+.journal-site-nav nav{display:flex!important;position:static!important;grid-column:1/-1!important;grid-row:2!important;flex-direction:column!important;align-items:center!important;gap:0!important;inset:auto!important;width:100%!important;max-height:0!important;min-height:0!important;visibility:hidden!important;opacity:0!important;overflow:hidden!important;transform:translateY(-14px)!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;pointer-events:none!important;animation:none!important;transition:max-height .42s cubic-bezier(.22,1,.36,1),opacity .25s ease,transform .38s ease,padding .38s ease!important}
+.journal-site-nav.is-menu-open{border-radius:36px!important;padding:14px 18px 26px!important;box-shadow:0 18px 40px #493c5020!important}
+.journal-site-nav.is-menu-open .journal-site-brand{position:relative!important;left:calc(50vw - 70px)!important;transform:translateX(-50%)!important;margin:0!important;justify-self:start!important}
+.journal-site-nav.is-menu-open nav{display:flex!important;max-height:650px!important;visibility:visible!important;opacity:1!important;transform:translateY(0)!important;padding:30px 0 4px!important;pointer-events:auto!important;animation:none!important;margin:0!important}
+.journal-site-nav nav a{width:100%!important;display:block!important;text-align:center!important;padding:13px 8px!important;font-size:1rem!important;font-weight:650!important;box-sizing:border-box!important}
+.journal-site-hello{display:none!important}
+}
+@media(max-width:760px){.journal-site-nav.is-menu-open .journal-site-brand{left:calc(50vw - 60px)!important}}
+@media(prefers-reduced-motion:reduce){.journal-site-nav,.journal-site-nav .journal-site-brand,.journal-site-nav nav{transition:none!important}}
+</style><style id="journal-mobile-menu-stable-20261029">
+@media(max-width:1199px){
+.journal-site-nav,.journal-site-nav.is-menu-open{box-sizing:border-box!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto auto!important;grid-template-rows:auto auto!important;align-items:center!important;column-gap:12px!important;row-gap:0!important;position:sticky!important;top:8px!important;width:calc(100% - 24px)!important;max-width:1100px!important;margin:8px auto!important;min-height:64px!important;height:auto!important;aspect-ratio:auto!important;border-radius:36px!important;padding:10px 16px!important;overflow:visible!important;transform:none!important;clip-path:none!important;transition:padding .3s ease,border-radius .3s ease!important}
+.journal-site-nav:not(.is-menu-open){border-radius:999px!important}
+.journal-site-nav.is-menu-open{padding:14px 16px 22px!important}
+.journal-site-nav .journal-site-brand,.journal-site-nav.is-menu-open .journal-site-brand{grid-column:1!important;grid-row:1!important;position:relative!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;justify-self:start!important;order:initial!important;margin:0!important;transform:translateX(0)!important;transition:transform .32s ease!important;z-index:2!important}
+.journal-site-nav.is-menu-open .journal-site-brand{transform:translateX(calc((100vw - 110px)/2 - 32px))!important}
+.journal-site-nav .journal-site-actions,.journal-site-nav.is-menu-open .journal-site-actions{grid-column:2!important;grid-row:1!important;position:static!important;justify-self:end!important;margin:0!important;order:initial!important}
+.journal-site-nav .journal-mobile-menu-button,.journal-site-nav.is-menu-open .journal-mobile-menu-button{grid-column:3!important;grid-row:1!important;position:static!important;justify-self:end!important;order:initial!important;margin:0!important}
+.journal-site-nav nav,.journal-site-nav.is-menu-open nav{grid-column:1/-1!important;grid-row:2!important;position:static!important;inset:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;width:100%!important;height:auto!important;min-height:0!important;box-sizing:border-box!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;margin:0!important;padding:0!important;gap:0!important;overflow:hidden!important;transform:translateY(-12px)!important;animation:none!important;transition:max-height .35s ease,opacity .28s ease,transform .35s ease,padding .35s ease!important}
+.journal-site-nav:not(.is-menu-open) nav{max-height:0!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+.journal-site-nav.is-menu-open nav{max-height:650px!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;transform:translateY(0)!important;padding:26px 0 4px!important}
+.journal-site-nav nav a,.journal-site-nav.is-menu-open nav a{display:block!important;box-sizing:border-box!important;width:100%!important;text-align:center!important;padding:12px 8px!important;line-height:1.5!important}
+.journal-site-hello{display:none!important}
+}
+@media(min-width:761px) and (max-width:1199px){.journal-site-nav.is-menu-open .journal-site-brand{transform:translateX(min(37vw,380px))!important}}
+@media(prefers-reduced-motion:reduce){.journal-site-nav,.journal-site-nav .journal-site-brand,.journal-site-nav nav{transition:none!important}}
+</style></head><body><div class="journal-site-nav"><a class="journal-site-brand" href="index.html"><img src="assets/logo-original.png" alt="Nha Le logo"></a><button class="journal-mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="journal-mobile-links">☰</button><nav id="journal-mobile-links" aria-label="Main navigation"><a href="index.html">Home</a><a href="works.html">Works</a><a href="about.html">About Me</a><a href="index.html#faq">FAQ</a><a href="resume.html">Resume</a><a href="contact.html">Contact</a></nav><div class="journal-site-actions"><button type="button" id="journalThemeToggle" class="journal-theme-toggle" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle theme">☾</button><a class="journal-site-hello" href="contact.html">Say Hello ♡</a></div></div><main style="position:relative"><div class="scrapbook-stickers" aria-hidden="true"><img src="assets/stickers/flower-paperclip.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/stationery-clips.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/kraft-notebook.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/stacked-books.png" alt="" onerror="this.hidden=true"><img src="assets/stickers/open-journal.png" alt="" onerror="this.hidden=true"></div><header><span class="journal-tape" aria-hidden="true"></span><div>✿ PROJECT COLLECTION</div><h1 id="title">Projects</h1><p id="intro">Explore the projects in this collection, then open a creative notebook case study.</p></header><div id="grid" class="grid collection-grid"></div><p id="note" class="note"></p><nav class="collection-bottom"><a data-go-back href="works.html">← Back</a><a href="works.html">Explore My Works →</a></nav></main>
+<script>
+const slug=s=>String(s||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+(async()=>{try{const r=await fetch("content/portfolio.json",{cache:"no-store"});if(!r.ok)throw Error("Data unavailable");const data=await r.json(),all=(data.projects||[]).filter(p=>p.published===true),selected=all.find(p=>slug(p.title)===new URLSearchParams(location.search).get("project"));if(!selected){document.getElementById("title").textContent="Collection not found";return;}document.title=selected.title+" — Collection";document.getElementById("title").textContent=selected.title;const same=all.filter(p=>p.category===selected.category);const items=Array.isArray(selected.subprojects)&&selected.subprojects.length?selected.subprojects.filter(p=>p.published!==false):same;document.getElementById("intro").textContent="Browse "+(selected.category||"design")+" projects, then open a project to see the full design process and final work.";document.getElementById("grid").innerHTML=items.map(p=>{const isSub=items!==same;const href=isSub?"project-story.html?project="+encodeURIComponent(slug(selected.title))+"&subproject="+encodeURIComponent(slug(p.title)):"project-story.html?project="+encodeURIComponent(slug(p.title));return '<a class="item scrapbook-folder" href="'+href+'" aria-label="Open '+esc(p.title)+' case study"><span class="folder-paper" aria-hidden="true"></span><span class="folder-artwork">'+(p.image?'<img loading="lazy" src="'+esc(p.image)+'" alt="'+esc(p.title)+' artwork">':'<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>')+'</span><span class="folder-label">'+esc(p.title)+'</span><span class="folder-clip" aria-hidden="true">📎</span><span class="folder-sticker" aria-hidden="true">🐰</span><span class="folder-spark" aria-hidden="true">✎</span><span class="folder-meta">'+esc(p.year||selected.year||"")+'</span></a>'}).join("");if(items.length===1)document.getElementById("note").textContent="More projects can be added to this collection later."; }catch(e){document.getElementById("title").textContent="Collection unavailable";}})();
+</script><script>
+(function(){const fallback="works.html";function sameSitePrevious(){try{const u=new URL(document.referrer);return u.origin===location.origin&&u.pathname!==location.pathname?u.href:null}catch{return null}}
+const previous=sameSitePrevious();document.querySelectorAll("[data-go-back]").forEach(a=>{a.href=previous||fallback;a.addEventListener("click",e=>{if(previous&&history.length>1){e.preventDefault();history.back()}})});
+})();
+</script><script id="journal-theme-sync">
+(function(){const btn=document.getElementById('journalThemeToggle');if(!btn)return;function setTheme(dark){document.body.dataset.dark=dark?'yes':'no';btn.textContent=dark?'☀':'☾';btn.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');btn.setAttribute('aria-pressed',String(dark));try{localStorage.setItem('nha-theme',dark?'dark':'light')}catch(e){}}let dark=false;try{dark=localStorage.getItem('nha-theme')==='dark'}catch(e){}setTheme(dark);btn.addEventListener('click',()=>setTheme(document.body.dataset.dark!=='yes'));window.addEventListener('storage',e=>{if(e.key==='nha-theme')setTheme(e.newValue==='dark')})})();
+</script><script id="journal-mobile-nav-script">
+(function(){const bar=document.querySelector('.journal-site-nav');if(!bar)return;const button=bar.querySelector('.journal-mobile-menu-button');const menu=bar.querySelector('nav');if(!button||!menu)return;function close(){bar.classList.remove('is-menu-open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open navigation menu');button.textContent='☰'}button.addEventListener('click',function(){const open=!bar.classList.contains('is-menu-open');bar.classList.toggle('is-menu-open',open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');button.textContent=open?'×':'☰'});menu.addEventListener('click',e=>{if(e.target.closest('a'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});document.addEventListener('click',e=>{if(!bar.contains(e.target))close()});window.addEventListener('resize',()=>{if(window.innerWidth>1199)close()})})();
+</script></body></html>
