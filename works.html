@@ -431,6 +431,26 @@ body[data-dark=yes] .outline:hover{background:#765667;color:#fff}
  }
  header.nav .navin>.nav-actions .pill{display:none!important}
 }
+</style><style id="works-scrapbook-v2">
+/* Works folders only. Original responsive navigation is untouched. */
+body[data-page="works"] #projectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,38px);align-items:start}
+body[data-page="works"] #projectGrid .project.scrapbook-folder{--tilt:-2deg;position:relative;display:block;width:100%;aspect-ratio:4/5;padding:0!important;margin:0;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;text-align:left;isolation:isolate;transform:rotate(var(--tilt));filter:drop-shadow(0 12px 11px #67445420);transition:transform .28s ease,filter .28s ease}
+body[data-page="works"] #projectGrid .scrapbook-folder:nth-child(3n+2){--tilt:1.5deg}
+body[data-page="works"] #projectGrid .scrapbook-folder:nth-child(3n){--tilt:-1deg}
+body[data-page="works"] #projectGrid .scrapbook-folder::before{content:"";position:absolute;inset:4% 3% 4% 7%;z-index:-2;background:#e5f5fc;border:2px solid #d6c1d4;transform:rotate(5deg);clip-path:polygon(0 0,100% 0,100% 96%,96% 100%,0 100%)}
+body[data-page="works"] #projectGrid .folder-paper{position:absolute;inset:6% 5% 3% 4%;background:#fff9f4;border:1px solid #f7bcb0;clip-path:polygon(0 1%,4% 0,8% 1%,12% 0,16% 1%,20% 0,24% 1%,28% 0,32% 1%,36% 0,40% 1%,44% 0,48% 1%,52% 0,56% 1%,60% 0,64% 1%,68% 0,72% 1%,76% 0,80% 1%,84% 0,88% 1%,92% 0,96% 1%,100% 0,100% 98%,96% 100%,92% 98%,88% 100%,84% 98%,80% 100%,76% 98%,72% 100%,68% 98%,64% 100%,60% 98%,56% 100%,52% 98%,48% 100%,44% 98%,40% 100%,36% 98%,32% 100%,28% 98%,24% 100%,20% 98%,16% 100%,12% 98%,8% 100%,4% 98%,0 100%);box-shadow:0 9px 25px #68495823}
+body[data-page="works"] #projectGrid .folder-paper::after{content:"";position:absolute;inset:12px;border:1px dashed #e6abb7;pointer-events:none}
+body[data-page="works"] #projectGrid .folder-artwork{position:absolute;inset:14% 13% 22%;display:grid;place-items:center;background:linear-gradient(130deg,#fffaf8,#e5f5fc);border:7px solid #fff;box-shadow:0 8px 19px #493c5030;transform:rotate(-2deg);overflow:hidden;transition:transform .28s ease}
+body[data-page="works"] #projectGrid .folder-artwork img{width:100%;height:100%;display:block;object-fit:cover}
+body[data-page="works"] #projectGrid .folder-empty{font-size:3rem;color:#c98da7;opacity:.65}
+body[data-page="works"] #projectGrid .folder-label{position:absolute;left:17%;right:8%;bottom:8%;min-height:11%;padding:10px 12px;display:grid;place-items:center;background:#f7bcb0;color:#493c50;font-size:clamp(.78rem,1.15vw,1rem);font-weight:800;line-height:1.25;text-align:center;box-shadow:3px 4px 0 #dba6a36e;transform:rotate(2deg);overflow-wrap:anywhere}
+body[data-page="works"] #projectGrid .folder-clip{position:absolute;left:8%;top:1%;z-index:3;width:29px;height:49px;border:4px solid #a4a3c9;border-radius:18px;transform:rotate(-30deg);box-shadow:inset 0 0 0 4px #fff9f4,0 2px 4px #493c5022;pointer-events:none}
+body[data-page="works"] #projectGrid .folder-tape{position:absolute;right:4%;top:7%;z-index:3;width:29%;height:7%;background:repeating-linear-gradient(90deg,#f7bcb0 0 14px,#fff9f4 14px 23px,#aadcf2 23px 36px);transform:rotate(16deg);opacity:.9;pointer-events:none}
+@media(hover:hover){body[data-page="works"] #projectGrid .scrapbook-folder:hover{transform:translateY(-10px) rotate(0deg) scale(1.02);filter:drop-shadow(0 20px 18px #67445432)}body[data-page="works"] #projectGrid .scrapbook-folder:hover .folder-artwork{transform:rotate(0deg) translateY(-3px)}}
+body[data-page="works"] #projectGrid .scrapbook-folder:focus-visible{outline:3px solid #c85555;outline-offset:6px}
+@media(max-width:850px){body[data-page="works"] #projectGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){body[data-page="works"] #projectGrid{grid-template-columns:minmax(0,360px);justify-content:center;gap:24px}body[data-page="works"] #projectGrid .folder-label{font-size:1rem}}
+@media(prefers-reduced-motion:reduce){body[data-page="works"] #projectGrid .scrapbook-folder,body[data-page="works"] #projectGrid .folder-artwork{transition:none!important}}
 </style></head>
 <body data-page="works">
 <header class="nav"><div class="wrap navin">
@@ -467,10 +487,10 @@ function renderFilters(){
 }
 function renderProjects(){
  const visible=projects.filter(p=>(document.body.dataset.page!=="home"||p.featured===true)&&(activeCategory==="All"||p.category===activeCategory)).slice(0,document.body.dataset.page==="home"?3:undefined);
- $("#projectGrid").innerHTML=visible.length?visible.map((p)=>{
- const i=projects.indexOf(p);
- const img=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} cover image" loading="lazy">`:`<div class="project-placeholder"><span>✿</span><small>Project image coming soon</small></div>`;
- return `<button class="project" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><div class="project-art">${img}</div><div class="project-info"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.year||"")} · ${esc(p.tools||"")}</p><div class="view">View project <span>↗</span></div></div></button>`;
+ $("#projectGrid").innerHTML=visible.length?visible.map(p=>{
+  const i=projects.indexOf(p);
+  const artwork=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
+  return `<button class="project scrapbook-folder" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><span class="folder-paper" aria-hidden="true"></span><span class="folder-artwork">${artwork}</span><span class="folder-label">${esc(p.title)}</span><span class="folder-clip" aria-hidden="true"></span><span class="folder-tape" aria-hidden="true"></span></button>`;
  }).join(""):'<p>No projects in this category yet.</p>';
  document.querySelectorAll(".project").forEach(card=>card.addEventListener("click",()=>openProject(projects[Number(card.dataset.index)],card)));
 }
