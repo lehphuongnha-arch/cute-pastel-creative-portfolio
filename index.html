@@ -74,20 +74,6 @@
  header.nav.menu-expanded .navin>.brand{margin-right:0}
 }
 
-/* Preview reference-inspired three-book folder, responsive and self-contained */
-#projectGrid .book-trio-folder .folder-artwork{inset:0 0 12%;background:transparent;border:0;box-shadow:none;transform:none;overflow:visible}
-#projectGrid .book-trio-folder .trio-scene{display:block;width:100%;height:100%;object-fit:contain;overflow:visible}
-#projectGrid .book-trio-folder .folder-paper,#projectGrid .book-trio-folder .folder-label,#projectGrid .book-trio-folder .folder-clip,#projectGrid .book-trio-folder .folder-sticker,#projectGrid .book-trio-folder .folder-spark{display:none}
-#projectGrid .book-trio-folder{background:transparent;box-shadow:none;overflow:visible;min-height:330px}
-@media(max-width:600px){#projectGrid .book-trio-folder{min-height:285px}}
-
-/* Exact supplied folder cover image takes priority over the SVG preview. */
-#projectGrid .book-trio-folder .folder-artwork{inset:0;background:transparent;overflow:visible}
-#projectGrid .book-trio-folder .book-trio-photo{width:100%;height:100%;display:block;object-fit:contain;border:0;box-shadow:none;background:transparent;transform:none}
-#projectGrid .book-trio-folder .book-trio-photo[hidden],#projectGrid .book-trio-folder .book-trio-fallback[hidden]{display:none!important}
-#projectGrid .book-trio-folder .book-trio-fallback{display:block;width:100%;height:100%}
-#projectGrid .book-trio-folder{aspect-ratio:1/1;min-height:0!important;cursor:pointer}
-#projectGrid .book-trio-folder:focus-visible{outline:3px solid #c85555;outline-offset:5px}
 </style>
 <style>
 /* Nha Le v1 — cheerful cream/pastel identity */
@@ -487,21 +473,6 @@ body[data-page="home"] .folder-label{position:absolute;left:23%;right:16%;bottom
 @media(max-width:600px){#projectGrid{grid-template-columns:minmax(0,360px);justify-content:center;gap:24px}#projectGrid .folder-label{font-size:1rem}}
 @media(prefers-reduced-motion:reduce){#projectGrid .scrapbook-folder,#projectGrid .folder-artwork{transition:none!important}#projectGrid .scrapbook-folder:hover{transform:rotate(var(--angle))}}
 
-/* Three-book editorial scrapbook preview, inspired by the supplied reference. */
-#projectGrid .book-trio-folder .folder-artwork{inset:12% 7% 24%;background:linear-gradient(145deg,#fffaf6,#fbe7e3);border:2px solid #fff6f2;overflow:visible;transform:rotate(-1deg);box-shadow:0 9px 20px #75566a24}
-#projectGrid .book-trio{position:absolute;inset:7% 2% 6%;display:flex;align-items:center;justify-content:center;isolation:isolate}
-#projectGrid .book-trio .mini-book{position:absolute;top:11%;height:82%;width:42%;border-radius:3px 7px 7px 3px;border-left:7px solid #182c35;box-shadow:4px 9px 10px #352f3955, inset -4px 0 0 #ffffff20;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:13% 2% 5%;font-family:Georgia,serif;text-align:center;line-height:1.12;transition:transform .3s ease}
-#projectGrid .book-trio .mini-book b{font-size:clamp(10px,1.4vw,19px);font-weight:500;letter-spacing:.025em}
-#projectGrid .book-trio .mini-book small{font-size:clamp(6px,.65vw,9px);margin-top:9%;letter-spacing:.08em}
-#projectGrid .book-trio .mini-book:nth-child(1){left:2%;z-index:1;transform:rotate(-12deg);background:linear-gradient(150deg,#325b4c,#152d29);color:#f3e6c8}
-#projectGrid .book-trio .mini-book:nth-child(1)::after{content:'❀  ♧  ❀';font-size:clamp(14px,2.5vw,31px);margin-top:22%;color:#cad9c0}
-#projectGrid .book-trio .mini-book:nth-child(2){left:30%;z-index:3;transform:rotate(-3deg);background:linear-gradient(#18394c 0%,#243d51 35%,#dd7d49 65%,#9c4b32 100%);color:#f8d07a}
-#projectGrid .book-trio .mini-book:nth-child(2)::after{content:'☀';font-size:clamp(38px,6vw,75px);margin-top:13%;color:#ffc45b}
-#projectGrid .book-trio .mini-book:nth-child(3){right:0;z-index:2;transform:rotate(12deg);background:linear-gradient(155deg,#172d54 0%,#1c3362 66%,#dc9b52 67%,#c87b3c);color:#f8cf76}
-#projectGrid .book-trio .mini-book:nth-child(3)::after{content:'✧';font-size:clamp(35px,6vw,70px);margin-top:15%;color:#f9d99d}
-#projectGrid .book-trio-folder .folder-label{z-index:5;bottom:5%;left:10%;right:7%;background:#ffe2dc;border:1px dashed #e6a7a1}
-@media(hover:hover){#projectGrid .book-trio-folder:hover .mini-book:nth-child(1){transform:rotate(-16deg) translateX(-4px)}#projectGrid .book-trio-folder:hover .mini-book:nth-child(3){transform:rotate(16deg) translateX(4px)}}
-@media(max-width:600px){#projectGrid .book-trio .mini-book b{font-size:clamp(12px,4vw,19px)}#projectGrid .book-trio .mini-book small{font-size:clamp(7px,2vw,10px)}}
 </style><style>
 /* User-provided paper-cut stationery stickers. Images gracefully hide until assets are uploaded. */
 .scrapbook-stickers{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:visible}
@@ -539,37 +510,20 @@ body[data-dark=yes] header.nav .mobile-overlay-links a:hover,body[data-dark=yes]
 }
 @media(prefers-reduced-motion:reduce){header.nav .mobile-overlay.is-open{animation:none!important}}
 
-/* Final preview layout: show one complete square scrapbook cover, not a folder inside a folder. */
-#projectGrid .scrapbook-folder.book-trio-folder{aspect-ratio:300/365!important;min-height:0!important;transform:none!important;filter:none!important;isolation:isolate!important;overflow:visible!important}
-#projectGrid .scrapbook-folder.book-trio-folder::before,#projectGrid .scrapbook-folder.book-trio-folder::after{content:none!important;display:none!important}
-#projectGrid .scrapbook-folder.book-trio-folder .folder-paper,#projectGrid .scrapbook-folder.book-trio-folder .folder-label,#projectGrid .scrapbook-folder.book-trio-folder .folder-clip,#projectGrid .scrapbook-folder.book-trio-folder .folder-sticker,#projectGrid .scrapbook-folder.book-trio-folder .folder-spark{display:none!important}
-#projectGrid .scrapbook-folder.book-trio-folder .folder-artwork{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;transform:none!important;overflow:visible!important;filter:none!important}
-#projectGrid .scrapbook-folder.book-trio-folder .book-trio-photo{display:block;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center center!important;transform:none!important;box-shadow:none!important;filter:drop-shadow(0 10px 13px #815e6926)!important}
-#projectGrid .scrapbook-folder.book-trio-folder .book-trio-photo[hidden]{display:none!important}
-#projectGrid .scrapbook-folder.book-trio-folder .book-trio-fallback{width:100%;height:100%}
-@media(hover:hover){#projectGrid .scrapbook-folder.book-trio-folder:hover{transform:translateY(-7px)!important}#projectGrid .scrapbook-folder.book-trio-folder:hover .folder-artwork{transform:none!important}}
-@media(prefers-reduced-motion:reduce){#projectGrid .scrapbook-folder.book-trio-folder{transition:none!important}}
-
-/* Classic Literature: layered scrapbook papers with a real navigable call-to-action. */
-#projectGrid .scrapbook-folder.book-trio-folder{position:relative!important;overflow:visible!important;isolation:isolate!important}
-#projectGrid .scrapbook-folder.book-trio-folder::before{content:""!important;display:block!important;position:absolute!important;inset:7% 5% 8% 4%!important;background:#e4f3fb!important;border:1px solid #d6c9d9!important;transform:rotate(4deg)!important;box-shadow:0 8px 16px #795f6a18!important;z-index:-2!important;pointer-events:none}
-#projectGrid .scrapbook-folder.book-trio-folder::after{content:""!important;display:block!important;position:absolute!important;inset:6% 7% 10% 5%!important;background:#fff8f2!important;border:1px solid #f1d5d1!important;transform:rotate(-3deg)!important;box-shadow:0 5px 12px #795f6a15!important;z-index:-1!important;pointer-events:none}
-#projectGrid .scrapbook-folder.book-trio-folder .folder-artwork{inset:6% 5% 15%!important;width:90%!important;height:79%!important;z-index:1!important}
-#projectGrid .scrapbook-folder.book-trio-folder .classic-literature-cta{position:absolute;z-index:5;left:10%;right:10%;bottom:9%;min-height:12%;padding:7px 9px 7px 13px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#ffe0d9;border:1px dashed #e8a6a3;border-radius:8px;box-shadow:0 5px 9px #956a6a20;color:#5c4056;font-family:Georgia,serif;font-weight:700;font-size:clamp(12px,1.5vw,20px);line-height:1.1;text-align:left;transform:rotate(-1deg);pointer-events:none}
-#projectGrid .scrapbook-folder.book-trio-folder .classic-literature-arrow{flex:none;display:grid;place-items:center;width:clamp(27px,3vw,39px);height:clamp(27px,3vw,39px);border-radius:50%;background:#f1b5ac;font-family:Arial,sans-serif;font-size:1.3em;transition:transform .2s}
-#projectGrid .scrapbook-folder.book-trio-folder:hover .classic-literature-arrow{transform:translateX(4px)}
-#projectGrid .scrapbook-folder.book-trio-folder:focus-visible .classic-literature-cta{outline:2px solid #c85555;outline-offset:3px}
-@media(max-width:600px){#projectGrid .scrapbook-folder.book-trio-folder .classic-literature-cta{font-size:16px}}
-
-/* Repair: keep the original artwork's single title, show the clip and align the stack. */
-#projectGrid .scrapbook-folder.book-trio-folder{aspect-ratio:300/365!important;transform:rotate(-1deg)!important;filter:drop-shadow(0 12px 12px #815e6920)!important}
-#projectGrid .scrapbook-folder.book-trio-folder::before{inset:6% 5% 6% 5%!important;transform:rotate(3deg)!important}
-#projectGrid .scrapbook-folder.book-trio-folder::after{inset:5% 6% 7% 5%!important;transform:rotate(-2deg)!important}
-#projectGrid .scrapbook-folder.book-trio-folder .folder-artwork{inset:9% 5% 10%!important;width:90%!important;height:81%!important;z-index:2!important}
-#projectGrid .scrapbook-folder.book-trio-folder .classic-literature-cta{display:none!important}
-#projectGrid .scrapbook-folder.book-trio-folder .folder-clip{display:block!important;position:absolute!important;left:7%!important;top:0%!important;z-index:8!important;font-size:clamp(22px,3vw,36px)!important;transform:rotate(-20deg)!important;pointer-events:none!important}
-#projectGrid .scrapbook-folder.book-trio-folder .book-trio-photo{object-fit:contain!important}
-@media(hover:hover){#projectGrid .scrapbook-folder.book-trio-folder:hover{transform:rotate(0deg) translateY(-8px)!important}}
+/* Classic Literature — single clean two-layer scrapbook card */
+#projectGrid .scrapbook-folder.book-trio-folder{position:relative;display:block;width:100%;aspect-ratio:300/365;min-height:0;padding:0;margin:0;border:0;background:transparent;box-shadow:none;overflow:visible;isolation:isolate;transform:rotate(-1deg);filter:drop-shadow(0 10px 10px #815e6920);cursor:pointer;transition:transform .25s ease}
+#projectGrid .scrapbook-folder.book-trio-folder::before{content:"";display:block;position:absolute;inset:5% 5% 5% 5%;background:#dff1fa;border:1px solid #d5d0dc;transform:rotate(3deg);z-index:-2;pointer-events:none}
+#projectGrid .scrapbook-folder.book-trio-folder::after{content:"";display:block;position:absolute;inset:6% 7% 6% 5%;background:#fffaf5;border:1px dashed #f1c5c0;transform:rotate(-2deg);box-shadow:0 5px 12px #795f6a13;z-index:-1;pointer-events:none}
+#projectGrid .scrapbook-folder.book-trio-folder .folder-paper,#projectGrid .scrapbook-folder.book-trio-folder .folder-label,#projectGrid .scrapbook-folder.book-trio-folder .folder-sticker,#projectGrid .scrapbook-folder.book-trio-folder .folder-spark,#projectGrid .scrapbook-folder.book-trio-folder .classic-literature-cta{display:none}
+#projectGrid .scrapbook-folder.book-trio-folder .folder-artwork{position:absolute;inset:13% 8% 12%;width:84%;height:75%;margin:0;padding:0;background:transparent;border:0;box-shadow:none;transform:none;overflow:visible;z-index:2}
+#projectGrid .scrapbook-folder.book-trio-folder .book-trio-photo{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:none;box-shadow:none;filter:drop-shadow(0 5px 7px #815e691c)}
+#projectGrid .scrapbook-folder.book-trio-folder .book-trio-photo[hidden],#projectGrid .scrapbook-folder.book-trio-folder .book-trio-fallback[hidden]{display:none}
+#projectGrid .scrapbook-folder.book-trio-folder .book-trio-fallback{display:block;width:100%;height:100%}
+#projectGrid .scrapbook-folder.book-trio-folder .trio-scene{display:block;width:100%;height:100%}
+#projectGrid .scrapbook-folder.book-trio-folder .folder-clip{display:block;position:absolute;left:8%;top:2%;z-index:4;font-size:clamp(22px,3vw,34px);transform:rotate(-22deg);pointer-events:none}
+#projectGrid .scrapbook-folder.book-trio-folder:focus-visible{outline:3px solid #c85555;outline-offset:5px}
+@media(hover:hover){#projectGrid .scrapbook-folder.book-trio-folder:hover{transform:rotate(0deg) translateY(-7px)}#projectGrid .scrapbook-folder.book-trio-folder:hover .folder-artwork{transform:none}}
+@media(prefers-reduced-motion:reduce){#projectGrid .scrapbook-folder.book-trio-folder{transition:none}}
 </style></head>
 <body data-page="home">
 <header class="nav"><div class="wrap navin">
