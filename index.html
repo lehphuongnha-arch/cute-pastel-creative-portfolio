@@ -471,6 +471,22 @@ body[data-page="home"] .folder-label{position:absolute;left:23%;right:16%;bottom
 @media(max-width:850px){#projectGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){#projectGrid{grid-template-columns:minmax(0,360px);justify-content:center;gap:24px}#projectGrid .folder-label{font-size:1rem}}
 @media(prefers-reduced-motion:reduce){#projectGrid .scrapbook-folder,#projectGrid .folder-artwork{transition:none!important}#projectGrid .scrapbook-folder:hover{transform:rotate(var(--angle))}}
+
+/* Three-book editorial scrapbook preview, inspired by the supplied reference. */
+#projectGrid .book-trio-folder .folder-artwork{inset:12% 7% 24%;background:linear-gradient(145deg,#fffaf6,#fbe7e3);border:2px solid #fff6f2;overflow:visible;transform:rotate(-1deg);box-shadow:0 9px 20px #75566a24}
+#projectGrid .book-trio{position:absolute;inset:7% 2% 6%;display:flex;align-items:center;justify-content:center;isolation:isolate}
+#projectGrid .book-trio .mini-book{position:absolute;top:11%;height:82%;width:42%;border-radius:3px 7px 7px 3px;border-left:7px solid #182c35;box-shadow:4px 9px 10px #352f3955, inset -4px 0 0 #ffffff20;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:13% 2% 5%;font-family:Georgia,serif;text-align:center;line-height:1.12;transition:transform .3s ease}
+#projectGrid .book-trio .mini-book b{font-size:clamp(10px,1.4vw,19px);font-weight:500;letter-spacing:.025em}
+#projectGrid .book-trio .mini-book small{font-size:clamp(6px,.65vw,9px);margin-top:9%;letter-spacing:.08em}
+#projectGrid .book-trio .mini-book:nth-child(1){left:2%;z-index:1;transform:rotate(-12deg);background:linear-gradient(150deg,#325b4c,#152d29);color:#f3e6c8}
+#projectGrid .book-trio .mini-book:nth-child(1)::after{content:'❀  ♧  ❀';font-size:clamp(14px,2.5vw,31px);margin-top:22%;color:#cad9c0}
+#projectGrid .book-trio .mini-book:nth-child(2){left:30%;z-index:3;transform:rotate(-3deg);background:linear-gradient(#18394c 0%,#243d51 35%,#dd7d49 65%,#9c4b32 100%);color:#f8d07a}
+#projectGrid .book-trio .mini-book:nth-child(2)::after{content:'☀';font-size:clamp(38px,6vw,75px);margin-top:13%;color:#ffc45b}
+#projectGrid .book-trio .mini-book:nth-child(3){right:0;z-index:2;transform:rotate(12deg);background:linear-gradient(155deg,#172d54 0%,#1c3362 66%,#dc9b52 67%,#c87b3c);color:#f8cf76}
+#projectGrid .book-trio .mini-book:nth-child(3)::after{content:'✧';font-size:clamp(35px,6vw,70px);margin-top:15%;color:#f9d99d}
+#projectGrid .book-trio-folder .folder-label{z-index:5;bottom:5%;left:10%;right:7%;background:#ffe2dc;border:1px dashed #e6a7a1}
+@media(hover:hover){#projectGrid .book-trio-folder:hover .mini-book:nth-child(1){transform:rotate(-16deg) translateX(-4px)}#projectGrid .book-trio-folder:hover .mini-book:nth-child(3){transform:rotate(16deg) translateX(4px)}}
+@media(max-width:600px){#projectGrid .book-trio .mini-book b{font-size:clamp(12px,4vw,19px)}#projectGrid .book-trio .mini-book small{font-size:clamp(7px,2vw,10px)}}
 </style><style>
 /* User-provided paper-cut stationery stickers. Images gracefully hide until assets are uploaded. */
 .scrapbook-stickers{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:visible}
@@ -549,6 +565,7 @@ body[data-dark=yes] header.nav .mobile-overlay-links a:hover,body[data-dark=yes]
 <div aria-labelledby="modalTitle" aria-modal="true" class="modal" id="projectModal" role="dialog"><div class="modal-card"><button aria-label="Close project details" class="close" id="closeModal">×</button><div class="modal-visual" id="modalVisual">✿</div><span class="tag" id="modalTag">Project</span><h2 id="modalTitle">Project title</h2><strong id="modalType">Project type</strong><p id="modalDescription"></p><div class="modal-gallery" id="modalGallery"></div><button class="pill" id="modalDone">Lovely, got it ♡</button></div></div>
 <div class="toast" id="toast" role="status">Copied!</div>
 <nav aria-label="Mobile navigation" class="mobile-nav"><a href="index.html">Home</a><a href="works.html">Works</a><a href="about.html">About</a><a href="index.html#faq">FAQ</a><a href="resume.html">Resume</a></nav><div class="mobile-overlay" id="mobileOverlay" role="region" aria-label="Navigation menu" aria-hidden="true"><div class="mobile-overlay-head"><a class="brand" href="index.html"><img alt="Nha Le logo" class="brand-logo" src="assets/logo-original.png"/></a><button class="mobile-close" type="button" aria-label="Close navigation menu" id="mobileClose">×</button></div><div class="mobile-overlay-content"><nav class="mobile-overlay-links" aria-label="Tablet and phone navigation"><a href="index.html">Home</a><a href="works.html">Works</a><a href="about.html">About Me</a><a href="index.html#faq">FAQ</a><a href="resume.html">Resume</a><a href="contact.html">Contact</a></nav><div class="mobile-overlay-socials"><a href="https://www.instagram.com/nha.graphic/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@nha.graphic" target="_blank" rel="noopener">TikTok</a></div><button type="button" class="mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark mode">☾ Dark Mode</button><a class="pill" href="contact.html" data-inquiry-open>Say Hello ♡</a></div></div><script>
+const bookTrioPreview=()=>'<span class="book-trio" aria-hidden="true"><span class="mini-book"><b>SILENT<br>SPRING</b><small>RACHEL CARSON</small></span><span class="mini-book"><b>THE<br>ALCHEMIST</b><small>PAULO COELHO</small></span><span class="mini-book"><b>THE GREAT<br>GATSBY</b><small>F. SCOTT FITZGERALD</small></span></span>';
 const fallbackProjects=[
  {title:"Clean Ocean — Book Cover",category:"Book Cover",year:"2025",tools:"Adobe Illustrator",description:"A minimalist book cover concept focused on mood, clarity and visual storytelling.",image:"",gallery:[],link:"https://nhale.framer.website/portfolio/clean-ocean"},
  {title:"Graphic Design Campaigns",category:"Poster & Campaign",year:"2025",tools:"Graphic Design",description:"A collection of visual communication and campaign design projects.",image:"",gallery:[],link:"https://nhale.framer.website/portfolio/dry-sun"},
@@ -567,8 +584,9 @@ function renderProjects(){
  const visible=projects.filter(p=>(document.body.dataset.page!=="home"||p.featured===true)&&(activeCategory==="All"||p.category===activeCategory)).slice(0,document.body.dataset.page==="home"?3:undefined);
  $("#projectGrid").innerHTML=visible.length?visible.map(p=>{
   const i=projects.indexOf(p);
- const artwork=p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
- return `<button class="project scrapbook-folder" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><span class="folder-paper" aria-hidden="true"></span><span class="folder-artwork">${artwork}</span><span class="folder-label">${esc(p.title)}</span><span class="folder-clip" aria-hidden="true">📎</span><span class="folder-sticker" aria-hidden="true">🐰</span><span class="folder-spark" aria-hidden="true">✎</span></button>`;
+ const isBookTrio=p.category==="Book Cover" && /classic literature|book cover redesign/i.test(p.title||"");
+ const artwork=isBookTrio?bookTrioPreview():p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
+ return `<button class="project scrapbook-folder ${isBookTrio?"book-trio-folder":""}" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><span class="folder-paper" aria-hidden="true"></span><span class="folder-artwork">${artwork}</span><span class="folder-label">${esc(p.title)}</span><span class="folder-clip" aria-hidden="true">📎</span><span class="folder-sticker" aria-hidden="true">🐰</span><span class="folder-spark" aria-hidden="true">✎</span></button>`;
  }).join(""):'<p>No projects in this category yet.</p>';
  document.querySelectorAll(".project").forEach(card=>card.addEventListener("click",()=>{const p=projects[Number(card.dataset.index)];if(!p)return;const slug=String(p.title||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");window.location.href="project-collection.html?project="+encodeURIComponent(slug)+"&from=home";}));
 }
