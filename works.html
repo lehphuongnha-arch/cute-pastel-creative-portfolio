@@ -73,6 +73,11 @@
  header.nav .navin>.brand{margin-right:auto}
  header.nav.menu-expanded .navin>.brand{margin-right:0}
 }
+
+/* Scroll direction: floating pill visible while scrolling down, hidden while scrolling up. */
+header.nav{position:sticky!important;top:0!important;z-index:9999!important;transition:transform .28s ease!important}
+header.nav.nav-hidden:not(.menu-expanded){transform:translateY(calc(-100% - 12px))!important}
+@media(prefers-reduced-motion:reduce){header.nav{transition:none!important}}
 </style>
 <style>
 /* Nha Le v1 — cheerful cream/pastel identity */
@@ -601,8 +606,8 @@ document.getElementById('inquiryCopy').addEventListener('click',async()=>{if(!fo
  window.addEventListener('scroll',()=>{
   const y=window.scrollY,delta=y-lastY;
   if(!nav.classList.contains('menu-expanded')&&Math.abs(delta)>4){
-   if(y<70||delta<0)nav.classList.remove('nav-hidden');
-   else if(delta>0&&y>130)nav.classList.add('nav-hidden');
+   if(y<90||delta>0)nav.classList.remove('nav-hidden');
+   else if(delta<0&&y>130)nav.classList.add('nav-hidden');
   }
   lastY=y;
  },{passive:true});
