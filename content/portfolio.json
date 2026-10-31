@@ -18,6 +18,20 @@
       "featured": true,
       "published": true,
       "order": 1,
+      "title": "Classic Literature — Book Cover Redesigns",
+      "category": "Book Cover",
+      "year": "2026",
+      "tools": "Adobe Illustrator, Photoshop",
+      "description": "A curated collection of three classic literature book-cover redesign concepts, presented in a playful scrapbook-inspired editorial layout. The three book covers shown on the folder are illustrative placeholders.",
+      "image": "",
+      "gallery": [],
+      "link": "",
+      "subprojects": []
+    },
+    {
+      "featured": true,
+      "published": true,
+      "order": 2,
       "gallery": [],
       "title": "Clean Ocean — Book Cover",
       "link": "https://nhale.framer.website/portfolio/clean-ocean",
@@ -30,7 +44,7 @@
     {
       "featured": true,
       "published": true,
-      "order": 2,
+      "order": 3,
       "gallery": [],
       "title": "Graphic Design Campaigns",
       "link": "https://nhale.framer.website/portfolio/dry-sun",
@@ -43,7 +57,7 @@
     {
       "featured": false,
       "published": true,
-      "order": 3,
+      "order": 4,
       "gallery": [],
       "title": "Green Strike — Interactive Design",
       "link": "https://nhale.framer.website/portfolio/green-strike",
@@ -56,7 +70,7 @@
     {
       "featured": true,
       "published": true,
-      "order": 4,
+      "order": 5,
       "gallery": [],
       "title": "Jettribe Championship Trophy",
       "link": "",
@@ -69,7 +83,7 @@
     {
       "featured": false,
       "published": true,
-      "order": 5,
+      "order": 6,
       "gallery": [],
       "title": "Whispers of the Moon",
       "image": "/images/uploads/hardcover_books_mockup_front_and_back_view-removebg-preview-2.png",
