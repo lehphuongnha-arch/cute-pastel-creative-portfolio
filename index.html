@@ -80,6 +80,14 @@
 #projectGrid .book-trio-folder .folder-paper,#projectGrid .book-trio-folder .folder-label,#projectGrid .book-trio-folder .folder-clip,#projectGrid .book-trio-folder .folder-sticker,#projectGrid .book-trio-folder .folder-spark{display:none}
 #projectGrid .book-trio-folder{background:transparent;box-shadow:none;overflow:visible;min-height:330px}
 @media(max-width:600px){#projectGrid .book-trio-folder{min-height:285px}}
+
+/* Exact supplied folder cover image takes priority over the SVG preview. */
+#projectGrid .book-trio-folder .folder-artwork{inset:0;background:transparent;overflow:visible}
+#projectGrid .book-trio-folder .book-trio-photo{width:100%;height:100%;display:block;object-fit:contain;border:0;box-shadow:none;background:transparent;transform:none}
+#projectGrid .book-trio-folder .book-trio-photo[hidden],#projectGrid .book-trio-folder .book-trio-fallback[hidden]{display:none!important}
+#projectGrid .book-trio-folder .book-trio-fallback{display:block;width:100%;height:100%}
+#projectGrid .book-trio-folder{aspect-ratio:1/1;min-height:0!important;cursor:pointer}
+#projectGrid .book-trio-folder:focus-visible{outline:3px solid #c85555;outline-offset:5px}
 </style>
 <style>
 /* Nha Le v1 — cheerful cream/pastel identity */
@@ -592,7 +600,7 @@ function renderProjects(){
  $("#projectGrid").innerHTML=visible.length?visible.map(p=>{
   const i=projects.indexOf(p);
  const isBookTrio=p.category==="Book Cover" && /classic literature|book cover redesign/i.test(p.title||"");
- const artwork=isBookTrio?bookTrioPreview():p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
+ const artwork=isBookTrio?`<img class="book-trio-photo" src="assets/classic-literature-folder.webp" alt="Classic Literature: Silent Spring, The Alchemist, and The Great Gatsby on pastel scrapbook paper" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="book-trio-fallback" hidden>${bookTrioPreview()}</span>`:p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
  return `<button class="project scrapbook-folder ${isBookTrio?"book-trio-folder":""}" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><span class="folder-paper" aria-hidden="true"></span><span class="folder-artwork">${artwork}</span><span class="folder-label">${esc(p.title)}</span><span class="folder-clip" aria-hidden="true">📎</span><span class="folder-sticker" aria-hidden="true">🐰</span><span class="folder-spark" aria-hidden="true">✎</span></button>`;
  }).join(""):'<p>No projects in this category yet.</p>';
  document.querySelectorAll(".project").forEach(card=>card.addEventListener("click",()=>{const p=projects[Number(card.dataset.index)];if(!p)return;const slug=String(p.title||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");window.location.href="project-collection.html?project="+encodeURIComponent(slug)+"&from=home";}));
