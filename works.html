@@ -536,6 +536,17 @@ body[data-dark=yes] header.nav .mobile-overlay-links a:hover,body[data-dark=yes]
 #projectGrid .scrapbook-folder.book-trio-folder .book-trio-fallback{width:100%;height:100%}
 @media(hover:hover){#projectGrid .scrapbook-folder.book-trio-folder:hover{transform:translateY(-7px)!important}#projectGrid .scrapbook-folder.book-trio-folder:hover .folder-artwork{transform:none!important}}
 @media(prefers-reduced-motion:reduce){#projectGrid .scrapbook-folder.book-trio-folder{transition:none!important}}
+
+/* Classic Literature: layered scrapbook papers with a real navigable call-to-action. */
+#projectGrid .scrapbook-folder.book-trio-folder{position:relative!important;overflow:visible!important;isolation:isolate!important}
+#projectGrid .scrapbook-folder.book-trio-folder::before{content:""!important;display:block!important;position:absolute!important;inset:7% 5% 8% 4%!important;background:#e4f3fb!important;border:1px solid #d6c9d9!important;transform:rotate(4deg)!important;box-shadow:0 8px 16px #795f6a18!important;z-index:-2!important;pointer-events:none}
+#projectGrid .scrapbook-folder.book-trio-folder::after{content:""!important;display:block!important;position:absolute!important;inset:6% 7% 10% 5%!important;background:#fff8f2!important;border:1px solid #f1d5d1!important;transform:rotate(-3deg)!important;box-shadow:0 5px 12px #795f6a15!important;z-index:-1!important;pointer-events:none}
+#projectGrid .scrapbook-folder.book-trio-folder .folder-artwork{inset:6% 5% 15%!important;width:90%!important;height:79%!important;z-index:1!important}
+#projectGrid .scrapbook-folder.book-trio-folder .classic-literature-cta{position:absolute;z-index:5;left:10%;right:10%;bottom:9%;min-height:12%;padding:7px 9px 7px 13px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#ffe0d9;border:1px dashed #e8a6a3;border-radius:8px;box-shadow:0 5px 9px #956a6a20;color:#5c4056;font-family:Georgia,serif;font-weight:700;font-size:clamp(12px,1.5vw,20px);line-height:1.1;text-align:left;transform:rotate(-1deg);pointer-events:none}
+#projectGrid .scrapbook-folder.book-trio-folder .classic-literature-arrow{flex:none;display:grid;place-items:center;width:clamp(27px,3vw,39px);height:clamp(27px,3vw,39px);border-radius:50%;background:#f1b5ac;font-family:Arial,sans-serif;font-size:1.3em;transition:transform .2s}
+#projectGrid .scrapbook-folder.book-trio-folder:hover .classic-literature-arrow{transform:translateX(4px)}
+#projectGrid .scrapbook-folder.book-trio-folder:focus-visible .classic-literature-cta{outline:2px solid #c85555;outline-offset:3px}
+@media(max-width:600px){#projectGrid .scrapbook-folder.book-trio-folder .classic-literature-cta{font-size:16px}}
 </style></head>
 <body data-page="works">
 <header class="nav"><div class="wrap navin">
@@ -577,7 +588,7 @@ function renderProjects(){
  const i=projects.indexOf(p);
  const isBookTrio=p.category==="Book Cover" && /classic literature|book cover redesign/i.test(p.title||"");
  const artwork=isBookTrio?`<img class="book-trio-photo" src="assets/classic-literature-folder.webp" alt="Classic Literature: Silent Spring, The Alchemist, and The Great Gatsby on pastel scrapbook paper" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="book-trio-fallback" hidden>${bookTrioPreview()}</span>`:p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)} artwork" loading="lazy">`:`<span class="folder-empty" aria-label="Artwork not yet uploaded">✿</span>`;
- return `<button class="project scrapbook-folder ${isBookTrio?"book-trio-folder":""}" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><span class="folder-paper" aria-hidden="true"></span><span class="folder-artwork">${artwork}</span><span class="folder-label">${esc(p.title)}</span><span class="folder-clip" aria-hidden="true">📎</span><span class="folder-sticker" aria-hidden="true">🐰</span><span class="folder-spark" aria-hidden="true">✎</span></button>`;
+ return `<button class="project scrapbook-folder ${isBookTrio?"book-trio-folder":""}" type="button" data-index="${i}" aria-label="View ${esc(p.title)} project details"><span class="folder-paper" aria-hidden="true"></span><span class="folder-artwork">${artwork}</span><span class="folder-label">${esc(p.title)}</span><span class="folder-clip" aria-hidden="true">📎</span><span class="folder-sticker" aria-hidden="true">🐰</span><span class="folder-spark" aria-hidden="true">✎</span>${isBookTrio?`<span class="classic-literature-cta" aria-hidden="true"><span>Classic Literature</span><span class="classic-literature-arrow">→</span></span>`:""}</button>`;
  }).join(""):'<p>No projects in this category yet.</p>';
  document.querySelectorAll(".project").forEach(card=>card.addEventListener("click",()=>{const p=projects[Number(card.dataset.index)];if(!p)return;const slug=String(p.title||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");window.location.href="project-collection.html?project="+encodeURIComponent(slug);}));
 }
