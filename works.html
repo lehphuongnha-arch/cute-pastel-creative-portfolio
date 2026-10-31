@@ -525,6 +525,17 @@ header.nav .mobile-overlay.is-open{animation:menuExpand .25s ease-out both!impor
 body[data-dark=yes] header.nav .mobile-overlay-links a:hover,body[data-dark=yes] header.nav .mobile-overlay-links a:focus-visible{background:#50485e!important}
 }
 @media(prefers-reduced-motion:reduce){header.nav .mobile-overlay.is-open{animation:none!important}}
+
+/* Final preview layout: show one complete square scrapbook cover, not a folder inside a folder. */
+#projectGrid .scrapbook-folder.book-trio-folder{aspect-ratio:300/365!important;min-height:0!important;transform:none!important;filter:none!important;isolation:isolate!important;overflow:visible!important}
+#projectGrid .scrapbook-folder.book-trio-folder::before,#projectGrid .scrapbook-folder.book-trio-folder::after{content:none!important;display:none!important}
+#projectGrid .scrapbook-folder.book-trio-folder .folder-paper,#projectGrid .scrapbook-folder.book-trio-folder .folder-label,#projectGrid .scrapbook-folder.book-trio-folder .folder-clip,#projectGrid .scrapbook-folder.book-trio-folder .folder-sticker,#projectGrid .scrapbook-folder.book-trio-folder .folder-spark{display:none!important}
+#projectGrid .scrapbook-folder.book-trio-folder .folder-artwork{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;transform:none!important;overflow:visible!important;filter:none!important}
+#projectGrid .scrapbook-folder.book-trio-folder .book-trio-photo{display:block;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center center!important;transform:none!important;box-shadow:none!important;filter:drop-shadow(0 10px 13px #815e6926)!important}
+#projectGrid .scrapbook-folder.book-trio-folder .book-trio-photo[hidden]{display:none!important}
+#projectGrid .scrapbook-folder.book-trio-folder .book-trio-fallback{width:100%;height:100%}
+@media(hover:hover){#projectGrid .scrapbook-folder.book-trio-folder:hover{transform:translateY(-7px)!important}#projectGrid .scrapbook-folder.book-trio-folder:hover .folder-artwork{transform:none!important}}
+@media(prefers-reduced-motion:reduce){#projectGrid .scrapbook-folder.book-trio-folder{transition:none!important}}
 </style></head>
 <body data-page="works">
 <header class="nav"><div class="wrap navin">
