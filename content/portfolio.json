@@ -17,13 +17,17 @@
     {
       "featured": true,
       "published": true,
-      "order": 1,
-      "gallery": [],
-      "title": "Clean Ocean — Book Cover",
-      "link": "https://nhale.framer.website/portfolio/clean-ocean",
-      "image": "",
-      "tools": "Adobe Illustrator",
-      "description": "A minimalist cover concept for a psychological fiction story, focused on mood, clarity, and visual tension.",
+      "order": 6,
+      "gallery": [
+        "/images/uploads/hardcover_books_mockup_front_and_back_view-removebg-preview-2.png",
+        "/images/uploads/hardcover_books_mockup.png",
+        "/images/uploads/hardcover_books_mockup_front_and_back_view-removebg-preview.png"
+      ],
+      "title": "Classic Literature (Book Cover Redesigns)",
+      "link": "",
+      "image": "/images/uploads/hardcover_books_mockup.png",
+      "tools": "Adobe Illustrator, Adobe Photoshop and Canva",
+      "description": "A collection of three book cover redesigns for The Alchemist, Silent Spring, and The Great Gatsby. Each design explores visual storytelling, typography, and illustration through a distinct visual style inspired by the themes of the original work.",
       "year": "2025",
       "category": "Book Cover"
     },
